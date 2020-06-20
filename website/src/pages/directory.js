@@ -12,20 +12,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Layout from '../components/Layout';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -65,17 +53,9 @@ export default function Album() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
+      <Layout>
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
@@ -119,7 +99,7 @@ export default function Album() {
                       Heading
                     </Typography>
                     <Typography>
-                      This is a media egfafafe. You can use this section to describe the content.
+                      This is a media card. You can use this section to describe the content.
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -135,18 +115,7 @@ export default function Album() {
             ))}
           </Grid>
         </Container>
-      </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
+      </Layout>
+    </>
   );
 }
