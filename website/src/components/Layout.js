@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+import MapIcon from '@material-ui/icons/Map';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,20 +23,14 @@ export default function Layout({ children }) {
     <>
       <AppBar position="relative">
         <Toolbar>
-          <CameraIcon className={classes.icon} />
+          <MapIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            APM Map
           </Typography>
         </Toolbar>
       </AppBar>
       <main>{children}</main>
       <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
         <Copyright />
       </footer>
     </>

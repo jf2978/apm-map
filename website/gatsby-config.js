@@ -15,6 +15,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
   ],
   siteMetadata: {
-    title: 'My page',
+    title: 'APM Map',
   },
 };

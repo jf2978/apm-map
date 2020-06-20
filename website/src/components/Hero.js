@@ -22,23 +22,22 @@ export default function Hero() {
     <div className={classes.heroContent}>
       <Container maxWidth="sm">
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Album layout
+          APM Map
         </Typography>
         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-          Something short and leading about the collection below—its contents, the creator, etc.
-          Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-          entirely.
+          A mentorship platform that'll provide the guidance and resources for
+          students and early-career professionals looking to break into product management.
         </Typography>
         <div className={classes.heroButtons}>
           <Grid container spacing={2} justify="center">
             <Grid item>
               <Button variant="contained" color="primary">
-                Main call to action
+                Subscribe
               </Button>
             </Grid>
             <Grid item>
               <Button variant="outlined" color="primary">
-                Secondary action
+                Contact Us
               </Button>
             </Grid>
           </Grid>
