@@ -71,14 +71,6 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary">
-                  View
-                </Button>
-                <Button size="small" color="primary">
-                  Edit
-                </Button>
-              </CardActions>
             </Card>
           </Grid>
         ))}
