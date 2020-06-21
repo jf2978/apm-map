@@ -9,6 +9,8 @@
     "gatsby": "latest",
     "gatsby-plugin-material-ui": "latest",
     "gatsby-plugin-react-helmet": "latest",
+    "gatsby-source-filesystem": "^2.3.12",
+    "gatsby-transformer-json": "^2.4.5",
     "react": "latest",
     "react-dom": "latest",
     "react-helmet": "latest"
