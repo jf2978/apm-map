@@ -23,40 +23,44 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   cardMedia: {
+    flexGrow: 1,
     paddingTop: '56.25%', // 16:9
   },
   cardContent: {
     flexGrow: 1,
   },
+  cardActionArea: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'stretch',
+  }
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  export default function DirectoryGrid() {
-    const classes = useStyles();
-    const data = useStaticQuery(graphql`
-      query ResourcesQuery {
-        allResourcesJson {
-          edges {
-            node {
-              Name
-              Link
-              Type
-              Tags
-              Description
-            }
+export default function DirectoryGrid() {
+  const classes = useStyles();
+  const data = useStaticQuery(graphql`
+    query ResourcesQuery {
+      allResourcesJson {
+        edges {
+          node {
+            Name
+            Link
+            Type
+            Tags
+            Description
           }
         }
       }
-    `)
+    }
+  `)
 
   return (
-    <Container className={classes.cardGrid} maxWidth="lg">
+    <Container className={classes.cardGrid} maxWidth="xl">
       <Grid container spacing={4}>
         {data.allResourcesJson.edges.map((card, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <CardActionArea href={card.node.Link}>
+          <Grid item key={index} xs={6} sm={4}>
+            <Card href={card.node.Link} className={classes.card}>
+              <CardActionArea className={classes.cardActionArea}>
                 <CardMedia
                   className={classes.cardMedia}
                   image="https://source.unsplash.com/random"
