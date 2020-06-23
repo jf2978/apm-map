@@ -40,15 +40,17 @@ export default function DirectoryGrid() {
   const classes = useStyles();
   const data = useStaticQuery(graphql`
     query ResourcesQuery {
-      allTestJson {
+      allResourcesJson {
         edges {
           node {
-            Name
-            Link
-            Image
-            Type
-            Tags
-            Description
+            image
+            description
+            link
+            name
+            stage
+            tags
+            category
+            cost
           }
         }
       }
@@ -58,21 +60,21 @@ export default function DirectoryGrid() {
   return (
     <Container className={classes.cardGrid} maxWidth="xl">
       <Grid container spacing={4}>
-        {data.allTestJson.edges.map((card, index) => (
+        {data.allResourcesJson.edges.map((card, index) => (
           <Grid item key={index} xs={6} sm={4} md={3}>
-            <Card href={card.node.Link} className={classes.card}>
-              <CardActionArea className={classes.cardActionArea}>
+            <Card className={classes.card}>
+              <CardActionArea href={card.node.link}  className={classes.cardActionArea}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image={card.node.Image}
-                  title={card.node.Name}
+                  image={card.node.image}
+                  title={card.node.name}
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {card.node.Name}
+                    {card.node.name}
                   </Typography>
                   <Typography>
-                    {card.node.Description}
+                    {card.node.description}
                   </Typography>
                 </CardContent>
               </CardActionArea>
