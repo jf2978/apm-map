@@ -8,6 +8,7 @@ import DirectoryCard from './DirectoryCard';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
+    maxWidth: '80%',
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   }
@@ -35,16 +36,14 @@ export default function DirectoryGrid() {
   `)
 
   return (
-    <Container className={classes.cardGrid} maxWidth="xl">
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className={classes.cardGrid}>
         {data.allResourcesJson.edges.map((card, index) => (
           <Fade in={true} timeout={1500}>
-            <Grid item key={index} xs={6} sm={4} md={3}>
+            <Grid item key={index} xs={6} lg={4}>
               <DirectoryCard data={card}/>
             </Grid>
           </Fade>
         ))}
       </Grid>
-    </Container>
   );
 }

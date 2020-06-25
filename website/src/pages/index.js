@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import DirectoryGrid from '../components/DirectoryGrid';
 import theme from '../themes/paperbase'
+import Directory from '../components/Directory';
 
 export default function Album() {
 
@@ -14,7 +15,7 @@ export default function Album() {
       <CssBaseline />
       <Layout>
         <Hero/>
-        <DirectoryGrid/>
+        <Directory/>
       </Layout>
     </ThemeProvider>
   );
