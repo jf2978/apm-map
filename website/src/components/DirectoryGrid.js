@@ -2,7 +2,6 @@ import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Fade from '@material-ui/core/Fade';
 import DirectoryCard from './DirectoryCard';
 

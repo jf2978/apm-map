@@ -1,28 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import FolderRoundedIcon from '@material-ui/icons/FolderRounded';
-import FolderIcon from '@material-ui/icons/Folder';
-import LocalOfferIcon from '@material-ui/icons/LocalOffer';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import CreateIcon from '@material-ui/icons/Create';
-import WorkIcon from '@material-ui/icons/Work';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import CommentIcon from '@material-ui/icons/Comment';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import MenuItem from './MenuItem';
 
 // filterable types
 const categories = [
@@ -104,83 +84,43 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FilterMenu() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
-  const [checked, setChecked] = React.useState([0]);
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
 
   return (
     <List
       component="nav"
+      aria-labelledby="nested-list-subheader"
+      subheader={
+        <ListSubheader component="div" id="nested-list-subheader">
+          Filter Menu
+        </ListSubheader>
+      }
       className={classes.root}
     >
-      <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <FolderIcon />
-        </ListItemIcon>
-        <ListItemText primary="Category" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {categories.map((value, index) => {
-            const labelId = `checkbox-list-label-${index}`;
-
-            return (
-              <ListItem button key={value} className={classes.nested}  onClick={handleToggle(value)}>
-                <ListItemText id={labelId} primary={value} />
-                  <Checkbox
-                      edge="start"
-                      checked={checked.indexOf(value) !== -1}
-                      tabIndex={-1}
-                      inputProps={{ 'aria-labelledby': labelId }}
-                      color="primary"
-                  />
-              </ListItem>
-            );
-        })}
-        </List>
-      </Collapse>
-      <ListItem button>
-        <ListItemIcon>
-          <LocalOfferIcon />
-        </ListItemIcon>
-        <ListItemText primary="Tags" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <AttachMoneyIcon />
-        </ListItemIcon>
-        <ListItemText primary="Cost" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <MenuBookIcon />
-        </ListItemIcon>
-        <ListItemText primary="Resource Type" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <WorkIcon />
-        </ListItemIcon>
-        <ListItemText primary="Interview Stage" />
-      </ListItem>
+      <MenuItem
+        iconType="folder"
+        name="Categories"
+        items={categories}
+      />
+      <MenuItem
+        iconType="offer"
+        name="Tags"
+        items={tags}
+      />
+      <MenuItem
+        iconType="money"
+        name="Cost"
+        items={costs}
+      />
+      <MenuItem
+        iconType="book"
+        name="Resource Type"
+        items={types}
+      />
+      <MenuItem
+        iconType="work"
+        name="Interview Stage"
+        items={stages}
+      />
     </List>
   );
 }
