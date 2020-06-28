@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import MenuItem from './MenuItem';
+import { CATEGORIES, TAGS, COSTS, TYPES, STAGES } from '../constants/filters';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FilterMenu(props) {
   const classes = useStyles();
 
+  const { filtered, handler } = props
   return (
     <List
       component="nav"
@@ -35,37 +37,37 @@ export default function FilterMenu(props) {
       <MenuItem
         icon="folder"
         name="Categories"
-        items={props.items["categories"]}
-        filtered={props.filtered["categories"]}
-        handler={props.handler}
+        items={CATEGORIES}
+        filtered={filtered["categories"]}
+        handler={handler}
       />
       <MenuItem
         icon="offer"
         name="Tags"
-        items={props.items["tags"]}
-        filtered={props.filtered["tags"]}
-        handler={props.handler}
+        items={TAGS}
+        filtered={filtered["tags"]}
+        handler={handler}
       />
       <MenuItem
         icon="money"
         name="Cost"
-        items={props.items["costs"]}
-        filtered={props.filtered["costs"]}
-        handler={props.handler}
+        items={COSTS}
+        filtered={filtered["costs"]}
+        handler={handler}
       />
       <MenuItem
         icon="book"
         name="Resource Type"
-        items={props.items["types"]}
-        filtered={props.filtered["types"]}
-        handler={props.handler}
+        items={TYPES}
+        filtered={filtered["types"]}
+        handler={handler}
       />
       <MenuItem
         icon="work"
         name="Interview Stage"
-        items={props.items["stages"]}
-        filtered={props.filtered["stages"]}
-        handler={props.handler}
+        items={STAGES}
+        filtered={filtered["stages"]}
+        handler={handler}
       />
     </List>
   );

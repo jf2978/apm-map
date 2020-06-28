@@ -22,6 +22,14 @@ const iconMap = {
   "work": <WorkIcon/>,
 }
 
+const nameToKey = {
+  "Categories": "categories",
+  "Tags": "tags",
+  "Cost": "costs",
+  "Resource Type": "types",
+  "Interview Stage": "stages",
+}
+
 const useStyles = makeStyles((theme) => ({
   nested: {
     paddingLeft: theme.spacing(4),
@@ -36,27 +44,29 @@ export default function MenuItem(props) {
     setOpen(!open)
   };
 
-  console.log(props)
+  const { icon, name, items, filtered, handler } = props
+  const key = nameToKey[name]
+
   return (
     <>
       <ListItem button onClick={toggleOpen}>
         <ListItemIcon>
-          {iconMap[props.icon]}
+          {iconMap[icon]}
         </ListItemIcon>
-        <ListItemText primary={props.name} />
+        <ListItemText primary={name} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {props.items.map((value, index) => {
+          {items.map((value, index) => {
             const labelId = `checkbox-list-label-${index}`;
 
             return (
-              <ListItem button key={value} className={classes.nested}  onClick={() => props.handler(props.name.toLowerCase(), value)}>
+              <ListItem button key={value} className={classes.nested}  onClick={() => handler(key, value)}>
                 <ListItemText id={labelId} primary={value} />
                   <Checkbox
                       edge="start"
-                      checked={props.filtered.indexOf(value) !== -1}
+                      checked={filtered.indexOf(value) !== -1}
                       tabIndex={-1}
                       inputProps={{ 'aria-labelledby': labelId }}
                       color="primary"

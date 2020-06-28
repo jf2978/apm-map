@@ -46,25 +46,25 @@ export default function DirectoryCard({ data, props }) {
 
   return (
     <Card className={classes.card} onMouseOver={toggleRaised} onMouseOut={toggleRaised} raised={raised}>
-      <CardActionArea href={data.node.link}  className={classes.cardActionArea}>
+      <CardActionArea href={data.link}  className={classes.cardActionArea}>
         <CardMedia
           className={classes.cardMedia}
-          image={data.node.image}
-          title={data.node.name}
+          image={data.image}
+          title={data.name}
         />
         <Divider variant="middle" light/>
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
-            {data.node.name}
+            {data.name}
           </Typography>
           <Typography variant="subtitle1">
-            {data.node.description}
+            {data.description}
           </Typography>
         </CardContent>
         <Box className={classes.labels}>
-          <Chip size="small" label={data.node.category} color="primary"/>
-          {data.node.tags &&
-             data.node.tags.split(',').map((value) => (
+          <Chip size="small" label={data.category} color="primary"/>
+          {data.tags &&
+             data.tags.split(',').map((value) => (
               <Chip size="small" label={value} color="secondary" />
             ))
           }

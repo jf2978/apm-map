@@ -26,6 +26,7 @@ export default function DirectoryGrid(props) {
             name
             stage
             tags
+            type
             category
             cost
           }
@@ -34,15 +35,22 @@ export default function DirectoryGrid(props) {
     }
   `)
 
+  console.log(props.filtered)
+
   return (
       <Grid container spacing={4} className={classes.cardGrid}>
-        {data.allResourcesJson.edges.filter((value) => {
-          // TODO: filter out data that shouldn't be rendered
-          return true
-        }).map((value, index) => (
+        {data.allResourcesJson.edges.filter((edge) => {
+          // const matchTag = (v) => props.filtered["tags"].includes(v);
+
+          return props.filtered["categories"].includes(edge.node.category) &&
+            props.filtered["costs"].includes(edge.node.cost) &&
+            props.filtered["stages"].includes(edge.node.stage) &&
+            props.filtered["types"].includes(edge.node.type)
+
+        }).map((edge, index) => (
           <Fade in={true} timeout={1500}>
             <Grid item key={index} xs={6} lg={4}>
-              <DirectoryCard data={value}/>
+              <DirectoryCard data={edge.node}/>
             </Grid>
           </Fade>
         ))}

@@ -3,68 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import DirectoryGrid from './DirectoryGrid';
 import FilterMenu from './Menu';
-
-// filterable types
-const allFilters = {
-  "categories": [
-    "Build PM Community",
-    "General",
-    "Interview Prep",
-    "Mock Interviews",
-    "Post-Offer",
-    "Researching APM Programs",
-    "Technical/System Design Interviews",
-    "Understand Why PM"
-  ],
-  "tags": [
-    "Advice from an A/PM",
-    "Advanced Interview Tips",
-    "Google APM",
-    "Understand why PM",
-    "Facebook RPM",
-    "APM Recruiting Overview",
-    "Build PM skills",
-    "Company Guides",
-    "Evaluating APM programs",
-    "Events",
-    "Mock Interviews",
-    "Networking",
-    "Interview Prep",
-    "Estimation",
-    "Interview Questions",
-    "1-1 Coffee Chats",
-    "Mentorship",
-    "Tech News",
-    "Side Projects",
-    "Referrals",
-  ],
-  "costs": [
-    "$",
-    "$$",
-    "$$$",
-  ],
-  "types": [
-    "Blog",
-    "Book Chapter",
-    "Community",
-    "Course",
-    "Facebook Group",
-    "Facebook Note",
-    "Google Doc",
-    "Medium Article",
-    "Mentoring Platform",
-    "Notion Page",
-    "PDF",
-    "Podcast",
-    "Website",
-    "YouTube Channel",
-  ],
-  "stages": [
-    "Early",
-    "Mid",
-    "Advanced",
-  ]
-}
+import { CATEGORIES, TAGS, COSTS, TYPES, STAGES } from '../constants/filters';
 
 const useStyles = makeStyles((theme) => ({
   directory: {
@@ -76,35 +15,62 @@ const useStyles = makeStyles((theme) => ({
 export default function Directory() {
   const classes = useStyles();
 
-  const [filters, setFilters] = React.useState(allFilters);
-  const toggleFilter = (key, value) => {
-    console.log("called!!!")
-    console.log(key)
-    console.log(filters[key])
+  // Filter state
+  const [categories, setCategories] = React.useState(CATEGORIES)
+  const [tags, setTags] = React.useState(TAGS)
+  const [costs, setCosts] = React.useState(COSTS)
+  const [types, setTypes] = React.useState(TYPES)
+  const [stages, setStages] = React.useState(STAGES)
 
-    const subFilters = filters[key]
-    const currentIndex = subFilters.indexOf(value);
-    const newSubFilters = [...subFilters];
+  const toggleFilter = (key, value) => {
+    switch(key) {
+      case "categories":
+        let newCategories = updateFilter(categories, value)
+        setCategories(newCategories)
+        break;
+      case "tags":
+        let newTags = updateFilter(tags, value)
+        setTags(newTags)
+        break;
+      case "costs":
+        let newCosts = updateFilter(costs, value)
+        setCosts(newCosts)
+        break;
+      case "types":
+        let newTypes = updateFilter(types, value)
+        setTypes(newTypes)
+        break;
+      case "stages":
+        let newStages = updateFilter(stages, value)
+        setStages(newStages)
+        break;
+    }
+  };
+
+  const updateFilter = (arr, value) => {
+    const currentIndex = arr.indexOf(value);
+    const newArr = [...arr];
 
     if (currentIndex === -1) {
-      newSubFilters.push(value);
+      newArr.push(value);
     } else {
-      newSubFilters.splice(currentIndex, 1);
+      newArr.splice(currentIndex, 1);
     }
 
-    console.log(newSubFilters)
+    return newArr
+  }
 
-    filters[key] = newSubFilters
-
-    setFilters(filters);
-
-    console.log(filters[key].indexOf(value) !== -1)
-  };
+  const filters = {
+    "categories": categories,
+    "tags": tags,
+    "costs": costs,
+    "types": types,
+    "stages": stages
+  }
 
   return (
     <Container maxWidth="xl" className={classes.directory}>
       <FilterMenu
-        items={allFilters}
         filtered={filters}
         handler={toggleFilter}
       />
