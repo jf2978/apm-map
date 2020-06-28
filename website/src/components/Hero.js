@@ -24,7 +24,7 @@ export default function Hero() {
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
           APM Map
         </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" paragraph>
+        <Typography variant="h6" align="center" color="textSecondary" paragraph>
           A mentorship platform that'll provide the guidance and resources for
           students and early-career professionals looking to break into product management.
         </Typography>

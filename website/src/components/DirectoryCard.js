@@ -4,7 +4,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { CardActionArea } from '@material-ui/core';
+import { CardActionArea, Container } from '@material-ui/core';
+import Chip from '@material-ui/core/Chip';
+import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +26,16 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'stretch',
-  }
+  },
+  labels: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    flexWrap: 'wrap',
+    padding: theme.spacing(1),
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
+  },
 }));
 
 export default function DirectoryCard({ data }) {
@@ -46,10 +57,16 @@ export default function DirectoryCard({ data }) {
           <Typography gutterBottom variant="h5" component="h2">
             {data.node.name}
           </Typography>
-          <Typography>
+          <Typography variant="subtitle1">
             {data.node.description}
           </Typography>
         </CardContent>
+        <Box className={classes.labels}>
+          <Chip size="small" label="Basic" variant="outlined" />
+          <Chip size="small" label="Basic" />
+          <Chip size="small" label="Basic" />
+          <Chip size="small" label="Basic" />
+        </Box>
       </CardActionArea>
     </Card>
   );

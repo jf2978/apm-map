@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles'
 
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
-import theme from '../themes/paperbase'
+import theme from '../theme'
 import Directory from '../components/Directory';
 
 export default function Album() {
