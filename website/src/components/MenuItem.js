@@ -36,6 +36,7 @@ export default function MenuItem(props) {
     setOpen(!open)
   };
 
+  console.log(props)
   return (
     <>
       <ListItem button onClick={toggleOpen}>
@@ -51,7 +52,7 @@ export default function MenuItem(props) {
             const labelId = `checkbox-list-label-${index}`;
 
             return (
-              <ListItem button key={value} className={classes.nested}  onClick={props.handler}>
+              <ListItem button key={value} className={classes.nested}  onClick={() => props.handler(props.name.toLowerCase(), value)}>
                 <ListItemText id={labelId} primary={value} />
                   <Checkbox
                       edge="start"

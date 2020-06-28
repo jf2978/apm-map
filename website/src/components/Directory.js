@@ -77,18 +77,28 @@ export default function Directory() {
   const classes = useStyles();
 
   const [filters, setFilters] = React.useState(allFilters);
-  const toggleFilter = (key, value) => () => {
+  const toggleFilter = (key, value) => {
+    console.log("called!!!")
+    console.log(key)
+    console.log(filters[key])
+
     const subFilters = filters[key]
     const currentIndex = subFilters.indexOf(value);
-    const newFilters = [...filters];
+    const newSubFilters = [...subFilters];
 
     if (currentIndex === -1) {
-      newFilters.push(value);
+      newSubFilters.push(value);
     } else {
-      newFilters.splice(currentIndex, 1);
+      newSubFilters.splice(currentIndex, 1);
     }
 
-    setFilters(newFilters);
+    console.log(newSubFilters)
+
+    filters[key] = newSubFilters
+
+    setFilters(filters);
+
+    console.log(filters[key].indexOf(value) !== -1)
   };
 
   return (
