@@ -36,25 +36,11 @@ export default function MenuItem(props) {
     setOpen(!open)
   };
 
-  const [checked, setChecked] = React.useState([0]);
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
   return (
     <>
       <ListItem button onClick={toggleOpen}>
         <ListItemIcon>
-          {iconMap[props.iconType]}
+          {iconMap[props.icon]}
         </ListItemIcon>
         <ListItemText primary={props.name} />
         {open ? <ExpandLess /> : <ExpandMore />}
@@ -65,11 +51,11 @@ export default function MenuItem(props) {
             const labelId = `checkbox-list-label-${index}`;
 
             return (
-              <ListItem button key={value} className={classes.nested}  onClick={handleToggle(value)}>
+              <ListItem button key={value} className={classes.nested}  onClick={props.handler}>
                 <ListItemText id={labelId} primary={value} />
                   <Checkbox
                       edge="start"
-                      checked={checked.indexOf(value) !== -1}
+                      checked={props.filtered.indexOf(value) !== -1}
                       tabIndex={-1}
                       inputProps={{ 'aria-labelledby': labelId }}
                       color="primary"

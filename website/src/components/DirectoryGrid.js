@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function DirectoryGrid() {
+export default function DirectoryGrid(props) {
   const classes = useStyles();
   const data = useStaticQuery(graphql`
     query ResourcesQuery {
@@ -36,10 +36,13 @@ export default function DirectoryGrid() {
 
   return (
       <Grid container spacing={4} className={classes.cardGrid}>
-        {data.allResourcesJson.edges.map((card, index) => (
+        {data.allResourcesJson.edges.filter((value) => {
+          // TODO: filter out data that shouldn't be rendered
+          return true
+        }).map((value, index) => (
           <Fade in={true} timeout={1500}>
             <Grid item key={index} xs={6} lg={4}>
-              <DirectoryCard data={card}/>
+              <DirectoryCard data={value}/>
             </Grid>
           </Fade>
         ))}

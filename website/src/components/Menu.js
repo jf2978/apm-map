@@ -4,70 +4,6 @@ import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import MenuItem from './MenuItem';
 
-// filterable types
-const categories = [
-  "Build PM Community",
-  "General",
-  "Interview Prep",
-  "Mock Interviews",
-  "Post-Offer",
-  "Researching APM Programs",
-  "Technical/System Design Interviews",
-  "Understand Why PM"
-];
-
-const tags = [
-  "Advice from an A/PM",
-  "Advanced Interview Tips",
-  "Google APM",
-  "Understand why PM",
-  "Facebook RPM",
-  "APM Recruiting Overview",
-  "Build PM skills",
-  "Company Guides",
-  "Evaluating APM programs",
-  "Events",
-  "Mock Interviews",
-  "Networking",
-  "Interview Prep",
-  "Estimation",
-  "Interview Questions",
-  "1-1 Coffee Chats",
-  "Mentorship",
-  "Tech News",
-  "Side Projects",
-  "Referrals",
-];
-
-const costs = [
-  "$",
-  "$$",
-  "$$$",
-];
-
-const types = [
-  "Blog",
-  "Book Chapter",
-  "Community",
-  "Course",
-  "Facebook Group",
-  "Facebook Note",
-  "Google Doc",
-  "Medium Article",
-  "Mentoring Platform",
-  "Notion Page",
-  "PDF",
-  "Podcast",
-  "Website",
-  "YouTube Channel",
-];
-
-const stages = [
-  "Early",
-  "Mid",
-  "Advanced",
-];
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -82,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilterMenu() {
+export default function FilterMenu(props) {
   const classes = useStyles();
 
   return (
@@ -97,29 +33,39 @@ export default function FilterMenu() {
       className={classes.root}
     >
       <MenuItem
-        iconType="folder"
+        icon="folder"
         name="Categories"
-        items={categories}
+        items={props.items["categories"]}
+        filtered={props.filtered["categories"]}
+        handler={props.handler}
       />
       <MenuItem
-        iconType="offer"
+        icon="offer"
         name="Tags"
-        items={tags}
+        items={props.items["tags"]}
+        filtered={props.filtered["tags"]}
+        handler={props.handler}
       />
       <MenuItem
-        iconType="money"
+        icon="money"
         name="Cost"
-        items={costs}
+        items={props.items["costs"]}
+        filtered={props.filtered["costs"]}
+        handler={props.handler}
       />
       <MenuItem
-        iconType="book"
+        icon="book"
         name="Resource Type"
-        items={types}
+        items={props.items["types"]}
+        filtered={props.filtered["types"]}
+        handler={props.handler}
       />
       <MenuItem
-        iconType="work"
+        icon="work"
         name="Interview Stage"
-        items={stages}
+        items={props.items["stages"]}
+        filtered={props.filtered["stages"]}
+        handler={props.handler}
       />
     </List>
   );
