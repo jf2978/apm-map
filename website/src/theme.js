@@ -7,6 +7,10 @@ let theme = createMuiTheme({
       main: '#009be5',
       dark: '#006db3',
     },
+    secondary: {
+      main: '#03bb85 ',
+      contrastText: '#ffff',
+    },
   },
   typography: {
     fontFamily: [
