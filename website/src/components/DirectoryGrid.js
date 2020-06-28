@@ -35,17 +35,17 @@ export default function DirectoryGrid(props) {
     }
   `)
 
-  console.log(props.filtered)
-
   return (
       <Grid container spacing={4} className={classes.cardGrid}>
         {data.allResourcesJson.edges.filter((edge) => {
           // const matchTag = (v) => props.filtered["tags"].includes(v);
 
-          return props.filtered["categories"].includes(edge.node.category) &&
-            props.filtered["costs"].includes(edge.node.cost) &&
-            props.filtered["stages"].includes(edge.node.stage) &&
-            props.filtered["types"].includes(edge.node.type)
+          return props.filtered["categories"].includes(edge.node.category)
+
+          // other filters (non-MVP)
+          //props.filtered["costs"].includes(edge.node.cost) &&
+          //props.filtered["stages"].includes(edge.node.stage) &&
+          //props.filtered["types"].includes(edge.node.type)
 
         }).map((edge, index) => (
           <Fade in={true} timeout={1500}>
