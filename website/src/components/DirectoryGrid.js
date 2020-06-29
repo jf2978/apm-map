@@ -7,7 +7,7 @@ import DirectoryCard from './DirectoryCard';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
-    maxWidth: '80%',
+    width: '80%',
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   }

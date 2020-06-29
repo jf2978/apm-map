@@ -7,9 +7,8 @@ import { CATEGORIES, TAGS, COSTS, TYPES, STAGES } from '../constants/filters';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: '20%',
     height: '100%',
-    maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
     marginTop: theme.spacing(2),
     borderRadius: theme.shape.borderRadius,
