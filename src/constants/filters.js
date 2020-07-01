@@ -8,7 +8,7 @@ export const CATEGORIES = [
   "Mock Interviews",
   "Post-Offer",
   "Researching APM Programs",
-  "Technical/System Design Interviews",
+  "Technical/System Design Interview",
   "Understand Why PM"
 ];
 
