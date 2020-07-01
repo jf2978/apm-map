@@ -21,6 +21,6 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   }
 }
