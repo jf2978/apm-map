@@ -19,7 +19,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
-const drawerWidth = 300;
+const drawerWidth = 360;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,6 +97,7 @@ export default function DirectoryNavBar({ children }) {
           [classes.appBarShift]: open,
         })}
       >
+        <Divider light/>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -107,9 +108,6 @@ export default function DirectoryNavBar({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Resources
-          </Typography>
         </Toolbar>
       </AppBar>
       <main
@@ -121,17 +119,19 @@ export default function DirectoryNavBar({ children }) {
       </main>
       <Drawer
         className={classes.drawer}
+        PaperProps={{ style: { position: 'absolute' } }}
         variant="persistent"
-        anchor="left"
         open={open}
         classes={{
           paper: classes.drawerPaper,
         }}
       >
+        <Divider light/>
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}/>
+          <IconButton onClick={handleDrawerClose}>
+            <ChevronLeftIcon/>
+          </IconButton>
         </div>
-        <Divider />
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
@@ -140,7 +140,7 @@ export default function DirectoryNavBar({ children }) {
             </ListItem>
           ))}
         </List>
-        <Divider />
+        <Divider light/>
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>

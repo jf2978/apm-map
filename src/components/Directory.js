@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
   directory: {
     display: 'flex',
     justifyContent: 'center',
+  },
+  container: {
+    position: 'relative',
   }
 }));
 
@@ -70,7 +73,7 @@ export default function Directory() {
   }
 
   return (
-    <>
+    <Container disableGutters maxWidth={false} className={classes.container}>
       <DirectoryNavBar>
         <Container maxWidth="xl" className={classes.directory}>
           <DirectoryGrid
@@ -78,7 +81,6 @@ export default function Directory() {
           />
         </Container>
       </DirectoryNavBar>
-
-    </>
+    </Container>
   );
 }
