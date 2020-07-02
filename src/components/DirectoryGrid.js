@@ -7,7 +7,7 @@ import DirectoryCard from './DirectoryCard';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
-    width: '80%',
+    width: '100%',
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   }
@@ -49,7 +49,7 @@ export default function DirectoryGrid(props) {
 
         }).map((edge, index) => (
           <Fade in={true} timeout={1500}>
-            <Grid item key={index} xs={6} lg={4}>
+            <Grid item key={index} xs={12} sm={6} lg={4}>
               <DirectoryCard data={edge.node}/>
             </Grid>
           </Fade>

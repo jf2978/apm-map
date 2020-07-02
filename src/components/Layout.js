@@ -21,14 +21,6 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <AppBar position="relative">
-        <Toolbar>
-          <MapIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            APM Map
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main>{children}</main>
       <footer className={classes.footer}>
         <Copyright />
