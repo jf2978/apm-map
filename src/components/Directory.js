@@ -74,7 +74,7 @@ export default function Directory() {
 
   return (
     <Container disableGutters maxWidth={false} className={classes.container}>
-      <DirectoryNavBar>
+      <DirectoryNavBar filtered={filters} handler={toggleFilter}>
         <Container maxWidth="xl" className={classes.directory}>
           <DirectoryGrid
             filtered={filters}
