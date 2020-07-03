@@ -3,12 +3,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import DirectoryGrid from './DirectoryGrid';
 import FilterMenu from './Menu';
+import DirectoryNavBar from './DirectoryNavBar';
 import { CATEGORIES, TAGS, COSTS, TYPES, STAGES } from '../constants/filters';
 
 const useStyles = makeStyles((theme) => ({
   directory: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+  },
+  container: {
+    position: 'relative',
   }
 }));
 
@@ -69,14 +73,14 @@ export default function Directory() {
   }
 
   return (
-    <Container maxWidth="xl" className={classes.directory}>
-      <FilterMenu
-        filtered={filters}
-        handler={toggleFilter}
-      />
-      <DirectoryGrid
-        filtered={filters}
-      />
+    <Container disableGutters maxWidth={false} className={classes.container}>
+      <DirectoryNavBar filtered={filters} handler={toggleFilter}>
+        <Container maxWidth="xl" className={classes.directory}>
+          <DirectoryGrid
+            filtered={filters}
+          />
+        </Container>
+      </DirectoryNavBar>
     </Container>
   );
 }

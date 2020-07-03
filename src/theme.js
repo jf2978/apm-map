@@ -41,14 +41,9 @@ let theme = createMuiTheme({
   shape: {
     borderRadius: 8,
   },
-  props: {
-    MuiTab: {
-      disableRipple: true,
-    },
-  },
   mixins: {
     toolbar: {
-      minHeight: 48,
+      minHeight: 56,
     },
   },
 });
@@ -58,8 +53,9 @@ theme = {
   overrides: {
     MuiDrawer: {
       paper: {
-        backgroundColor: '#18202c',
+        backgroundColor: '#ffff',
       },
+      position: "relative",
     },
     MuiButton: {
       label: {
@@ -97,7 +93,7 @@ theme = {
     },
     MuiIconButton: {
       root: {
-        padding: theme.spacing(1),
+        padding: theme.spacing(2),
       },
     },
     MuiTooltip: {
