@@ -1,7 +1,7 @@
 import React from 'react';
+import { graphql } from 'gatsby'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles'
-
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import theme from '../theme'

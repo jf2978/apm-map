@@ -3,19 +3,14 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import { CATEGORIES } from '../constants/filters';
 import InputBase from '@material-ui/core/InputBase';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -112,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DirectoryNavBar({ children }) {
+export default function DirectoryAppBar({ children, selection, toggleCategory}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -128,8 +123,7 @@ export default function DirectoryNavBar({ children }) {
     <>
       <AppBar
         position="sticky"
-        className={clsx(
-          classes.appBar, {
+        className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
       >
@@ -185,7 +179,7 @@ export default function DirectoryNavBar({ children }) {
             const labelId = `checkbox-list-label-${index}`;
 
             return (
-              <ListItem button key={value}>
+              <ListItem button key={value} onClick={() => toggleCategory(value)} selected={selection === value}>
                 <ListItemText id={labelId} primary={value} />
               </ListItem>
             )
