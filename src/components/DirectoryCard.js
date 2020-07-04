@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea, Divider } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
 import Box from '@material-ui/core/Box';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DirectoryCard({ data, props }) {
+export default function DirectoryCard({ loading, data }) {
   const classes = useStyles();
   const [raised, setRaised] = useState(false);
   const toggleRaised = () => {
@@ -46,27 +47,31 @@ export default function DirectoryCard({ data, props }) {
 
   return (
     <Card className={classes.card} onMouseOver={toggleRaised} onMouseOut={toggleRaised} raised={raised}>
-      <CardActionArea href={data.link}  className={classes.cardActionArea}>
-        <CardMedia
-          className={classes.cardMedia}
-          image={data.image}
-          title={data.name}
-        />
+      <CardActionArea href={loading ? null : data.link}  className={classes.cardActionArea}>
+        {loading
+          ? <Skeleton variant="rect" className={classes.cardMedia}/>
+          : <CardMedia
+              className={classes.cardMedia}
+              image={data.image}
+              title={data.name}
+            />
+        }
         <Divider variant="middle" light/>
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
-            {data.name}
+            {loading ? <Skeleton/> : data.name}
           </Typography>
           <Typography variant="subtitle1">
-            {data.description}
+            {loading ? <Skeleton/> : data.description}
           </Typography>
         </CardContent>
         <Box className={classes.labels}>
-          <Chip size="small" label={data.category} color="primary"/>
-          {data.tags &&
-             data.tags.split(',').map((value) => (
-              <Chip size="small" label={value} color="secondary" />
-            ))
+          <Chip size="small" label={loading ? "": data.category} color="primary"/>
+          {loading
+            ? <Skeleton/>
+            : data.tags && data.tags.split(',').map((value) => (
+                <Chip size="small" label={value} color="secondary" />
+              ))
           }
         </Box>
       </CardActionArea>
