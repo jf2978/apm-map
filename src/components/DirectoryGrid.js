@@ -66,9 +66,13 @@ export default function DirectoryGrid({ category }) {
     })
   }, [data, category])
 
+  useEffect(() => {
+    setLoading(false)
+  }, [memo])
+
   return (
     <Grid container spacing={4} className={classes.cardGrid}>
-      {!(category in memo)
+      {loading
         ?
           placeholderData.map((value, index) => (
             <Grid item key={index} xs={12} sm={6} lg={4}>
@@ -76,7 +80,7 @@ export default function DirectoryGrid({ category }) {
             </Grid>
           ))
         :
-          memo[category].map((edge, index) => (
+          category in memo && memo[category].map((edge, index) => (
             <Grid item key={index} xs={12} sm={6} lg={4}>
               <DirectoryCard loading={false} data={edge.node}/>
             </Grid>
