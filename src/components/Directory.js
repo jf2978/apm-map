@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStaticQuery } from 'gatsby'
-
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import DirectoryGrid from './DirectoryGrid';
