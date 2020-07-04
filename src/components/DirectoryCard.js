@@ -59,19 +59,30 @@ export default function DirectoryCard({ loading, data }) {
         <Divider variant="middle" light/>
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
-            {loading ? <Skeleton/> : data.name}
+            {loading ? <Skeleton variant="text" component="h2"/> : data.name}
           </Typography>
           <Typography variant="subtitle1">
-            {loading ? <Skeleton/> : data.description}
+            {loading
+              ? <>
+                  <Skeleton/>
+                  <Skeleton/>
+                </>
+               : data.description
+              }
           </Typography>
         </CardContent>
         <Box className={classes.labels}>
-          <Chip size="small" label={loading ? "": data.category} color="primary"/>
           {loading
-            ? <Skeleton/>
-            : data.tags && data.tags.split(',').map((value) => (
-                <Chip size="small" label={value} color="secondary" />
-              ))
+            ? <>
+                <Skeleton width={75} variant="text"> <Chip/> </Skeleton>
+                <Skeleton width={75} variant="text"> <Chip/> </Skeleton>
+              </>
+            : <>
+                <Chip size="small" label={data.category} color="primary"/>
+                  {data.tags && data.tags.split(',').map((value) => (
+                    <Chip size="small" label={value} color="secondary" />
+                ))}
+              </>
           }
         </Box>
       </CardActionArea>
