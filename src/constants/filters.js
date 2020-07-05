@@ -2,6 +2,7 @@
 // constants that represent filterable metadata used in the Directory
 
 export const CATEGORIES = [
+  "All",
   "Understand Why PM",
   "Find APM Programs",
   "Networking",

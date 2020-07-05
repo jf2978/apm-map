@@ -1,15 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { useStaticQuery } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles';
-import Fade from '@material-ui/core/Fade';
 import DirectoryCard from './DirectoryCard';
-
-import Skeleton from '@material-ui/lab/Skeleton';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -52,7 +45,7 @@ export default function DirectoryGrid({ category }) {
 
   const [loading, setLoading] = useState(true)
   const [memo, setMemo] = useState({
-    "all": data.allResourcesJson.edges,
+    "All": data.allResourcesJson.edges,
   })
 
   // if our category has changed, get or fill our memoized data
@@ -64,7 +57,7 @@ export default function DirectoryGrid({ category }) {
       ...memo,
       [category]: filtered,
     })
-  }, [data, category])
+  }, [data, category, memo])
 
   useEffect(() => {
     setLoading(false)

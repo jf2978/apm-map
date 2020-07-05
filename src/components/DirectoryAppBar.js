@@ -1,4 +1,3 @@
-
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, fade } from '@material-ui/core/styles';
@@ -17,12 +16,19 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
 const drawerWidth = 360;
-
 const useStyles = makeStyles((theme) => ({
   appBar: {
+    backgroundColor: theme.palette.grey[100],
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  elevatedAppBar: {
+    boxShadow: theme.shadows[10],
+    transition: theme.transitions.create([], {
+      easing: theme.transitions.easing.easeIn,
+      duration: theme.transitions.duration.standard,
     }),
   },
   appBarShift: {
@@ -71,9 +77,9 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade(theme.palette.grey[500], 0.15),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.grey[500], 0.25),
     },
     marginLeft: 'auto',
     width: '100%',
@@ -91,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit',
+    color: 'action',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -107,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DirectoryAppBar({ children, selection, toggleCategory}) {
+export default function DirectoryAppBar({ children, pageScroll, selection, toggleCategory}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -122,24 +128,26 @@ export default function DirectoryAppBar({ children, selection, toggleCategory}) 
   return (
     <>
       <AppBar
+        elevation={0}
         position="sticky"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
+          [classes.elevatedAppBar]: pageScroll,
         })}
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="transparent"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton >
           <div className={classes.search}>
             <div className={classes.searchIcon}>
-              <SearchIcon />
+              <SearchIcon color="action" />
             </div>
             <InputBase
               placeholder="Search…"
