@@ -2,14 +2,13 @@
 // constants that represent filterable metadata used in the Directory
 
 export const CATEGORIES = [
-  "Build PM Community",
-  "General",
+  "Understand Why PM",
+  "Find APM Programs",
+  "Networking",
   "Interview Prep",
   "Mock Interviews",
+  "Technical Interview",
   "Post-Offer",
-  "Researching APM Programs",
-  "Technical/System Design Interview",
-  "Understand Why PM"
 ];
 
 export const TAGS =  [
