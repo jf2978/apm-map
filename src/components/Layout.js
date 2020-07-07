@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Copyright from '../components/Copyright';
+import NavigationAppBar from '../components/NavigationAppBar';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -14,6 +15,7 @@ export default function Layout({ children }) {
 
   return (
     <>
+      <NavigationAppBar/>
       <main>{children}</main>
       <footer className={classes.footer}>
         <Copyright />

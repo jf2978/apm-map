@@ -76,13 +76,12 @@ theme = {
         height: 3,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3,
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.common.black,
       },
     },
     MuiTab: {
       root: {
-        textTransform: 'none',
-        margin: '0 16px',
+        margin: '0 8px',
         minWidth: 0,
         padding: 0,
         [theme.breakpoints.up('md')]: {
