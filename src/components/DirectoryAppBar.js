@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -14,9 +15,21 @@ import { CATEGORIES } from '../constants/filters';
 import InputBase from '@material-ui/core/InputBase';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
+// FILE CONSTANTS
 const drawerWidth = 360;
+
+// STYLES
 const useStyles = makeStyles((theme) => ({
+  root: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
   appBar: {
     backgroundColor: theme.palette.grey[100],
     transition: theme.transitions.create(['margin', 'width'], {
@@ -113,7 +126,50 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DirectoryAppBar({ children, pageScroll, selection, toggleCategory}) {
+// SUB-COMPONENTS
+function ElevationScroll(props) {
+  const { children } = props;
+  const elevationTrigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 375, // vertical scroll value that'll trigger this
+  });
+
+  return React.cloneElement(children, {
+    elevation: elevationTrigger ? 4 : 0,
+  });
+}
+
+function ScrollTop(props) {
+  const { children } = props;
+  const classes = useStyles();
+  const topTrigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 450, // vertical scroll value that'll trigger this
+  });
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector('#directory-hero');
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  return (
+    <Zoom in={topTrigger}>
+      <div onClick={handleClick} role="presentation" className={classes.root}>
+        {children}
+      </div>
+    </Zoom>
+  );
+}
+
+ScrollTop.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+// MAIN COMPONENT
+export default function DirectoryAppBar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -125,41 +181,43 @@ export default function DirectoryAppBar({ children, pageScroll, selection, toggl
     setOpen(false);
   };
 
+  const { children, selection, toggleCategory} = props
   return (
     <>
-      <AppBar
-        elevation={0}
-        position="sticky"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-          [classes.elevatedAppBar]: pageScroll,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="transparent"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton >
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon color="action" />
+      <ElevationScroll>
+        <AppBar
+          elevation={0}
+          position="sticky"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar >
+            <IconButton
+              color="transparent"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)}
+            >
+              <MenuIcon />
+            </IconButton >
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon color="action" />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
@@ -194,6 +252,11 @@ export default function DirectoryAppBar({ children, pageScroll, selection, toggl
           })}
         </List>
       </Drawer>
+      <ScrollTop {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
     </>
   );
 }

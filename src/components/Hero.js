@@ -20,7 +20,7 @@ export default function Hero() {
   const classes = useStyles();
 
   return (
-    <div className={classes.heroContent}>
+    <div id="directory-hero" className={classes.heroContent}>
       <Container maxWidth="sm">
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
           APM Map <Emoji symbol="🗺️" label="map"/>
