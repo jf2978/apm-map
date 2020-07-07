@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Emoji from '../components/Emoji';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -22,11 +23,10 @@ export default function Hero() {
     <div className={classes.heroContent}>
       <Container maxWidth="sm">
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          APM Map
+          APM Map <Emoji symbol="🗺️" label="map"/>
         </Typography>
         <Typography variant="h6" align="center" color="textSecondary" paragraph>
-          A mentorship platform that'll provide the guidance and resources for
-          students and early-career professionals looking to break into product management.
+          Discover resources to help you navigate your journey into product management
         </Typography>
         <div className={classes.heroButtons}>
           <Grid container spacing={2} justify="center">
