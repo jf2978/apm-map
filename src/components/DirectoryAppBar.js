@@ -139,6 +139,10 @@ function ElevationScroll(props) {
   });
 }
 
+ElevationScroll.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
 function ScrollTop(props) {
   const { children } = props;
   const classes = useStyles();

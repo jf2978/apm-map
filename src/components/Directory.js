@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Directory({ pageScroll }) {
+export default function Directory() {
   const classes = useStyles();
 
   // filter (categories) state
@@ -26,7 +26,7 @@ export default function Directory({ pageScroll }) {
 
   return (
     <Container disableGutters maxWidth={false} className={classes.container}>
-      <DirectoryAppBar pageScroll={pageScroll} selection={category} toggleCategory={toggleCategory}>
+      <DirectoryAppBar selection={category} toggleCategory={toggleCategory}>
         <Container maxWidth="xl" className={classes.directory}>
           <DirectoryGrid
             category={category}
