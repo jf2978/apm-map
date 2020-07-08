@@ -23,34 +23,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MentorsBoard({ category }) {
+export default function MentorsGrid({ category }) {
   const classes = useStyles();
-  const data = [
-    {
-      "name": "Name",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet.",
-      "image": "https://source.unsplash.com/random/100x100",
-    },
-    {
-      "name": "Name",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet.",
-      "image": "https://source.unsplash.com/random/100x100",
-    },
-    {
-      "name": "Name",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet.",
-      "image": "https://source.unsplash.com/random/100x100",
-    },
-  ]
+  const data = useStaticQuery(graphql`
+    query MentorsQuery {
+      allMentorsJson {
+        edges {
+          node {
+            name
+            description
+            image
+          }
+        }
+      }
+    }
+  `)
   const [loading, setLoading] = useState(true)
 
   return (
     <Container disableGutters maxWidth={false} className={classes.container}>
       <Container maxWidth="lg" className={classes.gridContainer}>
         <Grid container spacing={2} className={classes.cardGrid}>
-          {data.map((value, index) => (
+          {data.allMentorsJson.edges.map((edge, index) => (
             <Grid item key={index} xs={12} sm={6}>
-              <MentorsCard data={value}/>
+              <MentorsCard data={edge.node}/>
             </Grid>
           ))
         }

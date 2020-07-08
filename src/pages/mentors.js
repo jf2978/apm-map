@@ -6,7 +6,7 @@ import Hero from '../components/Hero';
 import theme from '../theme'
 import Directory from '../components/Directory';
 import { Typography } from '@material-ui/core';
-import MentorsBoard from '../components/MentorsBoard'
+import MentorsGrid from '../components/MentorsGrid'
 
 
 export default function Mentors() {
@@ -14,7 +14,7 @@ export default function Mentors() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Layout>
-        <MentorsBoard/>
+        <MentorsGrid/>
       </Layout>
     </ThemeProvider>
   );
