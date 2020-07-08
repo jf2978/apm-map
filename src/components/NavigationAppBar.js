@@ -23,7 +23,6 @@ function LinkTab(props) {
   return (
     <Tab
       component="a"
-      onClick={(e) => e.preventDefault()}
       {...props}
     />
   );
@@ -43,13 +42,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NavigationAppBar() {
+export default function NavigationAppBar({ value, handleChange}) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <TabContext value={value}>
