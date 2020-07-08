@@ -1,9 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { makeStyles } from '@material-ui/core/styles';
+
 import MenuItem from './MenuItem';
-import { CATEGORIES, TAGS, COSTS, TYPES, STAGES } from '../constants/filters';
+import { CATEGORIES, TAGS, COSTS, TYPES, STAGES } from '../../constants/filters';
 
 const useStyles = makeStyles((theme) => ({
   root: {

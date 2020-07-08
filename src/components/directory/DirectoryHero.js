@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Emoji from '../components/Emoji';
+import Emoji from '../Emoji';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Hero() {
+export default function DirectoryHero() {
   const classes = useStyles();
 
   return (

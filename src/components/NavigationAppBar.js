@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TabPanel from '@material-ui/lab/TabPanel';
 import TabContext from '@material-ui/lab/TabContext';
+
 // fun fact I didn't know of: "a11y" is SWE lingo for accessibility
 // In this case, ARIA = Accessible Rich Internet Application and the set of attributes
 // help describe the web content for screen readers

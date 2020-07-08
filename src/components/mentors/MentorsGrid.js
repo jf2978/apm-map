@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Container } from '@material-ui/core';
-import { useStaticQuery } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles';
 import MentorsCard from './MentorsCard';
 
@@ -30,6 +30,7 @@ export default function MentorsGrid({ category }) {
       allMentorsJson {
         edges {
           node {
+            id
             name
             description
             image
