@@ -10,6 +10,7 @@ export const CATEGORIES = [
   "Mock Interviews",
   "Technical Interview",
   "Post-Offer",
+  "Books",
 ];
 
 export const TAGS =  [
