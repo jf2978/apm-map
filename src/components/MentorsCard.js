@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import { CardHeader } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,23 +25,37 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 12,
   },
   avatar: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
-  },
+    width: theme.spacing(9),
+    height: theme.spacing(9),
+  }
 }));
 
 export default function MentorsCard({ data }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  const [raised, setRaised] = React.useState(false);
+  const toggleRaised = () => {
+    setRaised(!raised)
+  }
+
+  // fake placeholder loading state
+  var loading = false
 
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <Avatar src={data.image} className={classes.avatar}/>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+    <Card className={classes.root} onMouseOver={toggleRaised} onMouseOut={toggleRaised} raised={raised}>
+      <CardActionArea className={classes.cardActionArea}>
+        <CardHeader
+          avatar={<Avatar src={data.image} className={classes.avatar}/>}
+          title={data.name}
+          titleTypographyProps={{
+            variant: "h5",
+            gutterBottom: true,
+          }}
+          subheader={data.description}
+          subheaderTypographyProps={{
+            variant: "subtitle1"
+          }}
+        />
+      </CardActionArea>
     </Card>
   );
 }
