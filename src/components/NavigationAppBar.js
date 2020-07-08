@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TabPanel from '@material-ui/lab/TabPanel';
 import TabContext from '@material-ui/lab/TabContext';
+import Link from '@material-ui/core/Link';
 
 // fun fact I didn't know of: "a11y" is SWE lingo for accessibility
 // In this case, ARIA = Accessible Rich Internet Application and the set of attributes
@@ -42,12 +43,19 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NavigationAppBar({ value, handleChange}) {
+export default function NavigationAppBar({ children }) {
   const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    console.log(newValue)
+    setValue(newValue);
+    event.preventDefault();
+  };
 
   return (
     <TabContext value={value}>
-      <AppBar className={classes.appBar} position="static" elevated={0}>
+      <AppBar children={children} className={classes.appBar} position="static" elevated={0}>
         <Tabs
           centered
           value={value}
@@ -61,7 +69,10 @@ export default function NavigationAppBar({ value, handleChange}) {
           <LinkTab label="About" href="/about" {...a11yProps(1)} />
           <LinkTab label="Mentors" href="/mentors" {...a11yProps(2)} />
         </Tabs>
+        <TabPanel value={value} index={0}>
+          Item One
+        </TabPanel>
       </AppBar>
-    </TabContext >
+    </TabContext>
   );
 }

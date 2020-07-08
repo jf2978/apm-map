@@ -12,15 +12,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Layout({ children }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <>
-      <NavigationAppBar value={value} handler={handleChange}/>
+      <NavigationAppBar/>
       <main>{children}</main>
       <footer className={classes.footer}>
         <Copyright />
