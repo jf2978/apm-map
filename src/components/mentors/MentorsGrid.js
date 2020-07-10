@@ -42,7 +42,7 @@ export default function MentorsGrid({ category }) {
   const [loading, setLoading] = useState(true)
 
   return (
-    <Container disableGutters maxWidth={false} className={classes.container}>
+    <Container disableGutters maxWidth={false}>
       <Container maxWidth="lg" className={classes.gridContainer}>
         <Grid container spacing={2} className={classes.cardGrid}>
           {data.allMentorsJson.edges.map((edge, index) => (
