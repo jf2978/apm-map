@@ -46,11 +46,11 @@ export default function MentorsGrid({ category }) {
       <Container maxWidth="lg" className={classes.gridContainer}>
         <Grid container spacing={2} className={classes.cardGrid}>
           {data.allMentorsJson.edges.map((edge, index) => (
-            <Grid item key={index} xs={12} sm={6}>
-              <MentorsCard data={edge.node}/>
-            </Grid>
-          ))
-        }
+              <Grid item key={index} xs={12} sm={6}>
+                <MentorsCard data={edge.node}/>
+              </Grid>
+            ))
+          }
         </Grid>
       </Container>
     </Container>

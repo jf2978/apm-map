@@ -1,7 +1,6 @@
 module.exports = {
   pathPrefix: "/apm-map",
   plugins: [
-    'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-material-ui',
       // If you want to use styled components you should change the injection order.
