@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Container } from '@material-ui/core';
-import { useStaticQuery, graphql } from 'gatsby'
-import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Container, darken, IconButton, ThemeProvider } from '@material-ui/core';
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { makeStyles, withStyles} from '@material-ui/core/styles';
 import MentorsCard from './MentorsCard';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import DirectoryCard from '../directory/DirectoryCard';
 import Emoji from '../Emoji';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import Button from '@material-ui/core/Button';
+import {  } from '@material-ui/core/colors';
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -24,6 +29,32 @@ const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 375,
     margin: theme.spacing(2),
+  },
+  icon: {
+    height: 30,
+    width: 30,
+  },
+  linkedinButton: {
+    height: 50,
+    width: 50,
+    color: '#ffff',
+    backgroundColor: '#0072b1',
+    boxShadow: theme.shadows[10],
+    '&:hover': {
+      color: theme.palette.common.black,
+      backgroundColor: theme.palette.common.white,
+    }
+  },
+  twitterButton: {
+    height: 50,
+    width: 50,
+    color: '#ffff',
+    backgroundColor: '#00acee',
+    boxShadow: theme.shadows[10],
+    '&:hover': {
+      color: theme.palette.common.black,
+      backgroundColor: theme.palette.common.white,
+    }
   },
 }));
 
@@ -96,7 +127,6 @@ export default function Profile() {
             display="flex"
             flexDirection="column"
             alignItems="center"
-            bgcolor="lightblue"
           >
             <Avatar src="https://source.unsplash.com/random/250x250" className={classes.avatar}/>
             <Typography gutterBottom variant="h3">
@@ -107,12 +137,25 @@ export default function Profile() {
             </Typography>
           </Box>
         </Grid>
+        <Box p={2}>
+          <Grid container spacing={2} justify="center">
+              <Grid item>
+                <IconButton variant="contained" className={classes.linkedinButton}>
+                  <LinkedInIcon className={classes.icons}/>
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <IconButton variant="contained" className={classes.twitterButton}>
+                  <TwitterIcon className={classes.icons}/>
+                </IconButton>
+              </Grid>
+            </Grid>
+        </Box>
         <Box
           p={3}
           display="flex"
           flexDirection="column"
           alignItems="center"
-          bgcolor="lightgreen"
         >
           <Grid
             container
