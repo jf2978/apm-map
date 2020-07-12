@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import { CardHeader } from '@material-ui/core';
+import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +43,7 @@ export default function MentorsCard({ data }) {
 
   return (
     <Card className={classes.root} onMouseOver={toggleRaised} onMouseOut={toggleRaised} raised={raised}>
-      <CardActionArea className={classes.cardActionArea}>
+      <CardActionArea component={Link} to={data.path} className={classes.cardActionArea}>
         <CardHeader
           avatar={<Avatar src={data.image} className={classes.avatar}/>}
           title={data.name}
