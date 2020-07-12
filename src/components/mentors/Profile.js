@@ -141,12 +141,12 @@ export default function Profile() {
         <Box p={2}>
           <Grid container spacing={2} justify="center">
               <Grid item>
-                <IconButton variant="contained" className={classes.linkedinButton}>
+                <IconButton href="https://www.linkedin.com/in/michelle-ma-1208/" variant="contained" className={classes.linkedinButton}>
                   <LinkedInIcon className={classes.icons}/>
                 </IconButton>
               </Grid>
               <Grid item>
-                <IconButton variant="contained" className={classes.twitterButton}>
+                <IconButton href="https://twitter.com/michellema_97?lang=en" variant="contained" className={classes.twitterButton}>
                   <TwitterIcon className={classes.icons}/>
                 </IconButton>
               </Grid>
