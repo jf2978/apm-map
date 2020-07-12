@@ -63,6 +63,7 @@ export default function Profile() {
   const data = {
     "name": "Michelle Ma",
     "description": "APM @ Yahoo. Passionate about all things mental/health & wellness. Co-creator of APM Map",
+    "image": "https://storage.cloud.google.com/mentors-pics/mima-profile-pic.jpg?authuser=2&organizationId=819335046878",
     "recommendations": [
       {
         "name": "APM List",
@@ -123,12 +124,12 @@ export default function Profile() {
         <Grid item>
           <Box
             p={3}
-            width={500}
+            width={600}
             display="flex"
             flexDirection="column"
             alignItems="center"
           >
-            <Avatar src="https://source.unsplash.com/random/250x250" className={classes.avatar}/>
+            <Avatar src={data.image} className={classes.avatar}/>
             <Typography gutterBottom variant="h3">
               {data.name}
             </Typography>
