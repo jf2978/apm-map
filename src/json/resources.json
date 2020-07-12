@@ -1,6 +1,7 @@
 [
   {
     "name": "7 Lessons to get the PM Offer",
+    "id": 0,
     "link": "https://livingos.ck.page/free-7-pm-course?fbclid=IwAR3d_NRW1Hw_bTO_WgjCn7Mw-CxWyg0N83s95Cn3JvDg2yj203OoIyj5tu8",
     "type": "Email course",
     "cost": "Free",
@@ -15,6 +16,7 @@
   },
   {
     "name": "79 Articles and Books that will make you a great Product Manager",
+    "id": 1,
     "link": "https://medium.com/@noah_weiss/50-articles-and-books-that-will-make-you-a-great-product-manager-aad5babee2f7",
     "type": "Book",
     "cost": "Free",
@@ -29,6 +31,7 @@
   },
   {
     "name": "A Day in the Life of a Google PM",
+    "id": 2,
     "link": "https://medium.com/@stervy/day-in-the-life-of-a-google-product-manager-3eb6d34a6904",
     "type": "Medium Article",
     "cost": "Free",
@@ -43,6 +46,7 @@
   },
   {
     "name": "APM Club",
+    "id": 3,
     "link": "https://www.facebook.com/groups/2793296514052343/",
     "type": "Facebook Group",
     "cost": "Free",
@@ -57,6 +61,7 @@
   },
   {
     "name": "APM List",
+    "id": 4,
     "link": "https://apmlist.com/",
     "type": "Website",
     "cost": "Free",
@@ -71,6 +76,7 @@
   },
   {
     "name": "APM/TPM/PM Interview Resources + Opportunities List",
+    "id": 5,
     "link": "https://www.facebook.com/notes/women-of-rewriting-the-code/apmtpmpm-interview-resources-opportunities-list/247988665880611/",
     "type": "Facebook Note",
     "cost": "Free",
@@ -85,6 +91,7 @@
   },
   {
     "name": "Break into Product Weekend Bootcamp",
+    "id": 6,
     "link": "https://breakintoproduct.exchangetrain.com/weekend",
     "type": "Website, Coaching service",
     "cost": "$$$+",
@@ -99,6 +106,7 @@
   },
   {
     "name": "Case in Point",
+    "id": 7,
     "link": "https://www.amazon.com/Case-Point-10-Interview-Preparation/dp/0986370746/ref=sr_1_2?dchild=1&keywords=case+in+point&qid=1593723041&s=books&sr=1-2",
     "type": "Book",
     "cost": "$",
@@ -113,6 +121,7 @@
   },
   {
     "name": "Case Interview Secrets",
+    "id": 8,
     "link": "https://www.amazon.com/Case-Interview-Secrets-Interviewer-Consulting/dp/0984183523/ref=sr_1_3?crid=217ETD0T83Z1L&dchild=1&keywords=case+interview+secrets&qid=1593723480&s=books&sprefix=case+interview%2Cstripbooks%2C156&sr=1-3",
     "type": "Book",
     "cost": "$",
@@ -127,6 +136,7 @@
   },
   {
     "name": "College PM",
+    "id": 9,
     "link": "https://collegeproductmanager.com/",
     "type": "Website",
     "cost": "Free",
@@ -141,6 +151,7 @@
   },
   {
     "name": "Courage to Be Disliked",
+    "id": 10,
     "link": "https://www.amazon.com/Courage-Be-Disliked-Phenomenon-Happiness-ebook/dp/B078MDSV8T/ref=sr_1_2?dchild=1&keywords=courage+to+be+disliked&qid=1593723916&s=books&sr=1-2",
     "type": "Book",
     "cost": "$",
@@ -155,6 +166,7 @@
   },
   {
     "name": "Cracking the Coding Interview - Chapter 9",
+    "id": 11,
     "link": "https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zDIpyDJNKcsxYPSSTS5KTM7OzEtXKMlIVUjOTwExM_NKUovKMlPLAV1aD_4&q=cracking+the+coding+interview&oq=cracking+the+co&aqs=chrome.1.69i57j46j0l3j69i60j69i61j69i60.2806j0j1&sourceid=chrome&ie=UTF-8",
     "type": "Chapter with book",
     "cost": "$",
@@ -169,6 +181,7 @@
   },
   {
     "name": "Cracking the PM Interivew",
+    "id": 12,
     "link": "https://www.amazon.com/Cracking-PM-Interview-Product-Technology/dp/0984782818",
     "type": "Book",
     "cost": "$",
@@ -183,6 +196,7 @@
   },
   {
     "name": "Crush PM estimation questions with my PM Interview Cheat Sheet",
+    "id": 13,
     "link": "https://medium.com/@wcsendom/pm-interview-cheat-sheet-f09b73b20d51",
     "type": "Medium Article",
     "cost": "Free",
@@ -197,6 +211,7 @@
   },
   {
     "name": "Dare to Lead: Brave Work. Tough Conversations. Whole Hearts",
+    "id": 14,
     "link": "https://www.amazon.com/Dare-Lead-Brave-Conversations-Hearts/dp/0399592520/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1593724102&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -211,6 +226,7 @@
   },
   {
     "name": "Decode & Conquer",
+    "id": 15,
     "link": "https://www.amazon.com/Decode-Conquer-Answers-Management-Interviews/dp/0615930417/ref=pd_lpo_14_img_0/144-5003882-5117027?_encoding=UTF8&pd_rd_i=0615930417&pd_rd_r=273a50c3-eff9-4f39-af47-74e7a3541760&pd_rd_w=wGv1C&pd_rd_wg=RvvwW&pf_rd_p=7b36d496-f366-4631-94d3-61b87b52511b&pf_rd_r=YY8XM649FSCF1BY8E592&psc=1&refRID=YY8XM649FSCF1BY8E592",
     "type": "Book",
     "cost": "$",
@@ -225,6 +241,7 @@
   },
   {
     "name": "Estimation Fact Sheet",
+    "id": 16,
     "link": "https://docs.google.com/document/d/1K9vukl5730pxl-n8jR9Xu0X1FXMf5Dk4dGee3_RiDVQ/edit",
     "type": "Google Doc",
     "cost": "Free",
@@ -239,6 +256,7 @@
   },
   {
     "name": "Excellent Execution",
+    "id": 17,
     "link": "https://www.amazon.com/Excellent-Execution-Product-Manager-Guide/dp/B08BWGPR8D",
     "type": "Book",
     "cost": "$",
@@ -253,6 +271,7 @@
   },
   {
     "name": "Exponent - Blog",
+    "id": 18,
     "link": "https://blog.tryexponent.com/",
     "type": "Website",
     "cost": "Free",
@@ -267,6 +286,7 @@
   },
   {
     "name": "Exponent - Company Guides",
+    "id": 19,
     "link": "https://www.tryexponent.com/guides",
     "type": "Website",
     "cost": "Free",
@@ -281,6 +301,7 @@
   },
   {
     "name": "Exponent - Interview Questions",
+    "id": 20,
     "link": "https://www.tryexponent.com/questions",
     "type": "Website",
     "cost": "Free",
@@ -295,6 +316,7 @@
   },
   {
     "name": "Exponent - Mock Interview Videos",
+    "id": 21,
     "link": "https://www.youtube.com/channel/UCjm_qVkCPjOVDz9BWjNqO9A",
     "type": "YouTube Channel",
     "cost": "Free",
@@ -309,6 +331,7 @@
   },
   {
     "name": "Exponent (as a service)",
+    "id": 22,
     "link": "https://www.tryexponent.com/",
     "type": "Website, Interview prep service",
     "cost": "$$$+",
@@ -323,6 +346,7 @@
   },
   {
     "name": "Facebook RPM Program: From Prep to Offer",
+    "id": 23,
     "link": "https://medium.com/@jewellim/facebook-rpm-program-from-prep-to-offer-2d1be3772db8",
     "type": "Medium Article",
     "cost": "Free",
@@ -337,6 +361,7 @@
   },
   {
     "name": "FB RPM Interview Question Bank",
+    "id": 24,
     "link": "https://docs.google.com/spreadsheets/u/2/d/1B-KEDL44rMuTasCeX6-l_1rokGUTwHVKyDLLl7QVeNI/edit?usp=drive_web&ouid=113467978761599884389",
     "type": "Spreadsheet",
     "cost": "Free",
@@ -351,6 +376,7 @@
   },
   {
     "name": "Getting Things Done",
+    "id": 25,
     "link": "https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0143126563/ref=sr_1_1?crid=PW7LQDF1WOAA&dchild=1&keywords=getting+things+done&qid=1593723835&s=books&sprefix=getting+things+done%2Cstripbooks%2C163&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -365,6 +391,7 @@
   },
   {
     "name": "GHC Resume Database",
+    "id": 26,
     "link": "http://anitab.org/wp-content/uploads/2020/06/Resume_Database-Existing_Job_Seekers.pdf",
     "type": "Website, Resume Database",
     "cost": "Free",
@@ -379,6 +406,7 @@
   },
   {
     "name": "Good Product Manager / Bad Product Manager",
+    "id": 27,
     "link": "https://a16z.com/2012/06/15/good-product-managerbad-product-manager/",
     "type": "Blog Post",
     "cost": "Free",
@@ -393,6 +421,7 @@
   },
   {
     "name": "Good to Great",
+    "id": 28,
     "link": "https://www.amazon.com/Good-Great-Some-Companies-Others/dp/0066620996/ref=sr_1_1?crid=3TZVTGX3T47S2&dchild=1&keywords=good+to+great&qid=1593723876&s=books&sprefix=good+to+great%2Cstripbooks%2C169&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -407,6 +436,7 @@
   },
   {
     "name": "Great PM Interview Answers Include Tradeoffs. Here's How.",
+    "id": 29,
     "link": "https://blog.tryexponent.com/the-key-to-a-successful-pm-interview-answer-tradeoffs/",
     "type": "Blog Post (on Exponent)",
     "cost": "Free",
@@ -421,6 +451,7 @@
   },
   {
     "name": "Grokking the System Design Interview Course",
+    "id": 30,
     "link": "https://www.educative.io/courses/grokking-the-system-design-interview",
     "type": "Website / Course",
     "cost": "$$",
@@ -435,6 +466,7 @@
   },
   {
     "name": "HackingPM",
+    "id": 31,
     "link": "https://hackingpm.com/#course",
     "type": "Coaching service",
     "cost": "$$-$$$+",
@@ -449,6 +481,7 @@
   },
   {
     "name": "Help Your Peers",
+    "id": 32,
     "link": "https://helpyourpeers.com/",
     "type": "Website",
     "cost": "Free",
@@ -463,6 +496,7 @@
   },
   {
     "name": "Hidden in Plain Sight",
+    "id": 33,
     "link": "https://www.amazon.com/gp/product/0062125699/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=stervy-20&creative=9325&linkCode=as2&creativeASIN=0062125699&linkId=bb7521b2f1aad246bcfb2111ea5fe254",
     "type": "Book",
     "cost": "$",
@@ -477,6 +511,7 @@
   },
   {
     "name": "Hooked",
+    "id": 34,
     "link": "https://www.amazon.com/Hooked-How-Build-Habit-Forming-Products/dp/1591847788",
     "type": "Book",
     "cost": "$",
@@ -491,6 +526,7 @@
   },
   {
     "name": "How I got an extra $35,000 by negotiating my first job offer",
+    "id": 35,
     "link": "https://medium.com/@helen_zhang/how-i-got-an-extra-35-000-by-negotiating-my-first-job-offer-beeb0620c616",
     "type": "Medium Article",
     "cost": "Free",
@@ -505,6 +541,7 @@
   },
   {
     "name": "How to Crush Your Product Management Interview",
+    "id": 36,
     "link": "https://medium.com/open-product-management/how-to-crush-your-product-management-interview-ultimate-guide-for-all-aspiring-pms-8c6172ed697c",
     "type": "Medium Article",
     "cost": "Free",
@@ -519,6 +556,7 @@
   },
   {
     "name": "How to Evaluate Associate Product Manager (APM) Programs",
+    "id": 37,
     "link": "https://blog.tryexponent.com/deciding-between-apm-programs/",
     "type": "Blog Post (on Exponent)",
     "cost": "Free",
@@ -533,6 +571,7 @@
   },
   {
     "name": "How to get a PM role out of college",
+    "id": 38,
     "link": "http://mikareyes.com/how-to-pm-after-college/",
     "type": "Blog Post",
     "cost": "Free",
@@ -547,6 +586,7 @@
   },
   {
     "name": "How To Land a Product Management Job Straight Out of College",
+    "id": 39,
     "link": "https://blog.tryexponent.com/land-a-product-management-job-straight-out-of-college/",
     "type": "Blog Post (on Exponent)",
     "cost": "Free",
@@ -561,6 +601,7 @@
   },
   {
     "name": "How to Prepare for Google’s Product Management Technical round When You Are Not Technical.",
+    "id": 40,
     "link": "https://medium.com/@divyadhar/how-to-prepare-for-googles-product-management-technical-round-when-you-are-not-technical-474de3ee01b3",
     "type": "Medium Article",
     "cost": "Free",
@@ -575,6 +616,7 @@
   },
   {
     "name": "How to Prepare for the Google APM Interview",
+    "id": 41,
     "link": "https://blog.usejournal.com/how-to-prepare-for-your-google-apm-interviews-b665584c13fc",
     "type": "Medium Article",
     "cost": "Free",
@@ -589,6 +631,7 @@
   },
   {
     "name": "How to Win Friends and Influence People",
+    "id": 42,
     "link": "https://www.amazon.com/How-Win-Friends-Influence-People/dp/0671027034/ref=sr_1_1?dchild=1&keywords=How+to+Win+Friends+and+Influence+People&qid=1593723799&s=books&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -603,6 +646,7 @@
   },
   {
     "name": "In the Plex",
+    "id": 43,
     "link": "https://www.amazon.com/Plex-Google-Thinks-Works-Shapes/dp/1416596585/ref=sr_1_1?s=books&ie=UTF8&qid=1508893589&sr=1-1&keywords=in+the+plex",
     "type": "Book",
     "cost": "$",
@@ -617,6 +661,7 @@
   },
   {
     "name": "Influence: The Psychology of Persuasion",
+    "id": 44,
     "link": "https://www.amazon.com/Influence-Psychology-Persuasion-Robert-Cialdini/dp/006124189X/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1593723614&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -631,6 +676,7 @@
   },
   {
     "name": "Inspired: How to Create Tech Products Customers Love",
+    "id": 45,
     "link": "https://www.amazon.com/INSPIRED-Create-Tech-Products-Customers/dp/1119387507/ref=sr_1_2?dchild=1&keywords=Inspired%3A+How+to+Create+Tech+Products+Customers+Love&qid=1593724029&s=books&sr=1-2",
     "type": "Book",
     "cost": "$",
@@ -645,6 +691,7 @@
   },
   {
     "name": "Interview for PM",
+    "id": 46,
     "link": "https://www.interviewfor.pm/",
     "type": "Website / Coaching Service",
     "cost": "$$$+ (Unsure)",
@@ -659,6 +706,7 @@
   },
   {
     "name": "Lead with Influence",
+    "id": 47,
     "link": "https://www.sachinrekhi.com/the-most-underrated-product-management-skill-influence-without-authority",
     "type": "Blog Post",
     "cost": "Free",
@@ -673,6 +721,7 @@
   },
   {
     "name": "Lean Analytics",
+    "id": 48,
     "link": "https://www.amazon.com/Lean-Analytics-Better-Startup-Faster/dp/1449335675/ref=sr_1_2?crid=16DG4DNFBTQ79&dchild=1&keywords=lean+analytics&qid=1593723988&s=books&sprefix=lean+analy%2Cstripbooks%2C197&sr=1-2",
     "type": "Book",
     "cost": "$",
@@ -687,6 +736,7 @@
   },
   {
     "name": "Lean Impact",
+    "id": 49,
     "link": "amazon.com/Lean-Impact-Innovate-Radically-Greater/dp/1119506603/ref=sr_1_1?dchild=1&keywords=Lean+Impact&qid=1593724419&s=books&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -701,6 +751,7 @@
   },
   {
     "name": "Lewis Lin - Blog",
+    "id": 50,
     "link": "https://www.lewis-lin.com/resources",
     "type": "Blog",
     "cost": "Free",
@@ -715,6 +766,7 @@
   },
   {
     "name": "Lewis Lin's 2 Week PM Interview Prep Plan",
+    "id": 51,
     "link": "https://docs.google.com/spreadsheets/d/1LqictMlco84IcCnIo8jDJ4VOcxUK1xBacT9KJ8CHQHQ/edit#gid=0",
     "type": "Spreadsheet",
     "cost": "Free",
@@ -729,6 +781,7 @@
   },
   {
     "name": "Lewis Lin's PM Job Board",
+    "id": 52,
     "link": "https://docs.google.com/spreadsheets/d/1-qzURmlA6PMz26UMPseQgndZ0DlgYbZsbJuAgQ015fI/edit#gid=0",
     "type": "Spreadsheet",
     "cost": "Free",
@@ -743,6 +796,7 @@
   },
   {
     "name": "Lewis Lin's Slack Community",
+    "id": 53,
     "link": "https://www.lewis-lin.com/blog/2018/7/8/lewis-c-lins-slack-community",
     "type": "Slack",
     "cost": "Free",
@@ -757,6 +811,7 @@
   },
   {
     "name": "Navigating APM Interviews",
+    "id": 54,
     "link": "https://medium.com/@arjun11/navigating-apm-interviews-b3d17bec0d39",
     "type": "Medium Article",
     "cost": "Free",
@@ -771,6 +826,7 @@
   },
   {
     "name": "Navigating the APM recruiting process",
+    "id": 55,
     "link": "https://medium.com/pminsider/navigating-the-entry-level-pm-apm-recruiting-process-957993620ac5",
     "type": "Medium Article",
     "cost": "Free",
@@ -785,6 +841,7 @@
   },
   {
     "name": "Neel, Parth, and Adi's List of Product and Business Roles at Tech Companies",
+    "id": 56,
     "link": "https://swipetounlock.com/masterjoblist",
     "type": "Website",
     "cost": "Free",
@@ -799,6 +856,7 @@
   },
   {
     "name": "Never Split the Difference",
+    "id": 57,
     "link": "https://www.amazon.com/Never-Split-Difference-audiobook/dp/B01COR1GM2/ref=sr_1_1?crid=1M5ZPAUV3FOSX&dchild=1&keywords=never+split+the+difference&qid=1593723586&s=books&sprefix=never+split+t%2Cstripbooks%2C162&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -813,6 +871,7 @@
   },
   {
     "name": "Nonviolent Communication: Life-Changing Tools for Healthy Relationships (Nonviolent Communication Guides)",
+    "id": 58,
     "link": "https://www.amazon.com/Nonviolent-Communication-Language-Life-Changing-Relationships/dp/189200528X/ref=sr_1_1?dchild=1&keywords=Nonviolent+Communication%3A+Life-Changing+Tools+for+Healthy+Relationships+%28Nonviolent+Communication+Guides%29&qid=1593724167&s=books&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -827,6 +886,7 @@
   },
   {
     "name": "On Writing: A Memoir of the Craft",
+    "id": 59,
     "link": "https://www.amazon.com/Writing-10th-Anniversary-Memoir-Craft/dp/1439156816",
     "type": "Book",
     "cost": "$",
@@ -841,6 +901,7 @@
   },
   {
     "name": "PM Handbook",
+    "id": 60,
     "link": "https://www.notion.so/PM-Handbook-7a17a9126f6b4961ba1766cff4fefb2c",
     "type": "Notion page",
     "cost": "Free",
@@ -855,6 +916,7 @@
   },
   {
     "name": "PM Insider",
+    "id": 61,
     "link": "https://medium.com/pminsider",
     "type": "Medium Publication",
     "cost": "Free (although Medium has a limit for # of free articles)",
@@ -869,6 +931,7 @@
   },
   {
     "name": "PM Interview Job Board",
+    "id": 62,
     "link": "https://thepminterview.com/jobs/",
     "type": "Website",
     "cost": "Free",
@@ -883,6 +946,7 @@
   },
   {
     "name": "Preparing for PM Interviews: How to Get There in 15–20 Hours",
+    "id": 63,
     "link": "https://medium.com/pminsider/preparing-for-pm-interviews-how-to-get-there-in-15-20-hours-193f6fcbf606",
     "type": "Medium Article",
     "cost": "Free",
@@ -897,6 +961,7 @@
   },
   {
     "name": "Preparing for the Associate Product Manager interview—Hamsa Pillai, Google APM",
+    "id": 64,
     "link": "https://blog.tryexponent.com/preparing-associate-product-manager-interview/",
     "type": "Blog Post (on Exponent)",
     "cost": "Free",
@@ -911,6 +976,7 @@
   },
   {
     "name": "Product Band",
+    "id": 65,
     "link": "https://productband.substack.com/",
     "type": "Newsletter",
     "cost": "Free",
@@ -925,6 +991,7 @@
   },
   {
     "name": "Product Buds",
+    "id": 66,
     "link": "https://www.notion.so/Product-Buds-Wiki-25e7c0057eeb450e9b93a8d720724ad0",
     "type": "PM Community",
     "cost": "Free",
@@ -939,6 +1006,7 @@
   },
   {
     "name": "Product Management Exercises",
+    "id": 67,
     "link": "https://www.productmanagementexercises.com/",
     "type": "Website",
     "cost": "Free",
@@ -953,6 +1021,7 @@
   },
   {
     "name": "Product Manager Handbook",
+    "id": 68,
     "link": "https://productmanagerhq.com/resources/",
     "type": "PDF",
     "cost": "Free (via signup)",
@@ -967,6 +1036,7 @@
   },
   {
     "name": "Remote Students",
+    "id": 69,
     "link": "https://remotestudents.co/",
     "type": "Community for remote work, focused on students",
     "cost": "Free",
@@ -981,6 +1051,7 @@
   },
   {
     "name": "RISE",
+    "id": 70,
     "link": "https://www.risesummer2020.org/",
     "type": "Website / Summer Program",
     "cost": "Free",
@@ -995,6 +1066,7 @@
   },
   {
     "name": "Rooftop Slushie",
+    "id": 71,
     "link": "https://www.rooftopslushie.com/",
     "type": "Website",
     "cost": "Free",
@@ -1009,6 +1081,7 @@
   },
   {
     "name": "Sherpa",
+    "id": 72,
     "link": "http://joinsherpa.co/",
     "type": "Mentoring Platform",
     "cost": "Free, donation-based",
@@ -1023,6 +1096,7 @@
   },
   {
     "name": "Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered",
+    "id": 73,
     "link": "https://www.amazon.com/Show-Your-Share-Creativity-Discovered/dp/0606356398/ref=sr_1_2?dchild=1&keywords=Show+Your+Work%21%3A+10+Ways+to+Share+Your+Creativity+and+Get+Discovered&qid=1593724230&s=books&sr=1-2",
     "type": "Book",
     "cost": "$",
@@ -1037,6 +1111,7 @@
   },
   {
     "name": "StellarPeers",
+    "id": 74,
     "link": "https://stellarpeers.com/",
     "type": "Website",
     "cost": "Free*",
@@ -1051,6 +1126,7 @@
   },
   {
     "name": "Stratechery",
+    "id": 75,
     "link": "https://podcasts.google.com/?feed=aHR0cDovL2V4cG9uZW50LmZtL2ZlZWQv&ved=2ahUKEwi40r67pIfqAhVKnnIEHSXZBWgQ4aUDegQIARAC&hl=en",
     "type": "Podcast, also a blog",
     "cost": "Free",
@@ -1065,6 +1141,7 @@
   },
   {
     "name": "Subtle Asian PM",
+    "id": 76,
     "link": "https://www.facebook.com/groups/SubtlePM/",
     "type": "Facebook Group",
     "cost": "Free",
@@ -1079,6 +1156,7 @@
   },
   {
     "name": "Success in Tech",
+    "id": 77,
     "link": "https://www.youtube.com/channel/UC-vYrOAmtrx9sBzJAf3x_xw/videos",
     "type": "YouTube Channel",
     "cost": "Free",
@@ -1093,6 +1171,7 @@
   },
   {
     "name": "Swipe to Unlock",
+    "id": 78,
     "link": "https://www.amazon.com/gp/product/B0756MTX6K/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0756MTX6K&linkCode=as2&tag=swipetounlock-20&linkId=0788862628123a7609141c7b2c4ae733",
     "type": "Book",
     "cost": "$",
@@ -1107,6 +1186,7 @@
   },
   {
     "name": "Swipe to Unlock - Interview Tips",
+    "id": 79,
     "link": "https://swipetounlock.com/interviewtips",
     "type": "Website",
     "cost": "Free",
@@ -1121,6 +1201,7 @@
   },
   {
     "name": "Technical Interview Questions",
+    "id": 80,
     "link": "https://drive.google.com/file/d/1BryNH_vXt7PU0I4zbKvDOkZHwDijvlJI/view",
     "type": "PDF",
     "cost": "Free",
@@ -1135,6 +1216,7 @@
   },
   {
     "name": "The 15 Best Associate and Rotational Product Manager Programs",
+    "id": 81,
     "link": "https://medium.com/pminsider/product-management-digest-apm-3c2631683139",
     "type": "Medium Article",
     "cost": "Free",
@@ -1149,6 +1231,7 @@
   },
   {
     "name": "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+    "id": 82,
     "link": "https://www.amazon.com/Habits-Highly-Effective-People-Powerful/dp/1476740054/ref=sr_1_3?dchild=1&keywords=The+7+Habits+of+Highly+Effective+People%3A+Powerful+Lessons+in+Personal+Change&qid=1593724315&s=books&sr=1-3",
     "type": "Book",
     "cost": "$",
@@ -1163,6 +1246,7 @@
   },
   {
     "name": "The Art of Product Management",
+    "id": 83,
     "link": "https://www.quora.com/q/theartofproductmanagement",
     "type": "Quora",
     "cost": "Free",
@@ -1177,6 +1261,7 @@
   },
   {
     "name": "The Art of Product Management",
+    "id": 84,
     "link": "https://www.sachinrekhi.com/the-art-of-product-management",
     "type": "Slide Deck",
     "cost": "Free",
@@ -1191,6 +1276,7 @@
   },
   {
     "name": "The Charisma Myth",
+    "id": 85,
     "link": "https://www.amazon.com/Charisma-Myth-Science-Personal-Magnetism/dp/1591845947/ref=sr_1_1?ie=UTF8&qid=1532110423&sr=8-1&keywords=charisma+myth",
     "type": "Book",
     "cost": "$",
@@ -1205,6 +1291,7 @@
   },
   {
     "name": "The College Product Manager Guide",
+    "id": 86,
     "link": "https://www.notion.so/The-College-Product-Manager-Guide-f0b7c36363c04cc69cb7d0f1e8dc954d",
     "type": "Notion page",
     "cost": "Free",
@@ -1219,6 +1306,7 @@
   },
   {
     "name": "The Design of Everday Things",
+    "id": 87,
     "link": "https://www.amazon.com/gp/product/0465050654/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0465050654&linkCode=as2&tag=ryanjhill-20&linkId=4cefa6a988653e24e5b19c01252baa64",
     "type": "Book",
     "cost": "$",
@@ -1233,6 +1321,7 @@
   },
   {
     "name": "The Five Dysfunctions of a Team: A Leadership Fable",
+    "id": 88,
     "link": "https://www.amazon.com/Los-Cinco-disfunciones-equipo-Liderazgo/dp/0787960756/ref=sr_1_1?dchild=1&keywords=The+Five+Dysfunctions+of+a+Team%3A+A+Leadership+Fable&qid=1593724048&s=books&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -1247,6 +1336,7 @@
   },
   {
     "name": "The Lean Startup",
+    "id": 89,
     "link": "https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0670921602/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1593724383&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -1261,6 +1351,7 @@
   },
   {
     "name": "The PM Interview",
+    "id": 90,
     "link": "https://thepminterview.com/",
     "type": "Website",
     "cost": "Free (linked to Exponent)",
@@ -1275,6 +1366,7 @@
   },
   {
     "name": "The Product Diploma",
+    "id": 91,
     "link": "https://www.amazon.com/Product-Diploma-Breaking-Management-College/dp/1728740916/ref=sr_1_1?crid=142TQDE203884&dchild=1&keywords=the+product+diploma&qid=1592335981&s=books&sprefix=the+product+diplom%2Cstripbooks%2C187&sr=1-1",
     "type": "Book",
     "cost": "$",
@@ -1289,6 +1381,7 @@
   },
   {
     "name": "The Product Manager Interview - 167 Actual Questions & Answers",
+    "id": 92,
     "link": "https://www.amazon.com/Product-Manager-Interview-Questions-Answers/dp/0998120480/ref=sr_1_2?dchild=1&keywords=lewis+lin&qid=1592334937&s=books&sr=1-2",
     "type": "Book",
     "cost": "$$",
@@ -1303,6 +1396,7 @@
   },
   {
     "name": "The Tyranny of Metrics",
+    "id": 93,
     "link": "https://www.amazon.com/Tyranny-Metrics-Jerry-Z-Muller/dp/0691174954",
     "type": "Book",
     "cost": "$",
@@ -1317,6 +1411,7 @@
   },
   {
     "name": "The Ultimate Associate Product Manager Guide",
+    "id": 94,
     "link": "https://productmanagerhq.com/ultimate-associate-product-manager-guide/",
     "type": "Blog Post",
     "cost": "Free",
@@ -1331,6 +1426,7 @@
   },
   {
     "name": "Top 10 System Design Interview Questions for Software Engineers",
+    "id": 95,
     "link": "https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444?fbclid=IwAR3H-g1X3voEldvivQazid6PrEuUXme_yMwHGLI8myzcf9gf3ZKdUYxK66g",
     "type": "Blog Post",
     "cost": "Free",
@@ -1345,6 +1441,7 @@
   },
   {
     "name": "What I learnt after bombing my Google APM Interview",
+    "id": 96,
     "link": "https://medium.com/@nikitamallya/what-i-learnt-after-bombing-my-google-apm-interview-67c8d6944ade",
     "type": "Medium Article",
     "cost": "Free",
@@ -1359,6 +1456,7 @@
   },
   {
     "name": "Women in Product - Early Career posting",
+    "id": 97,
     "link": "https://www.womenpm.org/early-career-jobs/?fbclid=IwAR1CZpwlWecprnP_KPcBkqIbyF1xV-EMjdHq2vFUgMYWovCX17L-4J6NA7Y",
     "type": "Website",
     "cost": "Free",

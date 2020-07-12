@@ -7,62 +7,127 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import DirectoryCard from '../directory/DirectoryCard';
+import Emoji from '../Emoji';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
-    justifyContent: 'center',
-  },
-  box: {
+    flexDirection: "column",
   },
   avatar: {
     width: theme.spacing(25),
     height: theme.spacing(25),
+  },
+  cardGrid: {
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    maxWidth: 375,
+    margin: theme.spacing(2),
   },
 }));
 
 export default function Profile() {
   const classes = useStyles();
   const data = {
-    "name": "Name",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate ut pharetra sit amet.",
-    "directoryCard": {
-      "name": "What I learnt after bombing my Google APM Interview",
-      "link": "https://medium.com/@nikitamallya/what-i-learnt-after-bombing-my-google-apm-interview-67c8d6944ade",
-      "type": "Medium Article",
-      "cost": "Free",
-      "creators": "Nikita Mallya",
-      "description": "Overview of Nikita's Google APM Intern process",
-      "stage": "Mid",
-      "category": "Interview Prep",
-      "tags": "Advice from an A/PM, Google APM",
-      "comments": "Great insights on the intern interview process & love the insights on failure",
-      "learnedFrom": "",
-      "image": "https://storage.googleapis.com/apm-map-directory-images/bombing-google-apm.png"
-    }
+    "name": "Michelle Ma",
+    "description": "APM @ Yahoo. Passionate about all things mental/health & wellness. Co-creator of APM Map",
+    "recommendations": [
+      {
+        "name": "APM List",
+        "id": 4,
+        "link": "https://apmlist.com/",
+        "type": "Website",
+        "cost": "Free",
+        "creators": "Ryan Hill (Yahoo APM)",
+        "description": "Find APM programs to apply to, and advice on breaking into the field.",
+        "stage": "Early",
+        "category": "Find APM Programs",
+        "tags": "",
+        "comments": "--",
+        "learnedFrom": "--",
+        "image": "https://storage.googleapis.com/apm-map-directory-images/apm-list.png"
+      },
+      {
+        "name": "The College Product Manager Guide",
+        "id": 86,
+        "link": "https://www.notion.so/The-College-Product-Manager-Guide-f0b7c36363c04cc69cb7d0f1e8dc954d",
+        "type": "Notion page",
+        "cost": "Free",
+        "creators": "Martin Anquetil (Incoming Google APM)",
+        "description": "Overview of of why PM",
+        "stage": "Early",
+        "category": "Understand Why PM",
+        "tags": "Build PM skills, Advice from an A/PM",
+        "comments": "Loved the portion on relevant skills to PM and how to build them",
+        "learnedFrom": "--",
+        "image": "https://storage.googleapis.com/apm-map-directory-images/college-pm-guide.png"
+      },
+      {
+        "name": "Subtle Asian PM",
+        "id": 76,
+        "link": "https://www.facebook.com/groups/SubtlePM/",
+        "type": "Facebook Group",
+        "cost": "Free",
+        "creators": "Various leaders",
+        "description": "Incredibly awesome community supporting Asians in PM / aspiring PMs (open to all)",
+        "stage": "All",
+        "category": "Networking",
+        "tags": "Events, Mock Interviews, Networking",
+        "comments": "I used the SAPM mock interview calendar a bunch! Super helpful, and I also met a lot of super nice people I kept connected with",
+        "learnedFrom": "--",
+        "image": "https://storage.googleapis.com/apm-map-directory-images/sapm.jpg"
+      }
+    ]
   }
 
   return (
-    <Container bgcolor="lightgreen" disableGutters maxWidth={false} className={classes.container}>
-      <Box
-        p={3}
-        width={500}
-        display="flex"
-        flexDirection="column"
+    <Container disableGutters maxWidth={false} className={classes.container}>
+      <Grid
+        container
+        direction="column"
+        justify="center"
         alignItems="center"
-        bgcolor="lightblue"
       >
-        <Avatar src="https://source.unsplash.com/random/250x250" className={classes.avatar}/>
-        <Typography gutterBottom variant="h3">
-          {data.name}
-        </Typography>
-        <Typography variant="subtitle1">
-          {data.description}
-        </Typography>
-      </Box>
-      <Box>
-        <DirectoryCard loading={false} data={data["directoryCard"]}/>
-      </Box>
+        <Grid item>
+          <Box
+            p={3}
+            width={500}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            bgcolor="lightblue"
+          >
+            <Avatar src="https://source.unsplash.com/random/250x250" className={classes.avatar}/>
+            <Typography gutterBottom variant="h3">
+              {data.name}
+            </Typography>
+            <Typography variant="subtitle1">
+              {data.description} <Emoji symbol="🗺️" label="map"/>
+            </Typography>
+          </Box>
+        </Grid>
+        <Box
+          p={3}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          bgcolor="lightgreen"
+        >
+          <Grid
+            container
+            display="flex"
+            justify="center"
+            spacing={4}
+          >
+            {data["recommendations"].map((card, index) => (
+              <Grid  p={3} item key={index} xs={12} sm={4} className={classes.cardGrid}>
+                <DirectoryCard loading={false} data={card}/>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
     </Container>
   );
 }
