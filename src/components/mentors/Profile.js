@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Grid, Container, darken, IconButton, ThemeProvider } from '@material-ui/core';
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import { makeStyles, withStyles} from '@material-ui/core/styles';
+import React from 'react';
+import { Grid, Container, IconButton } from '@material-ui/core';
+import { makeStyles} from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -9,9 +8,6 @@ import DirectoryCard from '../directory/DirectoryCard';
 import Emoji from '../Emoji';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import Button from '@material-ui/core/Button';
-import {  } from '@material-ui/core/colors';
-
 
 const useStyles = makeStyles((theme) => ({
   container: {

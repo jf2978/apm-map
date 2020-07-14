@@ -14,17 +14,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
   avatar: {
     width: theme.spacing(9),
     height: theme.spacing(9),
@@ -38,12 +27,9 @@ export default function AvatarCard({ data }) {
     setRaised(!raised)
   }
 
-  // fake placeholder loading state
-  var loading = false
-
   return (
     <Card className={classes.root} onMouseOver={toggleRaised} onMouseOut={toggleRaised} raised={raised}>
-      <CardActionArea component={Link} to={data.path} className={classes.cardActionArea}>
+      <CardActionArea component={Link} to={data.path}>
         <CardHeader
           avatar={<Avatar src={data.image} className={classes.avatar}/>}
           title={data.name}
