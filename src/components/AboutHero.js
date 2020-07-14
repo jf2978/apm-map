@@ -22,7 +22,7 @@ export default function AboutHero() {
   return (
     <Box px={15} py={6} className={classes.heroBox}>
       <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-        Your one-stop destination for navigating your A/PM recruiting journey
+        slogan that says why we're great
       </Typography>
       <Typography variant="h6" align="center" color="textSecondary" paragraph>
         Interested in supporting us? Become a mentor or make a donation!
