@@ -9,7 +9,6 @@ import { Context } from '../../provider';
 import Directory from '../components/directory/Directory';
 import Emoji from '../components/Emoji';
 import { Typography } from '@material-ui/core';
-import AboutHero from '../components/AboutHero';
 import Hero from '../components/Hero';
 
 export default function About() {
