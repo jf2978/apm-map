@@ -51,7 +51,7 @@ export default function MentorsCard({ data }) {
             variant: "h5",
             gutterBottom: true,
           }}
-          subheader={data.description}
+          subheader={data.bio}
           subheaderTypographyProps={{
             variant: "subtitle1"
           }}

@@ -9,7 +9,7 @@ import Directory from '../components/directory/Directory';
 import Hero from '../components/Hero';
 import Emoji from '../components/Emoji';
 
-export default function DirectoryPage() {
+export default function Index() {
   return (
     <Layout>
       <Context.Consumer>

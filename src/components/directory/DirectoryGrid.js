@@ -4,7 +4,7 @@ import { useStaticQuery } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
-import DirectoryCard from './DirectoryCard';
+import Card from '../Card';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -61,6 +61,7 @@ export default function DirectoryGrid({ category }) {
     })
   }, [data, category, memo])
 
+  // set loading to false once we've gotten our data
   React.useEffect(() => {
     setLoading(false)
   }, [memo])
@@ -71,13 +72,13 @@ export default function DirectoryGrid({ category }) {
         ?
           placeholderData.map((value, index) => (
             <Grid item key={index} xs={12} sm={6} lg={4}>
-              <DirectoryCard loading={true}/>
+              <Card loading={true}/>
             </Grid>
           ))
         :
           category in memo && memo[category].map((edge, index) => (
             <Grid item key={index} xs={12} sm={6} lg={4}>
-              <DirectoryCard loading={false} data={edge.node}/>
+              <Card loading={false} data={edge.node}/>
             </Grid>
           ))
       }
