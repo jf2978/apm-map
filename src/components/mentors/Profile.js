@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Container, darken, IconButton, ThemeProvider } from '@material-ui/core';
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { makeStyles, withStyles} from '@material-ui/core/styles';
-import MentorsCard from './MentorsCard';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';

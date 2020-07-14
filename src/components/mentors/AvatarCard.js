@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MentorsCard({ data }) {
+export default function AvatarCard({ data }) {
   const classes = useStyles();
   const [raised, setRaised] = React.useState(false);
   const toggleRaised = () => {

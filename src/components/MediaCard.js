@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MuiCard from '@material-ui/core/Card';
+import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -39,9 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-export default function Card({ loading, data }) {
+export default function MediaCard({ loading, data }) {
   const classes = useStyles();
   const [raised, setRaised] = useState(false);
   const toggleRaised = () => {
@@ -49,7 +47,7 @@ export default function Card({ loading, data }) {
   }
 
   const SkeletonCard = () => (
-    <MuiCard className={classes.card}>
+    <Card className={classes.card}>
       <CardActionArea className={classes.cardActionArea}>
         <Skeleton variant="rect" className={classes.cardMedia}/>
         <Divider variant="middle" light/>
@@ -71,11 +69,11 @@ export default function Card({ loading, data }) {
             </>
         </Box>
       </CardActionArea>
-    </MuiCard>
+    </Card>
   )
 
   const RealCard = () => (
-    <MuiCard className={classes.card} onMouseOver={toggleRaised} onMouseOut={toggleRaised} raised={raised}>
+    <Card className={classes.card} onMouseOver={toggleRaised} onMouseOut={toggleRaised} raised={raised}>
       <CardActionArea href={loading ? null : data.link} className={classes.cardActionArea}>
         {data.image &&
           <>
@@ -106,7 +104,7 @@ export default function Card({ loading, data }) {
           </Box>
         }
       </CardActionArea>
-    </MuiCard>
+    </Card>
   )
 
   return loading ? SkeletonCard() : RealCard()

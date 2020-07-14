@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Container } from '@material-ui/core';
 import { useStaticQuery, graphql } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles';
-import MentorsCard from './MentorsCard';
+import Card from '../MediaCard';
+import AvatarCard from './AvatarCard';
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -48,7 +49,7 @@ export default function MentorsGrid({ category }) {
         <Grid container spacing={2} className={classes.cardGrid}>
           {data.allMentorsJson.edges.map((edge, index) => (
               <Grid item key={index} xs={12} sm={6}>
-                <MentorsCard data={edge.node}/>
+                <AvatarCard data={edge.node}/>
               </Grid>
             ))
           }
