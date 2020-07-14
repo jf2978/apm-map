@@ -7,7 +7,6 @@ import theme from '../theme'
 import Layout from '../components/Layout';
 import { Context } from '../../provider';
 import Directory from '../components/directory/Directory';
-import DirectoryHero from '../components/directory/DirectoryHero';
 import Emoji from '../components/Emoji';
 import { Typography } from '@material-ui/core';
 import AboutHero from '../components/AboutHero';
