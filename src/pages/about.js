@@ -10,6 +10,7 @@ import Directory from '../components/directory/Directory';
 import Emoji from '../components/Emoji';
 import { Typography } from '@material-ui/core';
 import AboutHero from '../components/AboutHero';
+import Hero from '../components/Hero';
 
 export default function About() {
   return (
@@ -17,7 +18,11 @@ export default function About() {
       <Context.Consumer>
         {context => (
           <>
-            <AboutHero/>
+            <Hero
+              id="about-hero"
+              title="slogan that says why we're great"
+              subtitle="Interested in supporting us? Become a mentor or make a donation!"
+            />
           </>
         )}
       </Context.Consumer>

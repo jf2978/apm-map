@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   hero: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(8, 16, 8),
   },
 }));
 
