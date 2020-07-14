@@ -10,17 +10,16 @@ import Directory from '../components/directory/Directory';
 import DirectoryHero from '../components/directory/DirectoryHero';
 import Emoji from '../components/Emoji';
 import { Typography } from '@material-ui/core';
+import AboutHero from '../components/AboutHero';
 
-export default function DirectoryPage() {
+export default function About() {
   return (
     <Layout>
       <Context.Consumer>
         {context => (
-          <Container p={5}>
-            <Typography variant="h1">
-              Yeahhhh, so this page isn't a thing yet <Emoji symbol="😅" label="map"/>
-            </Typography>
-          </Container>
+          <>
+            <AboutHero/>
+          </>
         )}
       </Context.Consumer>
     </Layout>
