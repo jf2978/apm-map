@@ -12,7 +12,12 @@ import { Grow } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   hero: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 16, 8),
+    [theme.breakpoints.up("xs")]: {
+      padding: theme.spacing(4,2,4)
+    },
+    [theme.breakpoints.up("sm")]: {
+      padding: theme.spacing(4,2,4)
+    },
   },
 }));
 
