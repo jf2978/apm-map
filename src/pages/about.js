@@ -32,11 +32,13 @@ export default function About() {
             />
             <Box height={500} bgcolor="lightblue">
               <Container>
-                yooo
+                Michelle Ma
               </Container>
             </Box>
             <Box height={500} bgcolor="lightgreen">
-
+              <Container>
+                Jeff
+              </Container>
             </Box>
           </>
         )}
