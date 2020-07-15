@@ -22,7 +22,7 @@ export default function About() {
           <>
             <Hero
               id="about-hero"
-              title="slogan that says why we're great"
+              title="insert slogan here..."
               subtitle="Interested in supporting us? Become a mentor or make a donation!"
             />
             <Blurb
