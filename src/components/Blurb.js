@@ -8,7 +8,15 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
   blurb: {
-    padding: theme.spacing(8, 72, 8),
+    [theme.breakpoints.up("xs")]: {
+      padding: theme.spacing(4,6,4)
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: theme.spacing(4,12,4)
+    },
+    [theme.breakpoints.up("lg")]: {
+      padding: theme.spacing(4,24,4)
+    },
   },
 }));
 
@@ -20,7 +28,7 @@ export default function Blurb({ title, description, emoji }) {
       <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
         {title} {emoji}
       </Typography>
-      <Typography variant="subtitle1" align="justify" color="textSecondary" paragraph>
+      <Typography variant="subtitle1" align="center" color="textSecondary" paragraph>
         {description}
       </Typography>
     </Box>
