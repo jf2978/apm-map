@@ -109,30 +109,26 @@ export default function Profile() {
   }
 
   return (
-    <Container disableGutters maxWidth={false} className={classes.container}>
+    <Container className={classes.container}>
       <Grid
-        container
         direction="column"
         justify="center"
         alignItems="center"
       >
-        <Grid item>
-          <Box
-            p={3}
-            width={600}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-          >
-            <Avatar src={data.image} className={classes.avatar}/>
-            <Typography gutterBottom variant="h3">
-              {data.name}
-            </Typography>
-            <Typography variant="subtitle1">
-              {data.description} <Emoji symbol="🗺️" label="map"/>
-            </Typography>
-          </Box>
-        </Grid>
+        <Box
+          p={3}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Avatar src={data.image} className={classes.avatar}/>
+          <Typography gutterBottom variant="h3">
+            {data.name}
+          </Typography>
+          <Typography variant="subtitle1">
+            {data.description} <Emoji symbol="🗺️" label="map"/>
+          </Typography>
+        </Box>
         <Box p={2}>
           <Grid container spacing={2} justify="center">
               <Grid item>
