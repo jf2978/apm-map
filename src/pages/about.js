@@ -1,5 +1,4 @@
 import React from 'react';
-import Img from "gatsby-image"
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import { ThemeProvider } from '@material-ui/core/styles'
