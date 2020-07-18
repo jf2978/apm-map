@@ -78,7 +78,6 @@ export default function About() {
             <Container>
               <Typography variant="h4">Meet the Creators</Typography>
               <Divider light variant="middle" />
-
               <Grid container spacing={1} style={{ width: "100%" }}>
                 <Grid
                   item

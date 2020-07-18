@@ -1,19 +1,14 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
 
-import Layout from '../components/Layout';
-import Profile from '../components/mentors/Profile';
-import { Context } from '../../provider';
+import Layout from "../components/Layout";
+import Profile from "../components/mentors/Profile";
+import { Context } from "../../provider";
 
-
-export default function ProfileTemplate({ data }){
+export default function ProfileTemplate({ data }) {
   return (
     <Layout>
-      <Context.Consumer>
-        {context => (
-          <Profile/>
-        )}
-      </Context.Consumer>
+      <Context.Consumer>{(context) => <Profile />}</Context.Consumer>
     </Layout>
   );
-};
+}

@@ -13,7 +13,7 @@ export const CATEGORIES = [
   "Books",
 ];
 
-export const TAGS =  [
+export const TAGS = [
   "Advice from an A/PM",
   "Advanced Interview Tips",
   "Google APM",
@@ -36,14 +36,9 @@ export const TAGS =  [
   "Referrals",
 ];
 
-export const COSTS = [
-  "Free",
-  "$",
-  "$$",
-  "$$$",
-];
+export const COSTS = ["Free", "$", "$$", "$$$"];
 
-export const TYPES =  [
+export const TYPES = [
   "Blog",
   "Book Chapter",
   "Community",
@@ -60,8 +55,4 @@ export const TYPES =  [
   "YouTube Channel",
 ];
 
-export const STAGES = [
-  "Early",
-  "Mid",
-  "Advanced",
-];
+export const STAGES = ["Early", "Mid", "Advanced"];

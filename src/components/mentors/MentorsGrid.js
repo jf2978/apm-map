@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Grid, Container } from '@material-ui/core';
-import { useStaticQuery, graphql } from 'gatsby'
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '../MediaCard';
-import AvatarCard from './AvatarCard';
+import React, { useState, useEffect } from "react";
+import { Grid, Container } from "@material-ui/core";
+import { useStaticQuery, graphql } from "gatsby";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "../MediaCard";
+import AvatarCard from "./AvatarCard";
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
-    display: 'flex',
-    justifyContent: 'center',
+    display: "flex",
+    justifyContent: "center",
   },
   cardGrid: {
-    width: '100%',
+    width: "100%",
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   },
@@ -40,19 +40,18 @@ export default function MentorsGrid({ category }) {
         }
       }
     }
-  `)
-  const [loading, setLoading] = useState(true)
+  `);
+  const [loading, setLoading] = useState(true);
 
   return (
     <Container disableGutters maxWidth={false}>
       <Container maxWidth="lg" className={classes.gridContainer}>
         <Grid container spacing={2} className={classes.cardGrid}>
           {data.allMentorsJson.edges.map((edge, index) => (
-              <Grid item key={index} xs={12} sm={6}>
-                <AvatarCard data={edge.node}/>
-              </Grid>
-            ))
-          }
+            <Grid item key={index} xs={12} sm={6}>
+              <AvatarCard data={edge.node} />
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </Container>

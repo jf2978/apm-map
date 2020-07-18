@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles, fade } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { CATEGORIES } from '../../constants/filters';
-import InputBase from '@material-ui/core/InputBase';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Zoom from '@material-ui/core/Zoom';
-import Fab from '@material-ui/core/Fab';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { makeStyles, fade } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import { CATEGORIES } from "../../constants/filters";
+import InputBase from "@material-ui/core/InputBase";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import Zoom from "@material-ui/core/Zoom";
+import Fab from "@material-ui/core/Fab";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
 // FILE CONSTANTS
 const drawerWidth = 360;
@@ -26,13 +26,13 @@ const drawerWidth = 360;
 // STYLES
 const useStyles = makeStyles((theme) => ({
   root: {
-    position: 'fixed',
+    position: "fixed",
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
   appBar: {
     backgroundColor: theme.palette.grey[100],
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -66,61 +66,61 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: drawerWidth,
   },
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.grey[500], 0.15),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: fade(theme.palette.grey[500], 0.25),
     },
-    marginLeft: 'auto',
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: 'auto',
+    marginLeft: "auto",
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "auto",
     },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   inputRoot: {
-    color: 'action',
+    color: "action",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '20ch',
-      '&:focus': {
-        width: '30ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "20ch",
+      "&:focus": {
+        width: "30ch",
       },
     },
   },
@@ -152,10 +152,12 @@ function ScrollTop(props) {
   });
 
   const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector('#directory-hero');
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#directory-hero"
+    );
 
     if (anchor) {
-      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -185,7 +187,7 @@ export default function DirectoryAppBar(props) {
     setOpen(false);
   };
 
-  const { children, selection, toggleCategory} = props
+  const { children, selection, toggleCategory } = props;
   return (
     <>
       <ElevationScroll>
@@ -196,7 +198,7 @@ export default function DirectoryAppBar(props) {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar >
+          <Toolbar>
             <IconButton
               color="transparent"
               aria-label="open drawer"
@@ -205,7 +207,7 @@ export default function DirectoryAppBar(props) {
               className={clsx(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
-            </IconButton >
+            </IconButton>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon color="action" />
@@ -216,7 +218,7 @@ export default function DirectoryAppBar(props) {
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
-                inputProps={{ 'aria-label': 'search' }}
+                inputProps={{ "aria-label": "search" }}
               />
             </div>
           </Toolbar>
@@ -231,17 +233,17 @@ export default function DirectoryAppBar(props) {
       </main>
       <Drawer
         className={classes.drawer}
-        PaperProps={{ style: { position: 'absolute' } }}
+        PaperProps={{ style: { position: "absolute" } }}
         variant="persistent"
         open={open}
         classes={{
           paper: classes.drawerPaper,
         }}
       >
-        <Divider light/>
+        <Divider light />
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon/>
+            <ChevronLeftIcon />
           </IconButton>
         </div>
         <List>
@@ -249,10 +251,15 @@ export default function DirectoryAppBar(props) {
             const labelId = `checkbox-list-label-${index}`;
 
             return (
-              <ListItem button key={value} onClick={() => toggleCategory(value)} selected={selection === value}>
+              <ListItem
+                button
+                key={value}
+                onClick={() => toggleCategory(value)}
+                selected={selection === value}
+              >
                 <ListItemText id={labelId} primary={value} />
               </ListItem>
-            )
+            );
           })}
         </List>
       </Drawer>
