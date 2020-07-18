@@ -13,7 +13,7 @@ import Directory from "../components/directory/Directory";
 import Emoji from "../components/Emoji";
 import Hero from "../components/Hero";
 import Blurb from "../components/Blurb";
-import { Grid } from "@material-ui/core";
+import { Grid, Divider } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
@@ -76,6 +76,9 @@ export default function About() {
               emoji={<Emoji symbol="🗺️" label="map" />}
             />
             <Container>
+              <Typography variant="h4">Meet the Creators</Typography>
+              <Divider light variant="middle" />
+
               <Grid container spacing={1} style={{ width: "100%" }}>
                 <Grid
                   item
