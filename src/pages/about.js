@@ -32,8 +32,11 @@ export default function About() {
   const classes = useStyles();
   const aboutMima = (
     <>
+      <Typography variant="h5" className={classes.aboutText}>
+        Michelle Ma
+      </Typography>
       <Typography className={classes.aboutText}>
-        Hi there <Emoji symbol="🌿" label="herb" /> I'm Michelle, one of the
+        Hi there <Emoji symbol="🍵" label="matcha" /> I'm Michelle, one of the
         creators behind APM Map. I'm an Associate Product Manager @ Yahoo
         (Verizon Media) by day, and building APM Map, The PM Collective, and
         learning to play the kalimba at night (follow my kalimba insta!
@@ -62,6 +65,30 @@ export default function About() {
         so you can hit the ground running, wherever you are in your prep
         process.
       </Typography>{" "}
+    </>
+  );
+
+  // TODO paragraph about why I help build APM Map
+  // TODO describe my intended brand: CS/Psychology (technology that recognizes the important human problems we all face)
+  const aboutJeff = (
+    <>
+      <Typography variant="h5" className={classes.aboutText}>
+        Jeffrey Fabian
+      </Typography>
+      <Typography className={classes.aboutText}>
+        Hey! I'm Jeff — currently empowering small businesses as a Software
+        Engineer @ Mailchimp, forever a
+        <Link
+          href="https://www.questbridge.org/"
+          onClick={(event) => event.preventDefault()}
+        >
+          {" "}
+          QuestBridge{" "}
+        </Link>
+        scholar and co-creator of APM Map.
+      </Typography>
+      <Typography className={classes.aboutText}></Typography>
+      <Typography className={classes.aboutText}></Typography>
     </>
   );
 
@@ -103,6 +130,31 @@ export default function About() {
                     className={classes.avatar}
                     src="https://storage.googleapis.com/mentors-pics/mima-profile-pic.jpg"
                   />
+                </Grid>
+                <Grid
+                  container
+                  item
+                  display="flex"
+                  justify="center"
+                  alignItems="center"
+                  xs={12}
+                  sm={6}
+                >
+                  <Avatar
+                    variant="rounded"
+                    className={classes.avatar}
+                    src="https://storage.googleapis.com/mentors-pics/jeff-3.jpg"
+                  />
+                </Grid>
+                <Grid
+                  item
+                  display="flex"
+                  flexDirection="column"
+                  className={classes.about}
+                  xs={12}
+                  sm={6}
+                >
+                  {aboutJeff}
                 </Grid>
               </Grid>
             </Container>
