@@ -6,19 +6,25 @@ exports.createPages = ({ actions, graphql }) => {
   const profileTemplate = path.resolve(`src/templates/profileTemplate.js`);
 
   return graphql(`
-    query mentorsQuery {
+    query mentorsWithResourcesQuery {
       allMentorsJson {
-        edges {
-          node {
-            bio
-            added
-            id
-            image
-            name
-            fields {
-              slug
-            }
+        nodes {
+          name
+          image
+          bio
+          recommendations
+          fields {
+            slug
           }
+        }
+      }
+      allResourcesJson {
+        nodes {
+          id
+          link
+          name
+          tags
+          category
         }
       }
     }
@@ -27,11 +33,24 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    result.data.allMentorsJson.edges.forEach(({ node }) => {
+    result.data.allMentorsJson.nodes.forEach(({ mentorsNode }) => {
+      const recommendations = result.data.allResourcesJson.nodes.filter(
+        ({ resourcesNode }) => {
+          return mentorsNode.recommendations.includes(resourcesNode.id);
+        }
+      );
+      console.log(mentorsNode);
+      console.log(recommendations);
       createPage({
-        path: node.fields.slug,
+        path: mentorsNode.fields.slug,
         component: profileTemplate,
-        context: { slug: node.fields.slug },
+        context: {
+          recommendations: recommendations,
+          name: mentorsNode.name,
+          image: image,
+          bio: bio,
+          slug: mentorsNode.fields.slug,
+        },
       });
     });
   });
@@ -40,7 +59,7 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "MentorsJson") {
-    console.log(node);
+    //console.log(node);
 
     const slug = `/mentors/${node.name}`.split(" ").join("-").toLowerCase();
 

@@ -5,7 +5,8 @@
     "bio": "APM @ Yahoo. Passionate about all things mental/health & wellness. Co-creator of APM Map",
     "image": "https://storage.cloud.google.com/mentors-pics/mima-profile-pic.jpg?authuser=2&organizationId=819335046878",
     "added": "2020-07-12",
-    "path": "/profile"
+    "path": "/profile",
+    "recommendations": [4, 86, 76]
   },
   {
     "id": 1,
@@ -13,6 +14,7 @@
     "bio": "APM @ Yahoo. Passionate about all things mental/health & wellness. Co-creator of APM Map",
     "image": "https://storage.cloud.google.com/mentors-pics/mima-profile-pic.jpg?authuser=2&organizationId=819335046878",
     "added": "2020-07-12",
-    "path": "/profile"
+    "path": "/profile",
+    "recommendations": []
   }
 ]
