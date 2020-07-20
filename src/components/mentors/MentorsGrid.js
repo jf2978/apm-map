@@ -35,7 +35,9 @@ export default function MentorsGrid({ category }) {
             name
             bio
             image
-            path
+            fields {
+              slug
+            }
           }
         }
       }

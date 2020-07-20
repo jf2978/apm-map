@@ -34,7 +34,7 @@ export default function AvatarCard({ data }) {
       onMouseOut={toggleRaised}
       raised={raised}
     >
-      <CardActionArea component={Link} to={data.path}>
+      <CardActionArea component={Link} to={data.fields.slug}>
         <CardHeader
           avatar={<Avatar src={data.image} className={classes.avatar} />}
           title={data.name}
