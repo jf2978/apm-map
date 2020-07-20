@@ -56,17 +56,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile({ data }) {
   const classes = useStyles();
+  const mentor = data.allMentorsJson.nodes[0];
+  const recommendations = data.allResourcesJson.nodes;
 
   return (
     <Container className={classes.container}>
       <Grid direction="column" justify="center" alignItems="center">
         <Box p={3} display="flex" flexDirection="column" alignItems="center">
-          <Avatar src={data.image} className={classes.avatar} />
+          <Avatar src={mentor.image} className={classes.avatar} />
           <Typography gutterBottom variant="h3">
-            {data.name}
+            {mentor.name}
           </Typography>
           <Typography variant="subtitle1">
-            {data.description} <Emoji symbol="🗺️" label="map" />
+            {mentor.bio} <Emoji symbol="🗺️" label="map" />
           </Typography>
         </Box>
         <Box p={2}>
@@ -93,7 +95,7 @@ export default function Profile({ data }) {
         </Box>
         <Box p={3} display="flex" flexDirection="column" alignItems="center">
           <Grid container display="flex" justify="center" spacing={4}>
-            {data["recommendations"].map((card, index) => (
+            {recommendations.map((card, index) => (
               <Grid
                 p={3}
                 item
@@ -111,3 +113,31 @@ export default function Profile({ data }) {
     </Container>
   );
 }
+
+export const pageQuery = graphql`
+  query MyQuery($slug: String!, $recommendations: [String]) {
+    allMentorsJson(filter: { fields: { slug: { eq: $slug } } }) {
+      nodes {
+        name
+        image
+        bio
+        fields {
+          slug
+        }
+      }
+    }
+    allResourcesJson(filter: { id: { in: $recommendations } }) {
+      nodes {
+        image
+        description
+        link
+        name
+        stage
+        tags
+        type
+        category
+        cost
+      }
+    }
+  }
+`;

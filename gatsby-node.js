@@ -4,27 +4,19 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
   const profileTemplate = path.resolve(`src/templates/profileTemplate.js`);
-
   return graphql(`
     query mentorsWithResourcesQuery {
       allMentorsJson {
-        nodes {
-          name
-          image
-          bio
-          recommendations
-          fields {
-            slug
+        edges {
+          node {
+            name
+            image
+            bio
+            recommendations
+            fields {
+              slug
+            }
           }
-        }
-      }
-      allResourcesJson {
-        nodes {
-          id
-          link
-          name
-          tags
-          category
         }
       }
     }
@@ -33,23 +25,15 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    result.data.allMentorsJson.nodes.forEach(({ mentorsNode }) => {
-      const recommendations = result.data.allResourcesJson.nodes.filter(
-        ({ resourcesNode }) => {
-          return mentorsNode.recommendations.includes(resourcesNode.id);
-        }
-      );
-      console.log(mentorsNode);
-      console.log(recommendations);
+    // for each mentor, create a page with a custom slug (see onCreateNode)
+    // and list of recommendations passed as page context
+    result.data.allMentorsJson.edges.forEach((mentor) => {
       createPage({
-        path: mentorsNode.fields.slug,
+        path: mentor.node.fields.slug,
         component: profileTemplate,
         context: {
-          recommendations: recommendations,
-          name: mentorsNode.name,
-          image: image,
-          bio: bio,
-          slug: mentorsNode.fields.slug,
+          recommendations: mentor.node.recommendations,
+          slug: mentor.node.fields.slug,
         },
       });
     });
@@ -59,8 +43,6 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "MentorsJson") {
-    //console.log(node);
-
     const slug = `/mentors/${node.name}`.split(" ").join("-").toLowerCase();
 
     createNodeField({

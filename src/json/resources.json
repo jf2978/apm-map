@@ -12,7 +12,8 @@
     "tags": "Advice from an A/PM, Google APM",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/7-lessons.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/7-lessons.png",
+    "recommendedBy": ""
   },
   {
     "name": "79 Articles and Books that will make you a great Product Manager",
@@ -27,7 +28,8 @@
     "tags": "Overview of other helpful PM books",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/79-articles.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/79-articles.png",
+    "recommendedBy": ""
   },
   {
     "name": "A Day in the Life of a Google PM",
@@ -42,7 +44,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/day-in-the-life-google.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/day-in-the-life-google.png",
+    "recommendedBy": ""
   },
   {
     "name": "APM Club",
@@ -57,7 +60,8 @@
     "tags": "Events",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/apmc.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/apmc.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "APM List",
@@ -72,7 +76,8 @@
     "tags": "",
     "comments": "--",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/apm-list.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/apm-list.png",
+    "recommendedBy": "0"
   },
   {
     "name": "APM/TPM/PM Interview Resources + Opportunities List",
@@ -87,7 +92,8 @@
     "tags": "APM Recruiting Overview, Advice from an A/PM",
     "comments": "Love her tips for interviewing! Re: recording yourself, lots of mocks,",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/apm-tpm-pm-interview.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/apm-tpm-pm-interview.png",
+    "recommendedBy": ""
   },
   {
     "name": "Break into Product Weekend Bootcamp",
@@ -102,7 +108,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "Learned from Umesh!",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/product-weekend-bootcamp.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/product-weekend-bootcamp.png",
+    "recommendedBy": ""
   },
   {
     "name": "Case in Point",
@@ -117,7 +124,8 @@
     "tags": "Interview Tips",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/case.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/case.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Case Interview Secrets",
@@ -132,7 +140,8 @@
     "tags": "Interview Tips",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/casesecrets.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/casesecrets.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "College PM",
@@ -147,7 +156,8 @@
     "tags": "APM Recruiting Overview, Advice from an A/PM",
     "comments": "I especially liked Davis' Resource List + Book recommendations, and he has a lot of great stuff from his Quora!",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/college-pm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/college-pm.png",
+    "recommendedBy": ""
   },
   {
     "name": "Courage to Be Disliked",
@@ -162,7 +172,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/courage.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/courage.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Cracking the Coding Interview - Chapter 9",
@@ -177,7 +188,8 @@
     "tags": "",
     "comments": "Chapter 9 is super helpful for understanding terminology to use in System Design interviews",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/ctci-9.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/ctci-9.png",
+    "recommendedBy": ""
   },
   {
     "name": "Cracking the PM Interivew",
@@ -192,7 +204,8 @@
     "tags": "PM Recruiting Fundamentals",
     "comments": "Overview of APM programs, 101 on every type of PM interview question, offers 7-step method",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/ctpmi.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/ctpmi.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Crush PM estimation questions with my PM Interview Cheat Sheet",
@@ -207,7 +220,8 @@
     "tags": "Interview Prep, Estimation",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/crush-pm-estimation.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/crush-pm-estimation.png",
+    "recommendedBy": ""
   },
   {
     "name": "Dare to Lead: Brave Work. Tough Conversations. Whole Hearts",
@@ -222,7 +236,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/dare.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/dare.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Decode & Conquer",
@@ -237,7 +252,8 @@
     "tags": "PM Recruiting Fundamentals",
     "comments": "Lots of great practice questions for every type of PM Interview question, offers CIRCLES method",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/decode.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/decode.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Estimation Fact Sheet",
@@ -252,7 +268,8 @@
     "tags": "Interview Prep, Estimation",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/estimation-fact-sheet.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/estimation-fact-sheet.png",
+    "recommendedBy": ""
   },
   {
     "name": "Excellent Execution",
@@ -267,7 +284,8 @@
     "tags": "Execution",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/execution.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/execution.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Exponent - Blog",
@@ -282,7 +300,8 @@
     "tags": "Advanced Interview Tips, Understand why PM, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-blog.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-blog.png",
+    "recommendedBy": ""
   },
   {
     "name": "Exponent - Company Guides",
@@ -297,7 +316,8 @@
     "tags": "Company Guides",
     "comments": "Understanding what the interview process is like at each of the ~12 major APM programs",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-co-guide.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-co-guide.png",
+    "recommendedBy": ""
   },
   {
     "name": "Exponent - Interview Questions",
@@ -312,7 +332,8 @@
     "tags": "Mock interviews, Interview Questions",
     "comments": "N/A",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-interview.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-interview.png",
+    "recommendedBy": ""
   },
   {
     "name": "Exponent - Mock Interview Videos",
@@ -327,7 +348,8 @@
     "tags": "Mock interviews",
     "comments": "Really loved this - super great to consult if you're just getting started with mocks / want to watch mocks first",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-mock.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-mock.png",
+    "recommendedBy": ""
   },
   {
     "name": "Exponent (as a service)",
@@ -342,7 +364,8 @@
     "tags": "APM Recruiting Overview",
     "comments": "If you want additional guidance on the PM Interview process (beyond just reading Cracking the PM Interview) // Also important to note that if you are a member of the Exponent community, you get access to a members-only Slack, which means that your mock interviews might be of higher caliber",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-service.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/exponent-service.png",
+    "recommendedBy": ""
   },
   {
     "name": "Facebook RPM Program: From Prep to Offer",
@@ -357,7 +380,8 @@
     "tags": "Advice from an A/PM, Facebook RPM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/facebook-rpm-prep-to-offer.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/facebook-rpm-prep-to-offer.png",
+    "recommendedBy": ""
   },
   {
     "name": "FB RPM Interview Question Bank",
@@ -372,7 +396,8 @@
     "tags": "Interview Questions, Mock Interviews, FB RPM",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/fb-rpm-question-bank.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/fb-rpm-question-bank.png",
+    "recommendedBy": ""
   },
   {
     "name": "Getting Things Done",
@@ -387,7 +412,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/gettingdone.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/gettingdone.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "GHC Resume Database",
@@ -402,7 +428,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/gh-resume-database.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/gh-resume-database.png",
+    "recommendedBy": ""
   },
   {
     "name": "Good Product Manager / Bad Product Manager",
@@ -417,7 +444,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "Martin's \"College PM\" guide",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/good-bad-pm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/good-bad-pm.png",
+    "recommendedBy": ""
   },
   {
     "name": "Good to Great",
@@ -432,7 +460,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/good.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/good.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Great PM Interview Answers Include Tradeoffs. Here's How.",
@@ -447,7 +476,8 @@
     "tags": "Advanced Interview Tips, Advice from an A/PM",
     "comments": "Knowing how to incorporate tradeoffs are super helpful for Product Design questions",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/great-pm-answers.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/great-pm-answers.png",
+    "recommendedBy": ""
   },
   {
     "name": "Grokking the System Design Interview Course",
@@ -462,7 +492,8 @@
     "tags": "Interview Prep, Technical Interview",
     "comments": "Did not use this course, have heard that its too detailed / more than you need to know for a PM System Design interview",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/grokking-system-design.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/grokking-system-design.png",
+    "recommendedBy": ""
   },
   {
     "name": "HackingPM",
@@ -477,7 +508,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/hacking-pm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/hacking-pm.png",
+    "recommendedBy": ""
   },
   {
     "name": "Help Your Peers",
@@ -492,7 +524,8 @@
     "tags": "Mentorship, Networking",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/help-your-peers.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/help-your-peers.png",
+    "recommendedBy": ""
   },
   {
     "name": "Hidden in Plain Sight",
@@ -507,7 +540,8 @@
     "tags": "Product Design",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/hidden.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/hidden.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Hooked",
@@ -522,7 +556,8 @@
     "tags": "Product Design",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/hooked.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/hooked.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "How I got an extra $35,000 by negotiating my first job offer",
@@ -537,7 +572,8 @@
     "tags": "Negotiating",
     "comments": "Not specific to PM, but still a helpful guide re: recruiting!",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/extra-35k.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/extra-35k.png",
+    "recommendedBy": ""
   },
   {
     "name": "How to Crush Your Product Management Interview",
@@ -552,7 +588,8 @@
     "tags": "Interview Prep, APM Recruiting Overview, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/crush-pm-interview.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/crush-pm-interview.png",
+    "recommendedBy": ""
   },
   {
     "name": "How to Evaluate Associate Product Manager (APM) Programs",
@@ -567,7 +604,8 @@
     "tags": "Evaluating APM programs",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/how-evaluate-apm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/how-evaluate-apm.png",
+    "recommendedBy": ""
   },
   {
     "name": "How to get a PM role out of college",
@@ -582,7 +620,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "Martin's \"College PM\" guide",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-ooc.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-ooc.png",
+    "recommendedBy": ""
   },
   {
     "name": "How To Land a Product Management Job Straight Out of College",
@@ -597,7 +636,8 @@
     "tags": "Understand why PM, Build PM Skills",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/land-pm-job-college.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/land-pm-job-college.png",
+    "recommendedBy": ""
   },
   {
     "name": "How to Prepare for Google’s Product Management Technical round When You Are Not Technical.",
@@ -612,7 +652,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-google-pm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-google-pm.png",
+    "recommendedBy": ""
   },
   {
     "name": "How to Prepare for the Google APM Interview",
@@ -627,7 +668,8 @@
     "tags": "APM Recruiting Overview, Google APM, Advice from an A/PM",
     "comments": "Really liked the section where he calls out exactly what chapters are worth reading in Cracking the PM Interview / Decode & Conquer",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-google-apm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-google-apm.png",
+    "recommendedBy": ""
   },
   {
     "name": "How to Win Friends and Influence People",
@@ -642,7 +684,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/friends.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/friends.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "In the Plex",
@@ -657,7 +700,8 @@
     "tags": "Google-specific",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/plex.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/plex.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Influence: The Psychology of Persuasion",
@@ -672,7 +716,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/influence.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/influence.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Inspired: How to Create Tech Products Customers Love",
@@ -687,7 +732,8 @@
     "tags": "Product Design",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/inspired.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/inspired.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Interview for PM",
@@ -702,7 +748,8 @@
     "tags": "Interview Prep",
     "comments": "Have not used this service, but it seems helpful!",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/interview-for-pm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/interview-for-pm.png",
+    "recommendedBy": ""
   },
   {
     "name": "Lead with Influence",
@@ -717,7 +764,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "Martin's \"College PM\" guide",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/influence.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/influence.png",
+    "recommendedBy": ""
   },
   {
     "name": "Lean Analytics",
@@ -732,7 +780,8 @@
     "tags": "Metrics / Analytical",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/lean.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/lean.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Lean Impact",
@@ -747,7 +796,8 @@
     "tags": "Social Entrepreneurship",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/leanimpact.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/leanimpact.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Lewis Lin - Blog",
@@ -762,7 +812,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-blog.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-blog.png",
+    "recommendedBy": ""
   },
   {
     "name": "Lewis Lin's 2 Week PM Interview Prep Plan",
@@ -777,7 +828,8 @@
     "tags": "Interview Prep",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-2-week.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-2-week.png",
+    "recommendedBy": ""
   },
   {
     "name": "Lewis Lin's PM Job Board",
@@ -792,7 +844,8 @@
     "tags": "",
     "comments": "One of the only job boards I know that specifically highlight intern PM positions!",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-board.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-board.png",
+    "recommendedBy": ""
   },
   {
     "name": "Lewis Lin's Slack Community",
@@ -807,7 +860,8 @@
     "tags": "",
     "comments": "When I used this, you would post your Calendly in the Slack and people would sign up for mock interviews",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-slack.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/lewis-lin-slack.png",
+    "recommendedBy": ""
   },
   {
     "name": "Navigating APM Interviews",
@@ -822,7 +876,8 @@
     "tags": "APM Recruiting Overview, Google APM, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/navigating-apm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/navigating-apm.png",
+    "recommendedBy": ""
   },
   {
     "name": "Navigating the APM recruiting process",
@@ -837,7 +892,8 @@
     "tags": "APM Recruiting Overview, Advice from an A/PM",
     "comments": "I used her tip for asking questions at the end of an interview almost every time!",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/navigating-apm-recruiting.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/navigating-apm-recruiting.png",
+    "recommendedBy": ""
   },
   {
     "name": "Neel, Parth, and Adi's List of Product and Business Roles at Tech Companies",
@@ -852,7 +908,8 @@
     "tags": "",
     "comments": "Also lists PM-related roles beyond the major APM programs",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/neel-parth-adi.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/neel-parth-adi.png",
+    "recommendedBy": ""
   },
   {
     "name": "Never Split the Difference",
@@ -867,7 +924,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/neversplit.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/neversplit.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "Nonviolent Communication: Life-Changing Tools for Healthy Relationships (Nonviolent Communication Guides)",
@@ -882,7 +940,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/nonviolent.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/nonviolent.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "On Writing: A Memoir of the Craft",
@@ -897,7 +956,8 @@
     "tags": "Writing",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/on-writing.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/on-writing.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "PM Handbook",
@@ -912,7 +972,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "Martin's \"College PM\" guide",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-handbook.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-handbook.png",
+    "recommendedBy": ""
   },
   {
     "name": "PM Insider",
@@ -927,7 +988,8 @@
     "tags": "Advanced Interview Tips, Understand Why PM, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-insider.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-insider.png",
+    "recommendedBy": ""
   },
   {
     "name": "PM Interview Job Board",
@@ -942,7 +1004,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-job-board.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-job-board.png",
+    "recommendedBy": ""
   },
   {
     "name": "Preparing for PM Interviews: How to Get There in 15–20 Hours",
@@ -957,7 +1020,8 @@
     "tags": "APM Recruiting Overview, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-pm-interviews.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-pm-interviews.png",
+    "recommendedBy": ""
   },
   {
     "name": "Preparing for the Associate Product Manager interview—Hamsa Pillai, Google APM",
@@ -972,7 +1036,8 @@
     "tags": "APM Recruiting Overview, Google APM, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-apm-interview.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/prep-apm-interview.png",
+    "recommendedBy": ""
   },
   {
     "name": "Product Band",
@@ -987,7 +1052,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "Learned from Umesh!",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/product-band.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/product-band.png",
+    "recommendedBy": ""
   },
   {
     "name": "Product Buds",
@@ -1002,7 +1068,8 @@
     "tags": "Mock Interviews, Side Projects, Mentorship, Networking, Events",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/product-buds.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/product-buds.png",
+    "recommendedBy": ""
   },
   {
     "name": "Product Management Exercises",
@@ -1017,7 +1084,8 @@
     "tags": "Interview Questions, Mock Interviews",
     "comments": "I used this, definitely super helpful!",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-exercises.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/pm-exercises.png",
+    "recommendedBy": ""
   },
   {
     "name": "Product Manager Handbook",
@@ -1032,7 +1100,8 @@
     "tags": "",
     "comments": "I haven't actually used this yet, so can't speak too much to it!",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/product-manager-handbook.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/product-manager-handbook.png",
+    "recommendedBy": ""
   },
   {
     "name": "Remote Students",
@@ -1047,7 +1116,8 @@
     "tags": "Mentorship/Networking",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/remote-students.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/remote-students.png",
+    "recommendedBy": ""
   },
   {
     "name": "RISE",
@@ -1062,7 +1132,8 @@
     "tags": "Side Projects, Mentorship, Networking, Events",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/rise.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/rise.png",
+    "recommendedBy": ""
   },
   {
     "name": "Rooftop Slushie",
@@ -1077,7 +1148,8 @@
     "tags": "Networking",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/rooftop-slushie.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/rooftop-slushie.png",
+    "recommendedBy": ""
   },
   {
     "name": "Sherpa",
@@ -1092,7 +1164,8 @@
     "tags": "Mentorship, Networking, 1-1 coffee chats",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/sherpa.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/sherpa.png",
+    "recommendedBy": ""
   },
   {
     "name": "Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered",
@@ -1107,7 +1180,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/showyourwork.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/showyourwork.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "StellarPeers",
@@ -1122,7 +1196,8 @@
     "tags": "",
     "comments": "Great resource for setting up mock interviews + finding mock partners (there is an option for a 1-1 coaching session with Malena, priced at $250 for one session)",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/stellar-peers.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/stellar-peers.png",
+    "recommendedBy": ""
   },
   {
     "name": "Stratechery",
@@ -1137,7 +1212,8 @@
     "tags": "Tech News",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/stratechery.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/stratechery.png",
+    "recommendedBy": ""
   },
   {
     "name": "Subtle Asian PM",
@@ -1152,7 +1228,8 @@
     "tags": "Events, Mock Interviews, Networking",
     "comments": "I used the SAPM mock interview calendar a bunch! Super helpful, and I also met a lot of super nice people I kept connected with",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/sapm.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/sapm.jpg",
+    "recommendedBy": "0"
   },
   {
     "name": "Success in Tech",
@@ -1167,7 +1244,8 @@
     "tags": "",
     "comments": "How to Design Whatsapp\" and \"How to Design Twitter\" framed how I answered every System Design question",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/sit.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/sit.png",
+    "recommendedBy": ""
   },
   {
     "name": "Swipe to Unlock",
@@ -1182,7 +1260,8 @@
     "tags": "Business Trends in Tech",
     "comments": "Understanding business trends from a tech perspective, and generally a super fun read!",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/swipe-to-unlock.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/swipe-to-unlock.png",
+    "recommendedBy": ""
   },
   {
     "name": "Swipe to Unlock - Interview Tips",
@@ -1197,7 +1276,8 @@
     "tags": "Advanced Interview Tips, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/swipe-unlock.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/swipe-unlock.png",
+    "recommendedBy": ""
   },
   {
     "name": "Technical Interview Questions",
@@ -1212,7 +1292,8 @@
     "tags": "Interview Prep, Technical Interview",
     "comments": "Did not use this, but looks super extensive!",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/technical-questions.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/technical-questions.png",
+    "recommendedBy": ""
   },
   {
     "name": "The 15 Best Associate and Rotational Product Manager Programs",
@@ -1226,8 +1307,9 @@
     "category": "Find APM Programs",
     "tags": "",
     "comments": "",
-    "learnedFrom": "Learned from Ryan's APM List",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/15-best.png"
+    "learnedFrom": 0,
+    "image": "https://storage.googleapis.com/apm-map-directory-images/15-best.png",
+    "recommendedBy": ""
   },
   {
     "name": "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
@@ -1242,7 +1324,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/7habits.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/7habits.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The Art of Product Management",
@@ -1257,7 +1340,8 @@
     "tags": "Understand why PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/art-of-pm-2.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/art-of-pm-2.png",
+    "recommendedBy": ""
   },
   {
     "name": "The Art of Product Management",
@@ -1272,7 +1356,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "Martin's \"College PM\" guide",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/art-of-pm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/art-of-pm.png",
+    "recommendedBy": ""
   },
   {
     "name": "The Charisma Myth",
@@ -1287,7 +1372,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/charisma.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/charisma.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The College Product Manager Guide",
@@ -1302,7 +1388,8 @@
     "tags": "Build PM skills, Advice from an A/PM",
     "comments": "Loved the portion on relevant skills to PM and how to build them",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/college-pm-guide.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/college-pm-guide.png",
+    "recommendedBy": "0"
   },
   {
     "name": "The Design of Everday Things",
@@ -1317,7 +1404,8 @@
     "tags": "Product Design",
     "comments": "Taking your product design thinking to the next level",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/designeveryday.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/designeveryday.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The Five Dysfunctions of a Team: A Leadership Fable",
@@ -1332,7 +1420,8 @@
     "tags": "Leadership",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/five.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/five.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The Lean Startup",
@@ -1347,7 +1436,8 @@
     "tags": "Entrepreneurship",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/startup.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/startup.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The PM Interview",
@@ -1362,7 +1452,8 @@
     "tags": "Interview Questions",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/the-pm-interview.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/the-pm-interview.png",
+    "recommendedBy": ""
   },
   {
     "name": "The Product Diploma",
@@ -1377,7 +1468,8 @@
     "tags": "Exploring PM",
     "comments": "What classes you're encouraged to take, what skills to build, etc.",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/productdiploma.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/productdiploma.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The Product Manager Interview - 167 Actual Questions & Answers",
@@ -1392,7 +1484,8 @@
     "tags": "PM Recruiting Fundamentals",
     "comments": "Taking your interview prep for the next level - particularly like the way he answers Estimation questions in this book",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/pminterview.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/pminterview.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The Tyranny of Metrics",
@@ -1407,7 +1500,8 @@
     "tags": "Metrics / Analytical",
     "comments": "",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/tyranny.jpg"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/tyranny.jpg",
+    "recommendedBy": ""
   },
   {
     "name": "The Ultimate Associate Product Manager Guide",
@@ -1422,7 +1516,8 @@
     "tags": "Build PM skills, Advice from an A/PM",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/ultimate-apm-guide.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/ultimate-apm-guide.png",
+    "recommendedBy": ""
   },
   {
     "name": "Top 10 System Design Interview Questions for Software Engineers",
@@ -1437,7 +1532,8 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/top-10-system-design.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/top-10-system-design.png",
+    "recommendedBy": ""
   },
   {
     "name": "What I learnt after bombing my Google APM Interview",
@@ -1452,7 +1548,8 @@
     "tags": "Advice from an A/PM, Google APM",
     "comments": "Great insights on the intern interview process & love the insights on failure",
     "learnedFrom": "",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/bombing-google-apm.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/bombing-google-apm.png",
+    "recommendedBy": ""
   },
   {
     "name": "Women in Product - Early Career posting",
@@ -1467,6 +1564,7 @@
     "tags": "",
     "comments": "",
     "learnedFrom": "--",
-    "image": "https://storage.googleapis.com/apm-map-directory-images/wip.png"
+    "image": "https://storage.googleapis.com/apm-map-directory-images/wip.png",
+    "recommendedBy": ""
   }
 ]

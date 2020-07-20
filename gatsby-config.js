@@ -1,10 +1,10 @@
-const path = require(`path`)
+const path = require(`path`);
 
 module.exports = {
   pathPrefix: "/apm-map",
   plugins: [
     {
-      resolve: 'gatsby-plugin-material-ui',
+      resolve: "gatsby-plugin-material-ui",
       // If you want to use styled components you should change the injection order.
       options: {
         // stylesProvider: {
@@ -14,7 +14,7 @@ module.exports = {
     },
     // If you want to use styled components you should add the plugin here.
     // 'gatsby-plugin-styled-components',
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-react-helmet",
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -25,6 +25,6 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    title: 'APM Map',
+    title: "APM Map",
   },
 };
