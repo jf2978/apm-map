@@ -30,7 +30,6 @@ export default function DirectoryGrid({ category }) {
       allResourcesJson {
         edges {
           node {
-            image
             description
             link
             name
@@ -39,6 +38,23 @@ export default function DirectoryGrid({ category }) {
             type
             category
             cost
+          }
+        }
+      }
+      allFile(
+        filter: {
+          extension: { regex: "/(jpg)|(png)|(jpeg)/" }
+          relativeDirectory: { eq: "apm-map-directory-images" }
+        }
+      ) {
+        edges {
+          node {
+            base
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
@@ -79,7 +95,11 @@ export default function DirectoryGrid({ category }) {
         : category in memo &&
           memo[category].map((edge, index) => (
             <Grid item key={index} xs={12} sm={6} lg={4}>
-              <Card loading={false} data={edge.node} />
+              <Card
+                loading={false}
+                data={edge.node}
+                image={data.allFile.edges[0]}
+              />
             </Grid>
           ))}
     </Grid>

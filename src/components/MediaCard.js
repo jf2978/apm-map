@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Img from "gatsby-image";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MediaCard({ loading, data }) {
+export default function MediaCard({ loading, data, image }) {
   const classes = useStyles();
   const [raised, setRaised] = useState(false);
   const toggleRaised = () => {
@@ -89,13 +90,11 @@ export default function MediaCard({ loading, data }) {
         href={loading ? null : data.link}
         className={classes.cardActionArea}
       >
-        {data.image && (
+        {image && (
           <>
-            <CardMedia
-              className={classes.cardMedia}
-              image={data.image}
-              title={data.name}
-            />
+            <CardMedia className={classes.cardMedia} title={data.name}>
+              <Img fluid={image.node.childImageSharp.fluid} />
+            </CardMedia>
             <Divider variant="middle" light />
           </>
         )}
