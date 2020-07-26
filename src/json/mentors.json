@@ -11,7 +11,7 @@
     "id": 1,
     "name": "Some Other Person",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-    "image": "https://source.unsplash.com/random/50x50",
+    "image": "https://source.unsplash.com/random/200x200",
     "added": "2020-07-12",
     "recommendations": []
   }
