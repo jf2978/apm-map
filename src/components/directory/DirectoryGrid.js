@@ -25,33 +25,19 @@ const placeholderData = [1, 2, 3, 4, 5, 6];
 
 export default function DirectoryGrid({ category }) {
   const classes = useStyles();
+
   const data = useStaticQuery(graphql`
-    query ResourcesQuery {
-      allResourcesJson {
-        edges {
-          node {
-            description
-            link
-            name
-            stage
-            tags
-            type
-            category
-            cost
-          }
-        }
-      }
-      allFile(
-        filter: {
-          extension: { regex: "/(jpg)|(png)|(jpeg)/" }
-          relativeDirectory: { eq: "apm-map-directory-images" }
-        }
-      ) {
-        edges {
-          node {
-            base
+    query GetRecruitingResources {
+      allRecruitingResource {
+        nodes {
+          id
+          name
+          description
+          category
+          tags
+          image {
             childImageSharp {
-              fluid {
+              fluid(quality: 75, cropFocus: ATTENTION) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -63,14 +49,14 @@ export default function DirectoryGrid({ category }) {
 
   const [loading, setLoading] = React.useState(true);
   const [memo, setMemo] = React.useState({
-    All: data.allResourcesJson.edges,
+    All: data.allRecruitingResource.nodes,
   });
 
   // if our category has changed, get or fill our memoized data
   React.useEffect(() => {
     if (category in memo) return;
 
-    const filtered = data.allResourcesJson.edges.filter(
+    const filtered = data.allRecruitingResource.nodes.filter(
       ({ node }) => node.category === category
     );
     setMemo({
@@ -93,13 +79,9 @@ export default function DirectoryGrid({ category }) {
             </Grid>
           ))
         : category in memo &&
-          memo[category].map((edge, index) => (
+          memo[category].map((node, index) => (
             <Grid item key={index} xs={12} sm={6} lg={4}>
-              <Card
-                loading={false}
-                data={edge.node}
-                image={data.allFile.edges[0]}
-              />
+              <Card loading={false} data={node} image={node.image} />
             </Grid>
           ))}
     </Grid>

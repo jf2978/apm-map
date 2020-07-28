@@ -130,6 +130,7 @@ exports.onCreateNode = async ({
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
+  // Create mentor profile pages
   const profileTemplate = path.resolve(`src/templates/profileTemplate.js`);
   return graphql(`
     query mentorsWithResourcesQuery {

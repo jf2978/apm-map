@@ -90,14 +90,7 @@ export default function MediaCard({ loading, data, image }) {
         href={loading ? null : data.link}
         className={classes.cardActionArea}
       >
-        {image && (
-          <>
-            <CardMedia className={classes.cardMedia} title={data.name}>
-              <Img fluid={image.node.childImageSharp.fluid} />
-            </CardMedia>
-            <Divider variant="middle" light />
-          </>
-        )}
+        <Img sizes={{ ...image.childImageSharp.fluid, aspectRatio: 16 / 9 }} />
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
             {data.name}
@@ -109,11 +102,9 @@ export default function MediaCard({ loading, data, image }) {
             <>
               <Chip size="small" label={data.category} color="primary" />
               {data.tags &&
-                data.tags
-                  .split(",")
-                  .map((value) => (
-                    <Chip size="small" label={value} color="secondary" />
-                  ))}
+                data.tags.map((value) => (
+                  <Chip size="small" label={value} color="secondary" />
+                ))}
             </>
           </Box>
         )}

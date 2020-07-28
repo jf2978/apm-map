@@ -32,6 +32,7 @@
     "develop": "GATSBY_ENV=development gatsby develop",
     "build": "GATSBY_ENV=production gatsby build",
     "serve": "GATSBY_ENV=staging gatsby serve",
+    "clean": "gatsby clean",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   }
