@@ -1,5 +1,46 @@
 const path = require("path");
+const gaxios = require("gaxios");
+const { getAuthToken, getSpreadsheet } = require("./gsheets.js");
 
+// called after all source plugins have created nodes
+// sourceNodes manually creates nodes (useful for making build-time API calls)
+// It also has the added benefit of allowing me to explicitly define and shape nodes.
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const { createNode } = actions;
+
+  // 1. Pull data from Google Sheets
+  const spreadsheetID = process.env.SPREADSHEET_ID;
+  const auth = await getAuthToken();
+  const response = await getSpreadsheet({
+    spreadsheetId: spreadsheetID,
+    auth: auth,
+    sheetName: "PM Recruiting Resources",
+  });
+
+  console.log(JSON.stringify(response.data, null, 2));
+};
+
+// the "node" can be any object, and is the center of Gatsby's data system (supported by Redux for state management)
+// onCreateNode is called whenever a node is created (directly or from plugins)
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === "MentorsJson") {
+    const slug = `/mentors/${node.name}`.split(" ").join("-").toLowerCase();
+
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
+};
+
+// called after sourcing and transformation of nodes
+// createPages programmatically creates pages (often using GraphQL-queried data)
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
@@ -38,17 +79,4 @@ exports.createPages = ({ actions, graphql }) => {
       });
     });
   });
-};
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === "MentorsJson") {
-    const slug = `/mentors/${node.name}`.split(" ").join("-").toLowerCase();
-
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    });
-  }
 };
