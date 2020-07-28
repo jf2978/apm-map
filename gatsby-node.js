@@ -1,12 +1,34 @@
 const path = require("path");
-const gaxios = require("gaxios");
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
 const { getAuthToken, getSpreadsheet } = require("./gsheets.js");
+
+// createSchemaCustomization explicitly defines GraphQL data types
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type RecruitingResource implements Node {
+      id: String!
+      name: String!
+      description: String,
+      link: String!,
+      category: String,
+      tags: [String],
+      type: String,
+      stage: String,
+      imageUrl: String,
+      image: File @link(from: "image___NODE")
+    }
+  `);
+};
 
 // called after all source plugins have created nodes
 // sourceNodes manually creates nodes (useful for making build-time API calls)
 // It also has the added benefit of allowing me to explicitly define and shape nodes.
 exports.sourceNodes = async ({
   actions,
+  store,
+  cache,
   createNodeId,
   createContentDigest,
 }) => {
@@ -41,8 +63,9 @@ exports.sourceNodes = async ({
 
   // 3. Create Gatsby nodes from the sanitized Google Sheets data
   rows.map((row, index) => {
+    const nodeID = createNodeId(`${index}`);
     const node = {
-      id: createNodeId(`${index}`),
+      id: nodeID,
       parent: `__SOURCE__`,
       internal: {
         type: `RecruitingResource`, // name of the GraphQL query --> allItem {}
@@ -62,10 +85,17 @@ exports.sourceNodes = async ({
   });
 };
 
-// the "node" can be any object, and is the center of Gatsby's data system (supported by Redux for state management)
+// A "node" can be any object, and is the center of Gatsby's data system (supported by Redux for state management)
 // onCreateNode is called whenever a node is created (directly or from plugins)
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  cache,
+  store,
+}) => {
+  const { createNode, createNodeField } = actions;
   if (node.internal.type === "MentorsJson") {
     const slug = `/mentors/${node.name}`.split(" ").join("-").toLowerCase();
 
@@ -74,6 +104,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       value: slug,
     });
+  }
+
+  // For all RecruitingResource nodes that have an image url, call createRemoteFileNode
+  if (node.internal.type === "RecruitingResource" && node.image !== null) {
+    const fileNode = await createRemoteFileNode({
+      url: node.image, // string that points to the URL of the image
+      parentNodeId: node.id,
+      createNode,
+      createNodeId,
+      cache, // Gatsby's cache
+      store, // Gatsby's redux store
+    });
+
+    // if the file node was created, attach it to the parent node
+    // ___NODE tells GraphQL that the name before it is going to be a field on the parent Node that links to another Node
+    if (fileNode) {
+      node.image___NODE = fileNode.id;
+    }
   }
 };
 
