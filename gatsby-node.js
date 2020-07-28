@@ -21,7 +21,45 @@ exports.sourceNodes = async ({
     sheetName: "PM Recruiting Resources",
   });
 
-  console.log(JSON.stringify(response.data, null, 2));
+  // 2. Transform Google Sheets API response into array of objects (instead of array of arrays)
+  const values = response.data.values;
+  let rows = [];
+  for (var i = 1; i < values.length; i++) {
+    var rowObject = {};
+    for (var j = 0; j < values[i].length; j++) {
+      var value = values[i][j].length === 0 ? null : values[i][j];
+      rowObject[values[0][j]] = value;
+    }
+
+    // split comma-separated tags into an array if non-null
+    rowObject.tags = rowObject.tags
+      ? rowObject.tags.split(",")
+      : rowObject.tags;
+
+    rows.push(rowObject);
+  }
+
+  // 3. Create Gatsby nodes from the sanitized Google Sheets data
+  rows.map((row, index) => {
+    const node = {
+      id: createNodeId(`${index}`),
+      parent: `__SOURCE__`,
+      internal: {
+        type: `RecruitingResource`, // name of the GraphQL query --> allItem {}
+        contentDigest: createContentDigest(value),
+      },
+      children: [],
+      name: row.name,
+      link: row.link,
+      category: row.category,
+      type: row.type,
+      description: row.description,
+      tags: row.tags,
+      image: row.image,
+    };
+
+    createNode(node);
+  });
 };
 
 // the "node" can be any object, and is the center of Gatsby's data system (supported by Redux for state management)
