@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Container from "@material-ui/core/Container";
 import TabContext from "@material-ui/lab/TabContext";
 import theme from "../theme";
 import Copyright from "./Copyright";
@@ -26,10 +27,14 @@ function LinkTab(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    overflow: "hidden",
+  },
   appBar: {
     display: "flex",
     justifyContent: "flex-end",
-    backgroundColor: theme.palette.background.paper,
+    background: "transparent",
+    boxShadow: "none",
   },
   tabs: {
     color: theme.palette.text.primary,
@@ -46,7 +51,11 @@ export default function Layout({ value, handleChange, children }) {
   return (
     <Context.Consumer>
       {(context) => (
-        <>
+        <Container
+          disableGutters
+          maxWidth={false}
+          className={classes.container}
+        >
           <AppBar className={classes.appBar} position="static" elevated={0}>
             <Tabs
               centered
@@ -66,7 +75,7 @@ export default function Layout({ value, handleChange, children }) {
           <footer className={classes.footer}>
             <Copyright />
           </footer>
-        </>
+        </Container>
       )}
     </Context.Consumer>
   );
