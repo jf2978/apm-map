@@ -1,6 +1,6 @@
 const path = require("path");
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
-const { getAuthToken, getSpreadsheet } = require("./gsheets.js");
+const { getRows } = require("./gsheets.js");
 
 // createSchemaCustomization explicitly defines GraphQL data types
 exports.createSchemaCustomization = ({ actions }) => {
@@ -34,34 +34,10 @@ exports.sourceNodes = async ({
 }) => {
   const { createNode } = actions;
 
-  // 1. Pull data from Google Sheets
-  const spreadsheetID = process.env.SPREADSHEET_ID;
-  const auth = await getAuthToken();
-  const response = await getSpreadsheet({
-    spreadsheetId: spreadsheetID,
-    auth: auth,
-    sheetName: "PM Recruiting Resources",
-  });
+  // 1. Pull, sanitize and transform data from Google Sheets
+  const rows = await getRows();
 
-  // 2. Transform Google Sheets API response into array of objects (instead of array of arrays)
-  const values = response.data.values;
-  let rows = [];
-  for (var i = 1; i < values.length; i++) {
-    var rowObject = {};
-    for (var j = 0; j < values[i].length; j++) {
-      var value = values[i][j].length === 0 ? null : values[i][j];
-      rowObject[values[0][j]] = value;
-    }
-
-    // split comma-separated tags into an array if non-null
-    rowObject.tags = rowObject.tags
-      ? rowObject.tags.split(",")
-      : rowObject.tags;
-
-    rows.push(rowObject);
-  }
-
-  // 3. Create Gatsby nodes from the sanitized Google Sheets data
+  // 2. Create Gatsby nodes from the sanitized Google Sheets data
   rows.map((row, index) => {
     const nodeID = createNodeId(`${index}`);
     const node = {
@@ -69,7 +45,7 @@ exports.sourceNodes = async ({
       parent: `__SOURCE__`,
       internal: {
         type: `RecruitingResource`, // name of the GraphQL query --> allItem {}
-        contentDigest: createContentDigest(value),
+        contentDigest: createContentDigest(row),
       },
       children: [],
       name: row.name,

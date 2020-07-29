@@ -1,6 +1,4 @@
 import React from "react";
-
-import theme from "../theme";
 import Layout from "../components/Layout";
 import { Context } from "../../provider";
 import Directory from "../components/directory/Directory";

@@ -22,7 +22,7 @@ export default function Directory() {
   // filter (categories) state
   const [category, setCategory] = React.useState("All");
   const toggleCategory = (value) => {
-    value === category ? setCategory("All") : setCategory(value);
+    setCategory(value);
   };
 
   return (
