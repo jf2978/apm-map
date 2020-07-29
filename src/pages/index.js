@@ -15,7 +15,6 @@ export default function Index() {
             <Splash
               title="APM Map"
               subtitle="Discover resources to help you navigate your journey into product management"
-              emoji={<Emoji symbol="🗺️" label="map" />}
             />
             <Hero
               title="APM Map"
