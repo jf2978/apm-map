@@ -8,6 +8,11 @@ const sheets = google.sheets("v4");
 async function getAuthToken() {
   const auth = new google.auth.GoogleAuth({
     scopes: SCOPES,
+    projectId: process.env.GCLOUD_PROJECT,
+    credentials: {
+      client_email: process.env.GCLOUD_CLIENT_EMAIL,
+      private_key: process.env.GCLOUD_PRIVATE_KEY.split("\\n").join("\n"),
+    },
   });
   const authToken = await auth.getClient();
   return authToken;
@@ -58,9 +63,4 @@ async function getRows() {
 
 module.exports = {
   getRows,
-};
-
-// Netlify function handler to pull data via environment-authenticated Sheets API
-exports.handler = async function (event, context, callback) {
-  // TODO: handle API calls from prod env variables
 };
