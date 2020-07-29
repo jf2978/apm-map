@@ -34,47 +34,73 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Splash({ title, subtitle }) {
   const classes = useStyles();
+  const apm = Array.from("APM");
 
-  /* const frameVariants = {
-    before: { Initial State },
-    after: { Animated State, transition: { Transition Details }}
-  } */
+  const containerVariants = {
+    before: {},
+    after: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const letterVariants = {
+    before: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 16,
+        stiffness: 200,
+      },
+    },
+    after: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 16,
+        stiffness: 200,
+      },
+    },
+  };
 
   return (
     <Box className={classes.box}>
       {false && <Video src={bg} />}
-      <Grow in={true} timeout={1600}>
-        <Box mt="20rem">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom
+      <Frame
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+        center="y"
+        width={"100%"}
+        variants={containerVariants}
+        initial={"before"}
+        animate={"after"}
+        backgroundColor="rgba(0, 170, 255, 0.5)"
+        size={300}
+      >
+        {apm.map((letter, index) => (
+          <Frame
+            key={index}
+            size={"auto"}
+            style={{ position: "relative" }} // Position elements
+            variants={letterVariants}
           >
-            {title}
-
-            <Frame
-              style={{
-                display: "inline",
-                overflow: "hidden",
-              }}
-              size="auto"
-              whileHover={{ scale: 1.1 }}
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
             >
-              <Emoji symbol="🗺️" label="map" />
-            </Frame>
-          </Typography>
-          <Typography
-            variant="h6"
-            align="center"
-            color="textSecondary"
-            paragraph
-          >
-            {subtitle}
-          </Typography>
-        </Box>
-      </Grow>
+              {letter}
+            </Typography>
+          </Frame>
+        ))}
+      </Frame>
     </Box>
   );
 }
