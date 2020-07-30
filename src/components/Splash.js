@@ -89,12 +89,15 @@ export default function Splash(props) {
 
   const mapControls = useAnimation();
   const subtitleControls = useAnimation();
+  const arrowControls = useAnimation();
 
   async function sequence() {
     await apmControls.start("after");
     await apmControls.start("slide");
     await mapControls.start("after");
-    return await subtitleControls.start("after");
+    await subtitleControls.start("after");
+    await arrowControls.start("after");
+    return await arrowControls.start("pulsate");
   }
 
   const mapVariants = {
@@ -118,6 +121,35 @@ export default function Splash(props) {
     },
   };
 
+  const arrowVariants = {
+    before: {
+      opacity: 0,
+      y: 25,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 500,
+      },
+    },
+    after: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 500,
+      },
+    },
+    pulsate: {
+      y: 10,
+      transition: {
+        from: 0,
+        to: 10,
+        flip: Infinity,
+        duration: 1,
+      },
+    },
+  };
   return (
     <Box className={classes.box}>
       {true && <Video src={bg} />}
@@ -258,12 +290,37 @@ export default function Splash(props) {
             </Typography>
           </Frame>
         </Frame>
+        <Frame
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+          background={""}
+          size="auto"
+          initial="before"
+          animate={arrowControls}
+          variants={mapContainerVariants}
+        >
+          <Frame
+            background={""}
+            position="relative"
+            center="y"
+            size="auto"
+            variants={arrowVariants}
+          >
+            <ScrollToDirectory {...props}>
+              <Fab
+                color="transparent"
+                size="small"
+                variant="extended"
+                aria-label="scroll to directory"
+              >
+                <KeyboardArrowDownIcon />
+              </Fab>
+            </ScrollToDirectory>
+          </Frame>
+        </Frame>
       </Stack>
-      <ScrollToDirectory {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
-          <KeyboardArrowDownIcon />
-        </Fab>
-      </ScrollToDirectory>
     </Box>
   );
 }
