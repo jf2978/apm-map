@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Fade from "@material-ui/core/Fade";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 import bg from "../../static/assets/bg-video-1.mp4";
 import Video from "../components/Video";
@@ -23,6 +24,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+  },
+  title: {
+    color: theme.palette.grey[50],
+  },
+  subtitle: {
+    color: theme.palette.grey[300],
   },
 }));
 
@@ -40,15 +47,6 @@ export default function Splash({ title, subtitle }) {
     after: { transition: { staggerChildren: 0.1 } },
   };
 
-  const springTransition = {
-    type: "spring",
-    damping: 15,
-    stiffness: 700,
-  };
-
-  /**
-   * A-P-M letter sequence
-   */
   const apmControls = useAnimation();
 
   const letterVariants = {
@@ -123,90 +121,122 @@ export default function Splash({ title, subtitle }) {
         }}
         center
         size="auto"
-        direction="horizontal"
       >
-        <Frame
+        <Stack
           style={{
             display: "flex",
             justifyContent: "center",
+            alignItems: "center",
           }}
           size="auto"
-          initial="before"
-          animate={apmControls}
-          variants={apmContainerVariants}
-        >
-          {["A", "P", "M"].map((letter, index) => (
-            <Frame
-              custom={index}
-              position="relative"
-              center="y"
-              size="auto"
-              variants={letterVariants}
-            >
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="white"
-                gutterBottom
-              >
-                {letter}
-              </Typography>
-            </Frame>
-          ))}
-        </Frame>
-        <Frame
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-          size="auto"
-          initial="before"
-          animate={mapControls}
-          variants={mapContainerVariants}
+          direction="horizontal"
         >
           <Frame
-            position="relative"
-            center="y"
+            style={{
+              display: "flex",
+            }}
+            background={""}
             size="auto"
-            variants={mapVariants}
+            initial="before"
+            animate={apmControls}
+            variants={apmContainerVariants}
           >
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-            >
-              Map
-            </Typography>
+            {["A", "P", "M"].map((letter, index) => (
+              <Frame
+                custom={index}
+                background={""}
+                position="relative"
+                center="y"
+                size="auto"
+                variants={letterVariants}
+              >
+                <Typography
+                  className={classes.title}
+                  component="h1"
+                  variant="h2"
+                  align="center"
+                  color="white"
+                  gutterBottom
+                >
+                  {letter}
+                </Typography>
+              </Frame>
+            ))}
           </Frame>
           <Frame
             style={{
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
             }}
-            center="y"
-            position="relative"
+            background={""}
             size="auto"
-            variants={mapVariants}
+            initial="before"
+            animate={mapControls}
+            variants={mapContainerVariants}
           >
-            <Typography variant="h2" align="center">
-              {"\u00A0"}
-              <Emoji symbol="🗺️" label="map" />
-            </Typography>
+            <Frame
+              background={""}
+              position="relative"
+              center="y"
+              size="auto"
+              variants={mapVariants}
+            >
+              <Typography
+                className={classes.title}
+                component="h1"
+                variant="h2"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                Map
+              </Typography>
+            </Frame>
+            <Frame
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              background={""}
+              center="y"
+              position="relative"
+              size="auto"
+              variants={mapVariants}
+            >
+              <Typography variant="h2" align="center">
+                {"\u00A0"}
+                <Emoji symbol="🗺️" label="map" />
+              </Typography>
+            </Frame>
+            <Frame
+              position="relative"
+              center="y"
+              size="auto"
+              variants={mapVariants}
+              background={""}
+            >
+              <Typography variant="h6" align="center">
+                <Emoji symbol="✨" label="sparkle" />
+              </Typography>
+            </Frame>
           </Frame>
-          <Frame
-            position="relative"
-            center="y"
-            size="auto"
-            variants={mapVariants}
+        </Stack>
+        <Frame
+          position="relative"
+          center="y"
+          size="auto"
+          variants={mapVariants}
+        >
+          <Typography
+            className={classes.subtitle}
+            variant="h6"
+            align="center"
+            color="textSecondary"
+            paragraph
           >
-            <Typography variant="h6" align="center">
-              <Emoji symbol="✨" label="sparkle" />
-            </Typography>
-          </Frame>
+            {subtitle}
+          </Typography>
         </Frame>
       </Stack>
     </Box>
