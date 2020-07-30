@@ -35,13 +35,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Splash({ title, subtitle }) {
   const classes = useStyles();
 
+  // container: top-level Frame div
   const containerVariants = {
     before: {},
-    after: {
-      transition: {
-        staggerChildren: 0.5,
-      },
-    },
+    after: { transition: { staggerChildren: 0.75 } },
   };
 
   const springTransition = {
@@ -50,11 +47,50 @@ export default function Splash({ title, subtitle }) {
     stiffness: 200,
   };
 
+  /**
+   * A-P-M letter sequence
+   */
+  const letterControls = useAnimation();
+  async function letterSequence() {
+    await letterControls.start("after");
+    return await letterControls.start("slide");
+  }
+
   const letterVariants = {
+    before: (i) => ({
+      opacity: 0,
+      y: 25,
+      x: i * 50,
+      transition: springTransition,
+    }),
+    after: {
+      opacity: 1,
+      y: 0,
+      transition: springTransition,
+    },
+    slide: (i) => ({
+      opacity: 1,
+      y: 0,
+      x: 0,
+      transition: springTransition,
+    }),
+  };
+
+  useEffect(() => {
+    sequence();
+  }, []);
+
+  const mapControls = useAnimation();
+  async function sequence() {
+    await letterControls.start("after");
+    await letterControls.start("slide");
+    return await mapControls.start("after");
+  }
+
+  const mapVariants = {
     before: {
       opacity: 0,
       y: 25,
-      right: 50,
       transition: springTransition,
     },
     after: {
@@ -78,16 +114,25 @@ export default function Splash({ title, subtitle }) {
         animate="after"
         variants={containerVariants}
       >
-        <Stack direction="horizontal">
+        <Stack
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+          center="y"
+          width="auto"
+          direction="horizontal"
+        >
           {["A", "P", "M"].map((letter, index) => (
             <Frame
               custom={index}
+              center="y"
               size="auto"
               style={{ position: "relative" }}
+              animate={letterControls}
               variants={letterVariants}
             >
               <Typography
-                className={classes.letter}
                 component="h1"
                 variant="h2"
                 align="center"
@@ -98,6 +143,24 @@ export default function Splash({ title, subtitle }) {
               </Typography>
             </Frame>
           ))}
+          <Frame
+            style={{ position: "relative" }}
+            center="y"
+            size="auto"
+            initial="before"
+            animate={mapControls}
+            variants={mapVariants}
+          >
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              Map
+            </Typography>
+          </Frame>
         </Stack>
       </Frame>
     </Box>
