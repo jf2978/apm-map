@@ -8,8 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Fade from "@material-ui/core/Fade";
-import { getThemeProps } from "@material-ui/styles";
-import { Grow } from "@material-ui/core";
 
 import bg from "../../static/assets/bg-video-1.mp4";
 import Video from "../components/Video";
@@ -32,44 +30,55 @@ export default function Splash({ title, subtitle }) {
   const classes = useStyles();
 
   // container: top-level Frame div
-  const containerVariants = {
+  const apmContainerVariants = {
     before: {},
     after: { transition: { staggerChildren: 0.75 } },
   };
 
+  const mapContainerVariants = {
+    before: {},
+    after: { transition: { staggerChildren: 0.1 } },
+  };
+
   const springTransition = {
     type: "spring",
-    damping: 16,
-    stiffness: 200,
+    damping: 15,
+    stiffness: 700,
   };
 
   /**
    * A-P-M letter sequence
    */
-  const letterControls = useAnimation();
-  async function letterSequence() {
-    await letterControls.start("after");
-    return await letterControls.start("slide");
-  }
+  const apmControls = useAnimation();
 
   const letterVariants = {
     before: (i) => ({
       opacity: 0,
+      x: i * 25,
       y: 25,
-      x: i * 50,
-      transition: springTransition,
+      transition: {
+        type: "spring",
+        damping: 100,
+        stiffness: 500,
+      },
     }),
     after: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: {
+        type: "spring",
+        damping: 100,
+        stiffness: 500,
+      },
     },
-    slide: (i) => ({
-      opacity: 1,
-      y: 0,
+    slide: {
       x: 0,
-      transition: springTransition,
-    }),
+      transition: {
+        type: "spring",
+        damping: 100,
+        stiffness: 500,
+      },
+    },
   };
 
   useEffect(() => {
@@ -77,9 +86,10 @@ export default function Splash({ title, subtitle }) {
   }, []);
 
   const mapControls = useAnimation();
+
   async function sequence() {
-    await letterControls.start("after");
-    await letterControls.start("slide");
+    await apmControls.start("after");
+    await apmControls.start("slide");
     return await mapControls.start("after");
   }
 
@@ -87,120 +97,118 @@ export default function Splash({ title, subtitle }) {
     before: {
       opacity: 0,
       y: 25,
-      transition: springTransition,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 500,
+      },
     },
     after: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 500,
+      },
     },
   };
 
   return (
     <Box className={classes.box}>
       {true && <Video src={bg} />}
-      <Frame
+      <Stack
         style={{
           display: "flex",
-          justifyContent: "center",
         }}
-        center="y"
-        width="auto"
-        initial="before"
-        animate="after"
-        variants={containerVariants}
+        center
+        size="auto"
+        direction="horizontal"
       >
-        <Stack
+        <Frame
           style={{
             display: "flex",
             justifyContent: "center",
           }}
-          center="y"
-          width="auto"
-          direction="horizontal"
+          size="auto"
+          initial="before"
+          animate={apmControls}
+          variants={apmContainerVariants}
         >
           {["A", "P", "M"].map((letter, index) => (
             <Frame
               custom={index}
+              position="relative"
               center="y"
               size="auto"
-              style={{ position: "relative" }}
-              animate={letterControls}
               variants={letterVariants}
             >
               <Typography
                 component="h1"
                 variant="h2"
                 align="center"
-                color="textPrimary"
+                color="white"
                 gutterBottom
               >
                 {letter}
               </Typography>
             </Frame>
           ))}
-          <Stack
+        </Frame>
+        <Frame
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+          size="auto"
+          initial="before"
+          animate={mapControls}
+          variants={mapContainerVariants}
+        >
+          <Frame
+            position="relative"
+            center="y"
+            size="auto"
+            variants={mapVariants}
+          >
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              Map
+            </Typography>
+          </Frame>
+          <Frame
             style={{
               display: "flex",
               justifyContent: "center",
+              alignItems: "center",
             }}
             center="y"
-            width="auto"
-            direction="horizontal"
+            position="relative"
+            size="auto"
+            variants={mapVariants}
           >
-            <Frame
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              center="y"
-              size="auto"
-              initial="before"
-              animate={mapControls}
-              variants={mapVariants}
-            >
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="textPrimary"
-                gutterBottom
-              >
-                Map
-              </Typography>
-            </Frame>
-            <Frame
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              center="y"
-              size="auto"
-              initial="before"
-              animate={mapControls}
-              variants={mapVariants}
-            >
-              <Typography variant="h2" align="center">
-                <Emoji symbol="🗺️" label="map" />
-              </Typography>
-            </Frame>
-            <Frame
-              style={{ position: "relative" }}
-              center="y"
-              size={"auto"}
-              initial="before"
-              animate={mapControls}
-              variants={mapVariants}
-            >
-              <Typography variant="h5" color="textPrimary" gutterBottom>
-                <Emoji style={classes.emoji} symbol="✨" label="sparkle" />
-              </Typography>
-            </Frame>
-          </Stack>
-        </Stack>
-      </Frame>
+            <Typography variant="h2" align="center">
+              {"\u00A0"}
+              <Emoji symbol="🗺️" label="map" />
+            </Typography>
+          </Frame>
+          <Frame
+            position="relative"
+            center="y"
+            size="auto"
+            variants={mapVariants}
+          >
+            <Typography variant="h6" align="center">
+              <Emoji symbol="✨" label="sparkle" />
+            </Typography>
+          </Frame>
+        </Frame>
+      </Stack>
     </Box>
   );
 }
