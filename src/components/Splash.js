@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Frame, Scroll, useCycle } from "framer";
+import { Frame, Stack, useAnimation, useCycle } from "framer";
 
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -34,72 +34,71 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Splash({ title, subtitle }) {
   const classes = useStyles();
-  const apm = Array.from("APM");
 
   const containerVariants = {
     before: {},
     after: {
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.5,
       },
     },
+  };
+
+  const springTransition = {
+    type: "spring",
+    damping: 16,
+    stiffness: 200,
   };
 
   const letterVariants = {
     before: {
       opacity: 0,
-      y: 20,
-      transition: {
-        type: "spring",
-        damping: 16,
-        stiffness: 200,
-      },
+      y: 25,
+      right: 50,
+      transition: springTransition,
     },
     after: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        damping: 16,
-        stiffness: 200,
-      },
+      transition: springTransition,
     },
   };
 
   return (
     <Box className={classes.box}>
-      {false && <Video src={bg} />}
+      {true && <Video src={bg} />}
       <Frame
         style={{
           display: "flex",
           justifyContent: "center",
         }}
         center="y"
-        width={"100%"}
+        width="auto"
+        initial="before"
+        animate="after"
         variants={containerVariants}
-        initial={"before"}
-        animate={"after"}
-        backgroundColor="rgba(0, 170, 255, 0.5)"
-        size={300}
       >
-        {apm.map((letter, index) => (
-          <Frame
-            key={index}
-            size={"auto"}
-            style={{ position: "relative" }} // Position elements
-            variants={letterVariants}
-          >
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
+        <Stack direction="horizontal">
+          {["A", "P", "M"].map((letter, index) => (
+            <Frame
+              custom={index}
+              size="auto"
+              style={{ position: "relative" }}
+              variants={letterVariants}
             >
-              {letter}
-            </Typography>
-          </Frame>
-        ))}
+              <Typography
+                className={classes.letter}
+                component="h1"
+                variant="h2"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                {letter}
+              </Typography>
+            </Frame>
+          ))}
+        </Stack>
       </Frame>
     </Box>
   );
