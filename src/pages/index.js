@@ -4,6 +4,7 @@ import { Context } from "../../provider";
 import Directory from "../components/directory/Directory";
 import Hero from "../components/Hero";
 import Emoji from "../components/Emoji";
+import Splash from "../components/Splash";
 
 export default function Index() {
   return (
@@ -11,11 +12,15 @@ export default function Index() {
       <Context.Consumer>
         {(context) => (
           <>
-            <Hero
-              id="directory-hero"
+            <Splash
               title="APM Map"
               subtitle="Discover resources to help you navigate your journey into product management"
-              emoji={<Emoji symbol="🗺️" label="map" />}
+            />
+            <Hero
+              id="directory-hero"
+              title="The Journey"
+              subtitle="Explore our directory of resources that'll help you get the lay of the land"
+              emoji={<Emoji symbol="⛰️" label="mountain" />}
             />
             <Directory />
           </>
