@@ -152,7 +152,7 @@ export default function Splash(props) {
   };
   return (
     <Box className={classes.box}>
-      {true && <Video src={bg} />}
+      <Video src={bg} />
       <Stack
         style={{
           display: "flex",
@@ -330,7 +330,7 @@ function ScrollToDirectory(props) {
 
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
-      "#directory"
+      "#directory-hero"
     );
 
     console.log(anchor);
