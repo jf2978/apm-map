@@ -26,10 +26,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
-  sparkle: {
-    width: "20px",
-    height: "20px",
-  },
 }));
 
 export default function Splash({ title, subtitle }) {
@@ -143,24 +139,66 @@ export default function Splash({ title, subtitle }) {
               </Typography>
             </Frame>
           ))}
-          <Frame
-            style={{ position: "relative" }}
+          <Stack
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
             center="y"
-            size="auto"
-            initial="before"
-            animate={mapControls}
-            variants={mapVariants}
+            width="auto"
+            direction="horizontal"
           >
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
+            <Frame
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              center="y"
+              size="auto"
+              initial="before"
+              animate={mapControls}
+              variants={mapVariants}
             >
-              Map
-            </Typography>
-          </Frame>
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                Map
+              </Typography>
+            </Frame>
+            <Frame
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              center="y"
+              size="auto"
+              initial="before"
+              animate={mapControls}
+              variants={mapVariants}
+            >
+              <Typography variant="h2" align="center">
+                <Emoji symbol="🗺️" label="map" />
+              </Typography>
+            </Frame>
+            <Frame
+              style={{ position: "relative" }}
+              center="y"
+              size={"auto"}
+              initial="before"
+              animate={mapControls}
+              variants={mapVariants}
+            >
+              <Typography variant="h5" color="textPrimary" gutterBottom>
+                <Emoji style={classes.emoji} symbol="✨" label="sparkle" />
+              </Typography>
+            </Frame>
+          </Stack>
         </Stack>
       </Frame>
     </Box>
