@@ -143,3 +143,19 @@ exports.createPages = ({ actions, graphql }) => {
     });
   });
 };
+
+// work around third-party modules that depend on "window"
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /bad-module/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
+};
