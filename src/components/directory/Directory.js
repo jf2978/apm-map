@@ -26,7 +26,12 @@ export default function Directory() {
   };
 
   return (
-    <Container disableGutters maxWidth={false} className={classes.container}>
+    <Container
+      id="directory"
+      disableGutters
+      maxWidth={false}
+      className={classes.container}
+    >
       <DirectoryAppBar selection={category} toggleCategory={toggleCategory}>
         <Container maxWidth="xl" className={classes.directory}>
           <DirectoryGrid category={category} />

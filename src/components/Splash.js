@@ -7,12 +7,16 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Fade from "@material-ui/core/Fade";
+import Fab from "@material-ui/core/Fab";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import IconButton from "@material-ui/core/IconButton";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import Zoom from "@material-ui/core/Zoom";
 
 import bg from "../../static/assets/bg-video-1.mp4";
 import Video from "../components/Video";
 import Emoji from "../components/Emoji";
+import ScrollTop from "../components/directory/DirectoryAppBar";
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -33,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Splash({ title, subtitle }) {
+export default function Splash(props) {
   const classes = useStyles();
 
   // container: top-level Frame div
@@ -250,11 +254,39 @@ export default function Splash({ title, subtitle }) {
               color="textSecondary"
               paragraph
             >
-              {subtitle}
+              {props.subtitle}
             </Typography>
           </Frame>
         </Frame>
       </Stack>
+      <ScrollToDirectory {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowDownIcon />
+        </Fab>
+      </ScrollToDirectory>
     </Box>
+  );
+}
+
+function ScrollToDirectory(props) {
+  const { children } = props;
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#directory"
+    );
+
+    console.log(anchor);
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  return (
+    <Zoom in>
+      <div onClick={handleClick} role="presentation">
+        {children}
+      </div>
+    </Zoom>
   );
 }

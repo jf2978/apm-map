@@ -16,11 +16,7 @@ export default function Index() {
               title="APM Map"
               subtitle="Discover resources to help you navigate your journey into product management"
             />
-            <Hero
-              title="APM Map"
-              subtitle="Discover resources to help you navigate your journey into product management"
-              emoji={<Emoji symbol="🗺️" label="map" />}
-            />
+
             <Directory />
           </>
         )}
