@@ -84,11 +84,13 @@ export default function Splash({ title, subtitle }) {
   }, []);
 
   const mapControls = useAnimation();
+  const subtitleControls = useAnimation();
 
   async function sequence() {
     await apmControls.start("after");
     await apmControls.start("slide");
-    return await mapControls.start("after");
+    await mapControls.start("after");
+    return await subtitleControls.start("after");
   }
 
   const mapVariants = {
@@ -120,6 +122,7 @@ export default function Splash({ title, subtitle }) {
           display: "flex",
         }}
         center
+        gap={0}
         size="auto"
       >
         <Stack
@@ -223,20 +226,33 @@ export default function Splash({ title, subtitle }) {
           </Frame>
         </Stack>
         <Frame
-          position="relative"
-          center="y"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+          background={""}
           size="auto"
-          variants={mapVariants}
+          initial="before"
+          animate={subtitleControls}
+          variants={mapContainerVariants}
         >
-          <Typography
-            className={classes.subtitle}
-            variant="h6"
-            align="center"
-            color="textSecondary"
-            paragraph
+          <Frame
+            background={""}
+            position="relative"
+            center="y"
+            size="auto"
+            variants={mapVariants}
           >
-            {subtitle}
-          </Typography>
+            <Typography
+              className={classes.subtitle}
+              variant="h6"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              {subtitle}
+            </Typography>
+          </Frame>
         </Frame>
       </Stack>
     </Box>
