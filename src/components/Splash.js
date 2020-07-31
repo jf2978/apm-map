@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Frame, Stack, useAnimation, useCycle } from "framer";
+import { motion, useAnimation } from "framer-motion";
 
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -40,84 +40,50 @@ const useStyles = makeStyles((theme) => ({
 export default function Splash(props) {
   const classes = useStyles();
 
-  // container: top-level Frame div
-  const apmContainerVariants = {
+  // container variant helper function
+  const containerVariantsWithStagger = (stagger) => ({
     before: {},
-    after: { transition: { staggerChildren: 0.75 } },
-  };
+    after: { transition: { staggerChildren: stagger } },
+  });
 
-  const mapContainerVariants = {
-    before: {},
-    after: { transition: { staggerChildren: 0.1 } },
-  };
+  // spring transition helper function
+  const springTransition = (damping, stiffness) => ({
+    type: "spring",
+    damping: damping,
+    stiffness: stiffness,
+  });
 
-  const apmControls = useAnimation();
-
+  /**
+   * Frame div variants
+   */
   const letterVariants = {
     before: (i) => ({
       opacity: 0,
       x: i * 25,
       y: 25,
-      transition: {
-        type: "spring",
-        damping: 100,
-        stiffness: 500,
-      },
+      transition: springTransition(100, 500),
     }),
     after: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        damping: 100,
-        stiffness: 500,
-      },
+      transition: springTransition(100, 500),
     },
     slide: {
       x: 0,
-      transition: {
-        type: "spring",
-        damping: 100,
-        stiffness: 500,
-      },
+      transition: springTransition(100, 500),
     },
   };
-
-  useEffect(() => {
-    sequence();
-  }, []);
-
-  const mapControls = useAnimation();
-  const subtitleControls = useAnimation();
-  const arrowControls = useAnimation();
-
-  async function sequence() {
-    await apmControls.start("after");
-    await apmControls.start("slide");
-    await mapControls.start("after");
-    await subtitleControls.start("after");
-    await arrowControls.start("after");
-    return await arrowControls.start("pulsate");
-  }
 
   const mapVariants = {
     before: {
       opacity: 0,
       y: 25,
-      transition: {
-        type: "spring",
-        damping: 20,
-        stiffness: 500,
-      },
+      transition: springTransition(20, 500),
     },
     after: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        damping: 20,
-        stiffness: 500,
-      },
+      transition: springTransition(20, 500),
     },
   };
 
@@ -125,20 +91,12 @@ export default function Splash(props) {
     before: {
       opacity: 0,
       y: 25,
-      transition: {
-        type: "spring",
-        damping: 20,
-        stiffness: 500,
-      },
+      transition: springTransition(20, 500),
     },
     after: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        damping: 20,
-        stiffness: 500,
-      },
+      transition: springTransition(20, 500),
     },
     pulsate: {
       y: 10,
@@ -150,38 +108,59 @@ export default function Splash(props) {
       },
     },
   };
+
+  /**
+   * Animation sequence
+   */
+  const apmControls = useAnimation();
+  const mapControls = useAnimation();
+  const subtitleControls = useAnimation();
+  const arrowControls = useAnimation();
+
+  async function sequence() {
+    await apmControls.start("after");
+    await apmControls.start("slide");
+    await mapControls.start("after");
+    subtitleControls.start("after");
+    arrowControls.start("after");
+    return arrowControls.start("pulsate");
+  }
+
+  useEffect(() => {
+    sequence();
+  }, []);
+
   return (
     <Box className={classes.box}>
       <Video src={bg} />
-      <Stack
+      <motion.div
         style={{
           display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
-        center
-        gap={0}
         size="auto"
       >
-        <Stack
+        <motion.div
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
           }}
           size="auto"
-          direction="horizontal"
         >
-          <Frame
+          <motion.div
             style={{
               display: "flex",
+              marginInlineEnd: "1em",
             }}
             background={""}
             size="auto"
             initial="before"
             animate={apmControls}
-            variants={apmContainerVariants}
+            variants={containerVariantsWithStagger(0.75)}
           >
             {["A", "P", "M"].map((letter, index) => (
-              <Frame
+              <motion.div
                 custom={index}
                 background={""}
                 position="relative"
@@ -199,21 +178,22 @@ export default function Splash(props) {
                 >
                   {letter}
                 </Typography>
-              </Frame>
+              </motion.div>
             ))}
-          </Frame>
-          <Frame
+          </motion.div>
+          <motion.div
             style={{
               display: "flex",
+              marginInlineEnd: "1em",
               justifyContent: "center",
             }}
             background={""}
             size="auto"
             initial="before"
             animate={mapControls}
-            variants={mapContainerVariants}
+            variants={containerVariantsWithStagger(0.1)}
           >
-            <Frame
+            <motion.div
               background={""}
               position="relative"
               center="y"
@@ -230,8 +210,8 @@ export default function Splash(props) {
               >
                 Map
               </Typography>
-            </Frame>
-            <Frame
+            </motion.div>
+            <motion.div
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -247,8 +227,8 @@ export default function Splash(props) {
                 {"\u00A0"}
                 <Emoji symbol="🗺️" label="map" />
               </Typography>
-            </Frame>
-            <Frame
+            </motion.div>
+            <motion.div
               position="relative"
               center="y"
               size="auto"
@@ -258,10 +238,10 @@ export default function Splash(props) {
               <Typography variant="h6" align="center">
                 <Emoji symbol="✨" label="sparkle" />
               </Typography>
-            </Frame>
-          </Frame>
-        </Stack>
-        <Frame
+            </motion.div>
+          </motion.div>
+        </motion.div>
+        <motion.div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -270,9 +250,9 @@ export default function Splash(props) {
           size="auto"
           initial="before"
           animate={subtitleControls}
-          variants={mapContainerVariants}
+          variants={containerVariantsWithStagger(0.1)}
         >
-          <Frame
+          <motion.div
             background={""}
             position="relative"
             center="y"
@@ -288,9 +268,9 @@ export default function Splash(props) {
             >
               {props.subtitle}
             </Typography>
-          </Frame>
-        </Frame>
-        <Frame
+          </motion.div>
+        </motion.div>
+        <motion.div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -299,9 +279,9 @@ export default function Splash(props) {
           size="auto"
           initial="before"
           animate={arrowControls}
-          variants={mapContainerVariants}
+          variants={containerVariantsWithStagger(0.1)}
         >
-          <Frame
+          <motion.div
             background={""}
             position="relative"
             center="y"
@@ -318,9 +298,9 @@ export default function Splash(props) {
                 <KeyboardArrowDownIcon />
               </Fab>
             </ScrollToDirectory>
-          </Frame>
-        </Frame>
-      </Stack>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </Box>
   );
 }
