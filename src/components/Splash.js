@@ -13,10 +13,12 @@ import IconButton from "@material-ui/core/IconButton";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Zoom from "@material-ui/core/Zoom";
 
-import bg from "../../static/assets/bg-video-1.mp4";
 import Video from "../components/Video";
 import Emoji from "../components/Emoji";
 import ScrollTop from "../components/directory/DirectoryAppBar";
+
+const videoSrc =
+  "https://storage.googleapis.com/apm-map-assets/bg-video-1-trimmed.mp4";
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     height: "100vh",
     width: "100vw",
-    backgroundImage: `url(${bg})`,
+    backgroundImage: `url(${videoSrc})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -56,6 +58,22 @@ export default function Splash(props) {
   /**
    * Frame div variants
    */
+  const bgVariants = {
+    before: {
+      opacity: 0,
+      transition: {
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+    after: {
+      opacity: 1,
+      transition: {
+        ease: "easeIn",
+        duration: 1,
+      },
+    },
+  };
   const letterVariants = {
     before: (i) => ({
       opacity: 0,
@@ -112,15 +130,19 @@ export default function Splash(props) {
   /**
    * Animation sequence
    */
+  const bgControls = useAnimation();
   const apmControls = useAnimation();
   const mapControls = useAnimation();
   const subtitleControls = useAnimation();
   const arrowControls = useAnimation();
 
   async function sequence() {
+    await bgControls.start("after");
     await apmControls.start("after");
     await apmControls.start("slide");
     await mapControls.start("after");
+
+    // no particular order for these at this point
     subtitleControls.start("after");
     arrowControls.start("after");
     return arrowControls.start("pulsate");
@@ -132,7 +154,9 @@ export default function Splash(props) {
 
   return (
     <Box className={classes.box}>
-      <Video src={bg} />
+      <motion.div animate={bgControls} variants={bgVariants}>
+        <Video src={videoSrc} />
+      </motion.div>
       <motion.div
         style={{
           display: "flex",
