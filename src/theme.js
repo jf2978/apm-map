@@ -13,29 +13,26 @@ let theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: [
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(","),
+    fontFamily: '"Montserrat", serif',
+    subtitle1: {
+      fontFamily: "'Hind', sans-serif",
+    },
     h5: {
       fontSize: 26,
       fontWeight: 600,
     },
     h6: {
-      fontSize: 22,
+      fontSize: 24,
       fontWeight: 400,
       fontStyle: "italic",
     },
     h2: {
-      fontWeight: 700,
+      fontSize: 72,
+      fontWeight: 800,
+    },
+    h1: {
+      fontSize: 108,
+      fontWeight: 1000,
     },
   },
   shape: {

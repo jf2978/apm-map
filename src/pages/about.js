@@ -1,20 +1,13 @@
 import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import { ThemeProvider } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
 
-import theme from "../theme";
 import Layout from "../components/Layout";
 import { Context } from "../../provider";
-import Directory from "../components/directory/Directory";
 import Emoji from "../components/Emoji";
-import Hero from "../components/Hero";
 import Blurb from "../components/Blurb";
 import { Grid, Divider } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
 

@@ -1,13 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Container from "@material-ui/core/Container";
-import TabContext from "@material-ui/lab/TabContext";
-import theme from "../theme";
 import Copyright from "./Copyright";
 import { Context } from "../../provider";
 import { Link } from "gatsby";
@@ -68,7 +64,7 @@ export default function Layout({ value, handleChange, children }) {
             >
               <LinkTab label="Directory" to="/" {...a11yProps(0)} />
               <LinkTab label="About" to="/about" {...a11yProps(1)} />
-              <LinkTab label="Mentors" to="/mentors" {...a11yProps(2)} />
+              <LinkTab label="Guides" to="/guides" {...a11yProps(2)} />
             </Tabs>
           </AppBar>
           <main>{children}</main>

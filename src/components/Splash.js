@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import IconButton from "@material-ui/core/IconButton";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Zoom from "@material-ui/core/Zoom";
 
 import Video from "../components/Video";
 import Emoji from "../components/Emoji";
-import ScrollTop from "../components/directory/DirectoryAppBar";
 
 const videoSrc =
   "https://storage.googleapis.com/apm-map-assets/bg-video-1-trimmed.mp4";
@@ -150,7 +144,7 @@ export default function Splash(props) {
 
   useEffect(() => {
     sequence();
-  }, []);
+  });
 
   return (
     <Box className={classes.box}>
@@ -181,7 +175,7 @@ export default function Splash(props) {
             size="auto"
             initial="before"
             animate={apmControls}
-            variants={containerVariantsWithStagger(0.75)}
+            variants={containerVariantsWithStagger(0.5)}
           >
             {["A", "P", "M"].map((letter, index) => (
               <motion.div
@@ -194,8 +188,7 @@ export default function Splash(props) {
               >
                 <Typography
                   className={classes.title}
-                  component="h1"
-                  variant="h2"
+                  variant="h1"
                   align="center"
                   color="white"
                   gutterBottom
@@ -226,28 +219,28 @@ export default function Splash(props) {
             >
               <Typography
                 className={classes.title}
-                component="h1"
-                variant="h2"
+                variant="h1"
                 align="center"
                 color="textPrimary"
                 gutterBottom
               >
-                Map
+                {"\u00A0"}
+                MAP
               </Typography>
             </motion.div>
             <motion.div
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
+                paddingTop: "10px",
               }}
-              background={""}
               center="y"
+              background={""}
               position="relative"
               size="auto"
               variants={mapVariants}
             >
-              <Typography variant="h2" align="center">
+              <Typography variant="h1" align="center">
                 {"\u00A0"}
                 <Emoji symbol="🗺️" label="map" />
               </Typography>

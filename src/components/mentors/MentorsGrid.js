@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Grid, Container } from "@material-ui/core";
 import { useStaticQuery, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "../MediaCard";
+
 import AvatarCard from "./AvatarCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +43,6 @@ export default function MentorsGrid({ category }) {
       }
     }
   `);
-  const [loading, setLoading] = useState(true);
 
   return (
     <Container disableGutters maxWidth={false}>
