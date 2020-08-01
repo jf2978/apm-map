@@ -131,7 +131,7 @@ function ElevationScroll(props) {
   const { children } = props;
   const elevationTrigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 375, // vertical scroll value that'll trigger this
+    threshold: 1250, // vertical scroll value that'll trigger this
   });
 
   return React.cloneElement(children, {
@@ -148,7 +148,7 @@ function ScrollTop(props) {
   const classes = useStyles();
   const topTrigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 450, // vertical scroll value that'll trigger this
+    threshold: 1400, // vertical scroll value that'll trigger this
   });
 
   const handleClick = (event) => {

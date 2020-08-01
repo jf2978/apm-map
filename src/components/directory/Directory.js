@@ -33,7 +33,7 @@ export default function Directory() {
       className={classes.container}
     >
       <DirectoryAppBar selection={category} toggleCategory={toggleCategory}>
-        <Container maxWidth="xl" className={classes.directory}>
+        <Container maxWidth="lg" className={classes.directory}>
           <DirectoryGrid category={category} />
         </Container>
       </DirectoryAppBar>
