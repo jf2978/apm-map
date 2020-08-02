@@ -48,14 +48,14 @@ module.exports = {
         display: "swap",
       },
     },
-    /* need to install plugin{
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: `static/assets/`,
+          include: /assets/,
         },
       },
-    }, */
+    },
   ],
   siteMetadata: {
     title: "APM Map",
