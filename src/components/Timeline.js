@@ -15,10 +15,20 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(4, 2, 4),
     },
   },
-  svg: {
+  path: {
+    position: "absolute",
+    stroke: theme.palette.common.black,
+    strokeWidth: 10,
     strokeDasharray: 1000,
     strokeDashoffset: 1000,
-    animation: `$dash 2s linear infinite`,
+    animation: `$dash 2s linear forwards infinite`,
+  },
+  pathOverlay: {
+    position: "absolute",
+    stroke: theme.palette.common.white,
+    strokeWidth: 15,
+    strokeDasharray: 50,
+    strokeDashoffset: 100,
   },
   "@keyframes dash": {
     to: {
@@ -31,8 +41,15 @@ export default function Timeline() {
   const classes = useStyles();
 
   return (
-    <Box height={400} bgcolor="lightgreen" className={classes.box}>
-      <PathSVG className={classes.svg}></PathSVG>
+    <Box
+      display="flex"
+      justifyContent="center"
+      height={350}
+      bgcolor="white"
+      className={classes.box}
+    >
+      <PathSVG className={classes.path}></PathSVG>
+      <PathSVG className={classes.pathOverlay}></PathSVG>
     </Box>
   );
 }
