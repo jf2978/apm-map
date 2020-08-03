@@ -263,11 +263,6 @@ export default function DirectoryAppBar(props) {
           })}
         </List>
       </Drawer>
-      <ScrollTop {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
     </>
   );
 }
