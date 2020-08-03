@@ -45,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
   },
   newsletter: {
     display: "flex",
@@ -89,7 +90,6 @@ export default function Layout({ children }) {
           </AppBar>
           <main>{children}</main>
           <BuyMeACoffee />
-
           <footer className={classes.footer}>
             <Box className={classes.newsletter}>
               <form noValidate autoComplete="off">

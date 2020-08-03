@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
     width: 80,
     height: 80,
     backgroundColor: "#79D6B5",
+    marginBottom: theme.spacing(4),
+    marginRight: theme.spacing(4),
     float: "right",
-    margin: theme.spacing(3),
     "&:hover": {
       backgroundColor: darken("#79D6B5", 0.05),
       boxShadow: theme.shadows[10],
