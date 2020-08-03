@@ -5,6 +5,7 @@ import Directory from "../components/directory/Directory";
 import Hero from "../components/Hero";
 import Emoji from "../components/Emoji";
 import Splash from "../components/Splash";
+import Timeline from "../components/Timeline";
 
 export default function Index() {
   return (
@@ -22,6 +23,7 @@ export default function Index() {
               subtitle="Explore our directory of resources that'll help you get the lay of the land"
               emoji={<Emoji symbol="⛰️" label="mountain" />}
             />
+            <Timeline></Timeline>
             <Directory />
           </>
         )}
