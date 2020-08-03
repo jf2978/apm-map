@@ -15,6 +15,7 @@
     "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-material-ui": "latest",
     "gatsby-plugin-react-helmet": "latest",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.22",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-transformer-json": "^2.4.5",
@@ -27,7 +28,7 @@
     "react-helmet": "latest"
   },
   "scripts": {
-    "develop": "GATSBY_ENV=development gatsby develop",
+    "dev": "GATSBY_ENV=development gatsby develop",
     "build": "GATSBY_ENV=production gatsby build",
     "serve": "GATSBY_ENV=staging gatsby serve",
     "clean": "gatsby clean",
