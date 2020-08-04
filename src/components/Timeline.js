@@ -1,13 +1,12 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grow } from "@material-ui/core";
 
-import PathSVG from "../../assets/timeline-path.svg";
+import PathSVG from "../../assets/apm-map-trail.svg";
 
 const useStyles = makeStyles((theme) => ({
   box: {
+    width: "100%",
     [theme.breakpoints.up("xs")]: {
       padding: theme.spacing(4, 2, 4),
     },
@@ -15,20 +14,21 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(4, 2, 4),
     },
   },
+  svg: {
+    width: "100%",
+    strokeDashoffset: 1000,
+  },
   path: {
-    position: "absolute",
     stroke: theme.palette.common.black,
     strokeWidth: 10,
     strokeDasharray: 1000,
-    strokeDashoffset: 1000,
     animation: `$dash 2s linear forwards infinite`,
   },
   pathOverlay: {
-    position: "absolute",
     stroke: theme.palette.common.white,
     strokeWidth: 15,
-    strokeDasharray: 50,
-    strokeDashoffset: 100,
+    strokeDasharray: 30,
+    marginLeft: "-100%",
   },
   "@keyframes dash": {
     to: {
@@ -44,12 +44,12 @@ export default function Timeline() {
     <Box
       display="flex"
       justifyContent="center"
-      height={350}
+      alignItems="center"
       bgcolor="white"
       className={classes.box}
     >
-      <PathSVG className={classes.path}></PathSVG>
-      <PathSVG className={classes.pathOverlay}></PathSVG>
+      <PathSVG className={`${classes.svg} ${classes.path}`}></PathSVG>
+      <PathSVG className={`${classes.svg} ${classes.pathOverlay}`}></PathSVG>
     </Box>
   );
 }
