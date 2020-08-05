@@ -1,10 +1,15 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
+import Box from "@material-ui/core/Container";
+import Container from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 
 import PathSVG from "../../assets/apm-map-trail.svg";
+import Trail from "./Trail";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    backgroundColor: theme.palette.background.paper,
+  },
   box: {
     width: "100%",
     [theme.breakpoints.up("xs")]: {
@@ -20,14 +25,14 @@ const useStyles = makeStyles((theme) => ({
   },
   path: {
     stroke: theme.palette.common.black,
-    strokeWidth: 10,
+    strokeWidth: 8,
     strokeDasharray: 1000,
     animation: `$dash 2s linear forwards infinite`,
   },
   pathOverlay: {
-    stroke: theme.palette.common.white,
+    stroke: theme.palette.background.paper,
     strokeWidth: 15,
-    strokeDasharray: 30,
+    strokeDasharray: 25,
     marginLeft: "-100%",
   },
   "@keyframes dash": {
@@ -41,15 +46,17 @@ export default function Timeline() {
   const classes = useStyles();
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      bgcolor="white"
-      className={classes.box}
-    >
-      <PathSVG className={`${classes.svg} ${classes.path}`}></PathSVG>
-      <PathSVG className={`${classes.svg} ${classes.pathOverlay}`}></PathSVG>
-    </Box>
+    <Container disableGutters maxWidth="lg" className={classes.container}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        bgcolor="white"
+        className={classes.box}
+      >
+        <Trail />
+        <Trail overlay />
+      </Box>
+    </Container>
   );
 }
