@@ -20,10 +20,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     height: "100vh",
     width: "100vw",
-    backgroundImage: `url(${videoSrc})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
   },
   title: {
     color: theme.palette.grey[50],
@@ -71,7 +67,7 @@ export default function Splash(props) {
   const letterVariants = {
     before: (i) => ({
       opacity: 0,
-      x: i * 25,
+      x: 200 + i * 100,
       y: 25,
       transition: springTransition(100, 500),
     }),

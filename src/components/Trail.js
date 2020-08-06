@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import clsx from "clsx";
 import {
   motion,
   useTransform,
@@ -19,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     stroke: "#e4e4d9",
     strokeWidth: 15,
-    strokeDasharray: 25,
+    strokeDasharray: 15,
     marginLeft: "-100%",
   },
 }));
