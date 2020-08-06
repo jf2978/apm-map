@@ -3,7 +3,6 @@ import Box from "@material-ui/core/Container";
 import Container from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 
-import PathSVG from "../../assets/apm-map-trail.svg";
 import Trail from "./Trail";
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +54,6 @@ export default function Timeline() {
         className={classes.box}
       >
         <Trail />
-        <Trail overlay />
       </Box>
     </Container>
   );
