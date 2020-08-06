@@ -6,7 +6,7 @@ import { Grow } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
-    backgroundColor: theme.palette.background.paper,
+    background: `linear-gradient(#60A677, #e4e4d9)`,
     [theme.breakpoints.up("xs")]: {
       padding: theme.spacing(4, 2, 4),
     },

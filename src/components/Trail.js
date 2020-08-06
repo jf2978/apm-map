@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   pathOverlay: {
     width: "100%",
-    stroke: theme.palette.common.white,
+    stroke: "#e4e4d9",
     strokeWidth: 15,
     strokeDasharray: 25,
     marginLeft: "-100%",
@@ -28,7 +28,7 @@ export default function Trail() {
   const classes = useStyles();
   const [isComplete, setIsComplete] = useState(false);
   const { scrollYProgress } = useViewportScroll();
-  const yRange = useTransform(scrollYProgress, [0, 0.11], [0, 1]);
+  const yRange = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 });
 
   useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);

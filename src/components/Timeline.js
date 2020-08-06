@@ -7,7 +7,7 @@ import Trail from "./Trail";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundColor: theme.palette.background.paper,
+    background: "#e4e4d9",
   },
   box: {
     width: "100%",
@@ -16,27 +16,6 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("sm")]: {
       padding: theme.spacing(4, 2, 4),
-    },
-  },
-  svg: {
-    width: "100%",
-    strokeDashoffset: 1000,
-  },
-  path: {
-    stroke: theme.palette.common.black,
-    strokeWidth: 8,
-    strokeDasharray: 1000,
-    animation: `$dash 2s linear forwards infinite`,
-  },
-  pathOverlay: {
-    stroke: theme.palette.background.paper,
-    strokeWidth: 15,
-    strokeDasharray: 25,
-    marginLeft: "-100%",
-  },
-  "@keyframes dash": {
-    to: {
-      strokeDashoffset: 0,
     },
   },
 }));
