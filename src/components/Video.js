@@ -13,11 +13,10 @@ export default function Video({ src }) {
         left: 0,
         bottom: 0,
         right: 0,
-        minHeight: "100%",
+        height: "100%",
         width: "100%",
         zIndex: "-1",
         objectFit: "cover",
-        objectPosition: "center",
       }}
       src={withPrefix(src)}
     >

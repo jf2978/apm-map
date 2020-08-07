@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   box: {
     display: "flex",
     justifyContent: "center",
-    height: "100vh",
+    height: "95vh",
     width: "100vw",
   },
   title: {
@@ -67,7 +67,7 @@ export default function Splash(props) {
   const letterVariants = {
     before: (i) => ({
       opacity: 0,
-      x: 200 + i * 100,
+      x: 150 + i * 100,
       y: 25,
       transition: springTransition(100, 500),
     }),
