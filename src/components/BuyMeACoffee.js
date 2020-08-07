@@ -72,7 +72,7 @@ export default function BuyMeACoffee() {
       <HTMLTooltip
         title={
           <Typography variant="body2">
-            {" If we've helped you in your journey, consider suppprting ours! "}
+            {" If we've helped you in your journey, consider supporting ours! "}
             <Emoji symbol="❤️" label="heart" />
           </Typography>
         }
