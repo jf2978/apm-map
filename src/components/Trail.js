@@ -10,6 +10,8 @@ import {
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import MapPin from "../components/MapPin";
+
 const useStyles = makeStyles((theme) => ({
   path: {
     width: "100%",
@@ -60,20 +62,13 @@ export default function Trail() {
     setIsComplete(true);
   }
 
+  // animation sequence that fills in circles along the path + zooms in map pin
+  async function sequence() {}
+
   return (
     <>
       <motion.svg viewBox="0 0 725 190" className={classes.path}>
-        <motion.defs>
-          <motion.g height="100" width="100">
-            <motion.circle
-              id="circle"
-              r="10"
-              stroke="black"
-              stroke-width="3"
-              fill="red"
-            />
-          </motion.g>
-        </motion.defs>
+        <MapPin />
         <motion.path
           initial="before"
           animate={pathControls}
