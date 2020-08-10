@@ -4,6 +4,7 @@ import Container from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Trail from "./Trail";
+import MapPin from "./MapPin";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
   box: {
     width: "100%",
     [theme.breakpoints.up("xs")]: {
-      padding: theme.spacing(4, 2, 4),
+      padding: theme.spacing(4, 0, 4),
     },
     [theme.breakpoints.up("sm")]: {
-      padding: theme.spacing(4, 2, 4),
+      padding: theme.spacing(4, 0, 4),
     },
   },
 }));
@@ -29,7 +30,6 @@ export default function Timeline() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        bgcolor="white"
         className={classes.box}
       >
         <Trail />
