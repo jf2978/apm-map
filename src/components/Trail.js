@@ -113,11 +113,13 @@ export default function Trail() {
   const [isInViewport, setIsInViewport] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [showPin, setShowPin] = useState(false);
+  const [showStops, setShowStops] = useState(false);
   const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
 
   const { scrollYProgress } = useViewportScroll();
 
   const yRange = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
+  const stopPoints = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 
   // spring transition helper function
   const springTransition = (damping, stiffness, velocity) => ({
@@ -160,13 +162,13 @@ export default function Trail() {
     var len = path.getTotalLength();
     var point = path.getPointAtLength(percent * len);
 
-    setCirclePosition({
-      x: point.x,
-      y: point.y,
-    });
+    return point;
   }
 
+  // once our component is mounted onto the DOM, we can get the points on our path
   useEffect(() => {
+    setShowStops(true);
+
     translateAlongPath(pathRef.current, 0.5);
   }, [pathRef]);
 
@@ -202,25 +204,34 @@ export default function Trail() {
             fill="none"
           />
         </motion.svg>
-        <motion.svg
-          id="trail-stop"
-          x="-10%"
-          y="-100%"
-          width="25%"
-          height="25%"
-          style={{ overflow: "visible" }}
-        >
-          <a href="#">
-            <motion.circle
-              cx={circlePosition.x}
-              cy={circlePosition.y}
-              r="18"
-              stroke="black"
-              strokeWidth="6"
-              fill="white"
-            />
-          </a>
-        </motion.svg>
+        {showStops && (
+          <motion.svg
+            id="trail-stop"
+            x="-10%"
+            y="-100%"
+            width="25%"
+            height="25%"
+            style={{ overflow: "visible" }}
+          >
+            {stopPoints.map((val, idx) => {
+              var len = pathRef.current.getTotalLength();
+              var point = pathRef.current.getPointAtLength(val * len);
+
+              return (
+                <a href="#">
+                  <motion.circle
+                    cx={point.x}
+                    cy={point.y}
+                    r="18"
+                    stroke="black"
+                    strokeWidth="6"
+                    fill="white"
+                  />
+                </a>
+              );
+            })}
+          </motion.svg>
+        )}
       </motion.svg>
     </>
   );
