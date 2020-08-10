@@ -12,6 +12,7 @@ import {
 
 import { makeStyles, darken } from "@material-ui/core/styles";
 import ReceiptIcon from "@material-ui/icons/Receipt";
+import RoomRoundedIcon from "@material-ui/icons/RoomRounded";
 import IconButton from "@material-ui/core/IconButton";
 
 import MapPin from "../components/MapPin";
@@ -93,6 +94,9 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: "none",
     transition: "0.5s",
   },
+  icon: {
+    position: "absolute",
+  },
 }));
 
 export default function Trail() {
@@ -145,7 +149,7 @@ export default function Trail() {
     after: {
       pathLength: pathKeyframes,
       transition: {
-        duration: 3,
+        duration: 2,
       },
     },
   };
@@ -181,9 +185,8 @@ export default function Trail() {
 
   return (
     <>
-      <motion.svg width="100%" height="100%" viewBox="0 0 1600 400">
+      <motion.svg width="100%" height="100%" viewBox="0 0 1600 375">
         <motion.svg
-          width="100%"
           x="-10%"
           y="-100%"
           id="dashed-trail"
@@ -208,16 +211,26 @@ export default function Trail() {
           />
         </motion.svg>
         <motion.svg
-          x="698"
-          y="1219"
-          width="1055"
-          height="641"
-          viewBox="0 0 1055 641"
+          id="trail-stop"
+          width="25%"
+          height="25%"
           style={{ overflow: "visible" }}
-          id="coord-sys"
         >
-          <ReceiptIcon width={"50%"} ref={iconRef} id="receipt" />
+          <a href="#">
+            <ReceiptIcon />
+          </a>
         </motion.svg>
+        <motion.svg width="50%" height="50%" style={{ overflow: "visible" }}>
+          <circle
+            cx="200"
+            cy="200"
+            r="10"
+            stroke="black"
+            strokeWidth="6"
+            fill="none"
+          />
+        </motion.svg>
+
         {/**
          * red x
          * <motion.g>
@@ -261,7 +274,6 @@ export default function Trail() {
         </g>
           */}
       </motion.svg>
-      <IconButton className={classes.button} href="#"></IconButton>
     </>
   );
 }
