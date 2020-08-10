@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Timeline() {
+export default function Timeline({ toggleCategory }) {
   const classes = useStyles();
 
   return (
@@ -32,7 +32,7 @@ export default function Timeline() {
         alignItems="center"
         className={classes.box}
       >
-        <Trail />
+        <Trail toggleCategory={toggleCategory} />
       </Box>
     </Container>
   );

@@ -23,7 +23,6 @@ export default function Index() {
               subtitle="Explore our directory of resources that'll help you get the lay of the land"
               emoji={<Emoji symbol="⛰️" label="mountain" />}
             />
-            <Timeline></Timeline>
             <Directory />
           </>
         )}

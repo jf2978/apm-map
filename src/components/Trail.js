@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 
 import { makeStyles, darken } from "@material-ui/core/styles";
+import { CATEGORIES } from "../constants/filters";
 
 const useStyles = makeStyles((theme) => ({
   path: {
@@ -27,13 +28,14 @@ const useStyles = makeStyles((theme) => ({
     fill: theme.palette.common.white,
 
     "&:hover": {
+      cursor: "pointer",
       fill: darken("#FFF", 0.2),
       boxShadow: "0px 5px 5px #FFF",
     },
   },
 }));
 
-export default function Trail() {
+export default function Trail({ toggleCategory }) {
   // material ui icons for sections
   // all = ?, why pm = laptop, find programs = search, interview prep = work,
   // technical interview = build, mocks = group, post offer = receipt, books = books
@@ -135,7 +137,7 @@ export default function Trail() {
               var point = pathRef.current.getPointAtLength(val * len);
 
               return (
-                <a href="#">
+                <a onClick={() => toggleCategory(CATEGORIES[idx + 1])}>
                   <motion.circle
                     cx={point.x}
                     cy={point.y}
