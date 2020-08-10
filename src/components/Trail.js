@@ -20,11 +20,11 @@ import MapPin from "../components/MapPin";
 const useStyles = makeStyles((theme) => ({
   path: {
     stroke: theme.palette.common.black,
-    strokeWidth: 8,
+    strokeWidth: 12,
   },
   pathOverlay: {
     stroke: "#e4e4d9",
-    strokeWidth: 15,
+    strokeWidth: 20,
     strokeDasharray: 30,
     marginLeft: "-100%",
   },
@@ -113,7 +113,7 @@ export default function Trail() {
   const [isInViewport, setIsInViewport] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [showPin, setShowPin] = useState(false);
-  const [pinPosition, setPinPosition] = useState({ x: 0, y: 0 });
+  const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
 
   const { scrollYProgress } = useViewportScroll();
 
@@ -154,28 +154,20 @@ export default function Trail() {
     },
   };
 
-  const pinVariants = {
-    before: {
-      y: -200,
-      rotate: -10,
-      transition: springTransition(10, 500, 15),
-    },
-    after: {
-      translateX: pinPosition.x,
-      translateY: pinPosition.y,
-      transition: springTransition(50, 700, 15),
-    },
-  };
-
   // NOTE: getTotalLength sucks in Safari
   // TODO implement workaround https://stackoverflow.com/questions/51889547/svg-pathlength-dont-work-on-safari
   function translateAlongPath(path, percent) {
     var len = path.getTotalLength();
     var point = path.getPointAtLength(percent * len);
+
+    setCirclePosition({
+      x: point.x,
+      y: point.y,
+    });
   }
 
   useEffect(() => {
-    translateAlongPath(pathRef.current, 0);
+    translateAlongPath(pathRef.current, 0.5);
   }, [pathRef]);
 
   function onComplete() {
@@ -220,14 +212,21 @@ export default function Trail() {
             <ReceiptIcon />
           </a>
         </motion.svg>
-        <motion.svg width="50%" height="50%" style={{ overflow: "visible" }}>
+        <motion.svg
+          ref={circleRef}
+          x="-10%"
+          y="-100%"
+          width="50%"
+          height="50%"
+          style={{ overflow: "visible" }}
+        >
           <circle
-            cx="200"
-            cy="200"
-            r="10"
+            cx={circlePosition.x}
+            cy={circlePosition.y}
+            r="18"
             stroke="black"
             strokeWidth="6"
-            fill="none"
+            fill="white"
           />
         </motion.svg>
 
