@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     stroke: "#e4e4d9",
     strokeWidth: 15,
-    strokeDasharray: 15,
+    strokeDasharray: 30,
     marginLeft: "-100%",
   },
   pin: {
@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Trail() {
+  // material ui icons for sections
+  // all = ?, why pm = laptop, find programs = search, interview prep = work,
+  // technical interview = build, mocks = group, post offer = receipt, books = books
+
   const classes = useStyles();
 
   const pathRef = useRef(null);
@@ -114,11 +118,7 @@ export default function Trail() {
 
   return (
     <>
-      <motion.svg
-        width="85%"
-        height="85%"
-        viewBox="108.57142639160156 493.9756164550781 1700 175"
-      >
+      <motion.svg width="100%" height="100%" viewBox="125 500 1650 175">
         <motion.g>
           <motion.path
             id="trail"
@@ -139,7 +139,9 @@ export default function Trail() {
             fill="none"
           />
         </motion.g>
-        <motion.g>
+        {/**
+         * red x
+         * <motion.g>
           <path
             transform="translate(0, 100)"
             fill="#ff0000"
@@ -156,7 +158,12 @@ export default function Trail() {
             d="m 296.86562,500.31974 c -3.76322,4.07337 -7.87215,7.82051 -11.91354,11.61389 -9.09932,8.48762 -18.11699,17.06166 -27.03089,25.74371 -6.14178,5.96824 -12.04351,12.17529 -17.79647,18.51719 -0.54587,0.70354 -10.49542,-7.01631 -9.94955,-7.71985 v 0 c 6.42484,-5.82253 12.51809,-11.99795 18.84942,-17.92082 8.95769,-8.54561 17.92371,-17.08759 26.55482,-25.96594 3.42893,-3.57367 6.94155,-7.11658 9.89656,-11.10385 0.48335,-0.80537 11.873,6.0303 11.38965,6.83567 z"
           />
         </motion.g>
-        <g id="layer1" transform="translate(-94.571436,-206.71428)">
+         *
+         */}
+
+        {/**
+          * placeholder circle
+          *  <g id="layer1" transform="translate(-94.571436,-206.71428)">
           <circle
             transform="translate(250, 500)"
             style={{
@@ -174,6 +181,7 @@ export default function Trail() {
             r="28.424467"
           />
         </g>
+          */}
       </motion.svg>
     </>
   );
