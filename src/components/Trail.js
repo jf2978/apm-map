@@ -11,6 +11,8 @@ import {
 } from "framer-motion";
 
 import { makeStyles, darken } from "@material-ui/core/styles";
+import ReceiptIcon from "@material-ui/icons/Receipt";
+import IconButton from "@material-ui/core/IconButton";
 
 import MapPin from "../components/MapPin";
 
@@ -27,8 +29,71 @@ const useStyles = makeStyles((theme) => ({
     strokeDasharray: 30,
     marginLeft: "-100%",
   },
+  button: {
+    boxShadow: theme.shadows[10],
+    width: 80,
+    height: 80,
+    backgroundColor: "#79D6B5",
+    marginBottom: theme.spacing(4),
+    marginRight: theme.spacing(4),
+    float: "right",
+    "&:hover": {
+      backgroundColor: darken("#79D6B5", 0.05),
+      boxShadow: theme.shadows[10],
+    },
+  },
   pin: {
     marginLeft: "-100%",
+  },
+
+  iconPath: {
+    fill: "#FFFFFF",
+  },
+
+  pathSliderPathDrawn: {
+    stroke: "rgba(255, 255, 255, 0.5)",
+  },
+
+  itemIcon: {
+    width: "45px",
+    height: "45px",
+    position: "relative",
+    top: "50%",
+    transform: "translateY(-50%)",
+  },
+
+  pathSliderItem: {
+    position: "absolute",
+    left: "-37px",
+    top: "-37px",
+    cursor: "pointer",
+    textDecoration: "none",
+    outline: "none",
+  },
+
+  itemCircle: {
+    width: "74px",
+    height: "74px",
+    backgroundColor: "#2189A5",
+    boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.5)",
+    borderRadius: "100%",
+    "&:hover, &:focus": {
+      backgroundColor: darken("#1D7891", 0.05),
+    },
+  },
+
+  itemTitle: {
+    position: "absolute",
+    top: "150%",
+    left: "50%",
+    transform: "translateX(-50%)",
+    color: "#FFFFFF",
+    fontSize: "25px",
+    fontVariant: "small-caps",
+    whiteSpace: "nowrap",
+    opacity: 0,
+    pointerEvents: "none",
+    transition: "0.5s",
   },
 }));
 
@@ -118,7 +183,7 @@ export default function Trail() {
 
   return (
     <>
-      <motion.svg width="100%" height="100%" viewBox="125 500 1650 175">
+      <motion.svg width="100%" height="100%" viewBox="100 500 1650 200">
         <motion.g>
           <motion.path
             id="trail"
@@ -139,6 +204,7 @@ export default function Trail() {
             fill="none"
           />
         </motion.g>
+
         {/**
          * red x
          * <motion.g>
@@ -183,6 +249,9 @@ export default function Trail() {
         </g>
           */}
       </motion.svg>
+      <IconButton className={classes.button} href="#">
+        <ReceiptIcon id="receipt" width={50} height={50} />
+      </IconButton>
     </>
   );
 }

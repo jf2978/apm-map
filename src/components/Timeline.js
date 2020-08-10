@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
   box: {
     width: "100%",
     [theme.breakpoints.up("xs")]: {
-      padding: theme.spacing(4, 0, 4),
+      padding: theme.spacing(4, 2, 4),
     },
     [theme.breakpoints.up("sm")]: {
-      padding: theme.spacing(4, 0, 4),
+      padding: theme.spacing(4, 2, 4),
     },
   },
 }));
