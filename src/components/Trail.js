@@ -18,12 +18,10 @@ import MapPin from "../components/MapPin";
 
 const useStyles = makeStyles((theme) => ({
   path: {
-    width: "100%",
     stroke: theme.palette.common.black,
     strokeWidth: 8,
   },
   pathOverlay: {
-    width: "100%",
     stroke: "#e4e4d9",
     strokeWidth: 15,
     strokeDasharray: 30,
@@ -105,7 +103,7 @@ export default function Trail() {
   const classes = useStyles();
 
   const pathRef = useRef(null);
-  const pinRef = useRef(null);
+  const iconRef = useRef(null);
   const circleRef = useRef(null);
 
   const [isInViewport, setIsInViewport] = useState(false);
@@ -183,8 +181,14 @@ export default function Trail() {
 
   return (
     <>
-      <motion.svg width="100%" height="100%" viewBox="100 500 1650 200">
-        <motion.g>
+      <motion.svg width="100%" height="100%" viewBox="0 0 1600 400">
+        <motion.svg
+          width="100%"
+          x="-10%"
+          y="-100%"
+          id="dashed-trail"
+          style={{ overflow: "visible" }}
+        >
           <motion.path
             id="trail"
             ref={pathRef}
@@ -193,18 +197,27 @@ export default function Trail() {
             animate={pathControls}
             variants={pathVariants}
             onAnimationComplete={onComplete}
-            transform="translate(0, 20)"
             d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
             fill="none"
           />
           <motion.path
+            id="trail-overlay"
             className={classes.pathOverlay}
-            transform="translate(0, 20)"
             d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
             fill="none"
           />
-        </motion.g>
-
+        </motion.svg>
+        <motion.svg
+          x="698"
+          y="1219"
+          width="1055"
+          height="641"
+          viewBox="0 0 1055 641"
+          style={{ overflow: "visible" }}
+          id="coord-sys"
+        >
+          <ReceiptIcon width={"50%"} ref={iconRef} id="receipt" />
+        </motion.svg>
         {/**
          * red x
          * <motion.g>
@@ -226,7 +239,6 @@ export default function Trail() {
         </motion.g>
          *
          */}
-
         {/**
           * placeholder circle
           *  <g id="layer1" transform="translate(-94.571436,-206.71428)">
@@ -249,9 +261,7 @@ export default function Trail() {
         </g>
           */}
       </motion.svg>
-      <IconButton className={classes.button} href="#">
-        <ReceiptIcon id="receipt" width={50} height={50} />
-      </IconButton>
+      <IconButton className={classes.button} href="#"></IconButton>
     </>
   );
 }
