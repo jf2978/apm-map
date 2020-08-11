@@ -66,9 +66,7 @@ export default function Trail({ toggleCategory }) {
     yRange.onChange((v) => setIsInViewport(v >= 1));
 
     if (isInViewport && !isComplete) {
-      pathControls.start("after");
-      setShowStops(true);
-      circleControls.start("after");
+      sequence();
     }
 
     function getPathPoints() {
@@ -98,6 +96,13 @@ export default function Trail({ toggleCategory }) {
     after: { transition: { staggerChildren: stagger } },
   });
 
+  async function sequence() {
+    await pathControls.start("after");
+    await setShowStops(true);
+    await circleControls.start("after");
+    await pinControls.start(["after", "pulsate"]);
+  }
+
   // animate an SVG path to smoothly increase pathLength
   const pathControls = useAnimation();
   const pathKeyframes = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
@@ -113,7 +118,7 @@ export default function Trail({ toggleCategory }) {
     },
   };
 
-  // animate circles to fade in stagger
+  // animate circles to zoom in (scale)
   const circleControls = useAnimation();
   const circleVariants = {
     before: {
@@ -129,6 +134,28 @@ export default function Trail({ toggleCategory }) {
       scale: 1.25,
       transition: {
         duration: 0.5,
+      },
+    },
+  };
+
+  const pinControls = useAnimation();
+  const pinVariants = {
+    before: {
+      scale: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+    after: {
+      scale: 1,
+    },
+    bounce: {
+      y: 10,
+      transition: {
+        from: 0,
+        to: 10,
+        flip: Infinity,
+        duration: 1,
       },
     },
   };
@@ -157,25 +184,33 @@ export default function Trail({ toggleCategory }) {
           />
         </motion.svg>
         {/** path stops  */}
-        {showStops && (
+        <motion.svg
+          x="-10%"
+          y="-100%"
+          width="25%"
+          height="25%"
+          style={{ overflow: "visible" }}
+          initial="before"
+          animate="after"
+          variants={containerVariantsWithStagger(0.2)}
+        >
           <motion.svg
-            x="-10%"
-            y="-100%"
-            width="25%"
-            height="25%"
-            style={{ overflow: "visible" }}
             initial="before"
-            animate="after"
-            variants={containerVariantsWithStagger(0.2)}
+            animate={pinControls}
+            variants={pinVariants}
+            style={{ overflow: "visible" }}
           >
             <RoomIcon
               x={currentPathPoint.x - 200}
               y={currentPathPoint.y - 125}
               className={classes.pin}
             />
-            {pathPoints.map((point, idx) => {
+          </motion.svg>
+
+          {showStops &&
+            pathPoints.map((point, idx) => {
               return (
-                <a onClick={() => toggleCategory(CATEGORIES[idx + 1])}>
+                <a onClick={() => toggleCategory(CATEGORIES[idx])}>
                   <motion.circle
                     cx={point.x}
                     cy={point.y}
@@ -189,8 +224,7 @@ export default function Trail({ toggleCategory }) {
                 </a>
               );
             })}
-          </motion.svg>
-        )}
+        </motion.svg>
       </motion.svg>
     </>
   );
