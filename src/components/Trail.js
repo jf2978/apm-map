@@ -9,6 +9,8 @@ import {
 } from "framer-motion";
 
 import { makeStyles, darken } from "@material-ui/core/styles";
+import RoomIcon from "@material-ui/icons/Room";
+
 import { CATEGORIES } from "../constants/filters";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "0px 5px 5px #FFF",
     },
   },
+  pin: {
+    color: "#DD4B3E",
+    stroke: "black",
+    strokeWidth: 0.5,
+  },
 }));
 
 export default function Trail({ toggleCategory }) {
@@ -46,11 +53,14 @@ export default function Trail({ toggleCategory }) {
   const [isInViewport, setIsInViewport] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [showStops, setShowStops] = useState(false);
+  const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 }); // note this will
+  const [pathPoints, setPathPoints] = useState(
+    new Array(10).fill({ x: 0, y: 0 })
+  );
 
   const { scrollYProgress } = useViewportScroll();
 
   const yRange = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
-  const stopPoints = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 
   useEffect(() => {
     yRange.onChange((v) => setIsInViewport(v >= 1));
@@ -60,6 +70,26 @@ export default function Trail({ toggleCategory }) {
       setShowStops(true);
       circleControls.start("after");
     }
+
+    function getPathPoints() {
+      var pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+      var pathLen = pathRef.current.getTotalLength();
+
+      return pathIncrements.map((val, idx) => {
+        var point = pathRef.current.getPointAtLength(val * pathLen);
+        return {
+          x: point.x,
+          y: point.y,
+        };
+      });
+    }
+
+    var pathPoints = getPathPoints();
+    setPathPoints(pathPoints);
+    setCurrentPathPoint(pathPoints[0]);
+
+    // set stop points
+    // set current stoppoint to be the first one
   }, [yRange, isInViewport, isComplete]);
 
   // container variant helper function
@@ -96,10 +126,9 @@ export default function Trail({ toggleCategory }) {
       scale: 1,
     },
     pulsate: {
-      scale: [1.1, 1],
+      scale: 1.25,
       transition: {
-        yoyo: Infinity,
-        duration: 1,
+        duration: 0.5,
       },
     },
   };
@@ -139,10 +168,12 @@ export default function Trail({ toggleCategory }) {
             animate="after"
             variants={containerVariantsWithStagger(0.2)}
           >
-            {stopPoints.map((val, idx) => {
-              var len = pathRef.current.getTotalLength();
-              var point = pathRef.current.getPointAtLength(val * len);
-
+            <RoomIcon
+              x={currentPathPoint.x - 200}
+              y={currentPathPoint.y - 125}
+              className={classes.pin}
+            />
+            {pathPoints.map((point, idx) => {
               return (
                 <a onClick={() => toggleCategory(CATEGORIES[idx + 1])}>
                   <motion.circle
@@ -150,7 +181,6 @@ export default function Trail({ toggleCategory }) {
                     cy={point.y}
                     r="18"
                     className={classes.circle}
-                    custom={idx}
                     initial="before"
                     whileHover="pulsate"
                     animate={circleControls}
