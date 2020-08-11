@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 
 import { makeStyles, darken } from "@material-ui/core/styles";
-import RoomIcon from "@material-ui/icons/Room";
+import RoomRoundedIcon from "@material-ui/icons/RoomRounded";
 
 import { CATEGORIES } from "../constants/filters";
 
@@ -43,17 +43,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Trail({ toggleCategory }) {
-  // material ui icons for sections
-  // all = ?, why pm = laptop, find programs = search, interview prep = work,
-  // technical interview = build, mocks = group, post offer = receipt, books = books
-
   const classes = useStyles();
+
   const pathRef = useRef(null);
 
   const [isInViewport, setIsInViewport] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
   const [showStops, setShowStops] = useState(false);
-  const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 }); // note this will
+  const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 });
   const [pathPoints, setPathPoints] = useState(
     new Array(10).fill({ x: 0, y: 0 })
   );
@@ -65,10 +61,11 @@ export default function Trail({ toggleCategory }) {
   useEffect(() => {
     yRange.onChange((v) => setIsInViewport(v >= 1));
 
-    if (isInViewport && !isComplete) {
+    if (isInViewport) {
       sequence();
     }
 
+    // once our path element is mounted to the DOM, we can get its points
     function getPathPoints() {
       var pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
       var pathLen = pathRef.current.getTotalLength();
@@ -85,22 +82,13 @@ export default function Trail({ toggleCategory }) {
     var pathPoints = getPathPoints();
     setPathPoints(pathPoints);
     setCurrentPathPoint(pathPoints[0]);
-
-    // set stop points
-    // set current stoppoint to be the first one
-  }, [yRange, isInViewport, isComplete]);
-
-  // container variant helper function
-  const containerVariantsWithStagger = (stagger) => ({
-    before: {},
-    after: { transition: { staggerChildren: stagger } },
-  });
+  }, [yRange, isInViewport]);
 
   async function sequence() {
     await pathControls.start("after");
     await setShowStops(true);
     await circleControls.start("after");
-    await pinControls.start(["after", "pulsate"]);
+    await pinControls.start(["after", "bounce"]);
   }
 
   // animate an SVG path to smoothly increase pathLength
@@ -123,12 +111,12 @@ export default function Trail({ toggleCategory }) {
   const circleVariants = {
     before: {
       scale: 0,
-      transition: {
-        duration: 1,
-      },
     },
     after: {
       scale: 1,
+      transition: {
+        duration: 0.25,
+      },
     },
     pulsate: {
       scale: 1.25,
@@ -141,20 +129,20 @@ export default function Trail({ toggleCategory }) {
   const pinControls = useAnimation();
   const pinVariants = {
     before: {
-      scale: 0,
+      opacity: 0,
+    },
+    after: {
+      opacity: 1,
       transition: {
         duration: 1,
       },
-    },
-    after: {
-      scale: 1,
     },
     bounce: {
       y: 10,
       transition: {
         from: 0,
-        to: 10,
-        flip: Infinity,
+        to: 15,
+        yoyo: Infinity,
         duration: 1,
       },
     },
@@ -173,7 +161,6 @@ export default function Trail({ toggleCategory }) {
             initial="before"
             animate={pathControls}
             variants={pathVariants}
-            onAnimationComplete={() => setIsComplete(true)}
             d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
             fill="none"
           />
@@ -190,22 +177,19 @@ export default function Trail({ toggleCategory }) {
           width="25%"
           height="25%"
           style={{ overflow: "visible" }}
-          initial="before"
-          animate="after"
-          variants={containerVariantsWithStagger(0.2)}
         >
-          <motion.svg
+          <motion.g
             initial="before"
             animate={pinControls}
             variants={pinVariants}
             style={{ overflow: "visible" }}
           >
-            <RoomIcon
+            <RoomRoundedIcon
               x={currentPathPoint.x - 200}
-              y={currentPathPoint.y - 125}
+              y={currentPathPoint.y - 130}
               className={classes.pin}
             />
-          </motion.svg>
+          </motion.g>
 
           {showStops &&
             pathPoints.map((point, idx) => {
