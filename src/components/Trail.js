@@ -49,6 +49,7 @@ export default function Trail({ toggleCategory }) {
 
   const [isInViewport, setIsInViewport] = useState(false);
   const [showStops, setShowStops] = useState(false);
+  const [isPathComplete, setIsPathComplete] = useState(false);
   const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 });
   const [pathPoints, setPathPoints] = useState(
     new Array(10).fill({ x: 0, y: 0 })
@@ -61,7 +62,7 @@ export default function Trail({ toggleCategory }) {
   useEffect(() => {
     yRange.onChange((v) => setIsInViewport(v >= 1));
 
-    if (isInViewport) {
+    if (isInViewport && !isPathComplete) {
       sequence();
     }
 
@@ -86,6 +87,7 @@ export default function Trail({ toggleCategory }) {
 
   async function sequence() {
     await pathControls.start("after");
+    await setIsPathComplete(true);
     await setShowStops(true);
     await circleControls.start("after");
     await pinControls.start(["after", "bounce"]);
@@ -193,8 +195,12 @@ export default function Trail({ toggleCategory }) {
 
           {showStops &&
             pathPoints.map((point, idx) => {
+              const updateCategory = () => {
+                setCurrentPathPoint(point);
+                toggleCategory(CATEGORIES[idx]);
+              };
               return (
-                <a onClick={() => toggleCategory(CATEGORIES[idx])}>
+                <a onClick={updateCategory}>
                   <motion.circle
                     cx={point.x}
                     cy={point.y}
