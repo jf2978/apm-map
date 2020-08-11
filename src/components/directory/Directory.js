@@ -4,6 +4,7 @@ import Container from "@material-ui/core/Container";
 
 import DirectoryGrid from "./DirectoryGrid";
 import DirectoryAppBar from "./DirectoryAppBar";
+import Timeline from "../Timeline";
 
 const useStyles = makeStyles((theme) => ({
   directory: {
@@ -32,6 +33,7 @@ export default function Directory() {
       maxWidth={false}
       className={classes.container}
     >
+      <Timeline toggleCategory={toggleCategory} />
       <DirectoryAppBar selection={category} toggleCategory={toggleCategory}>
         <Container maxWidth="lg" className={classes.directory}>
           <DirectoryGrid category={category} />

@@ -5,6 +5,7 @@ import Directory from "../components/directory/Directory";
 import Hero from "../components/Hero";
 import Emoji from "../components/Emoji";
 import Splash from "../components/Splash";
+import Timeline from "../components/Timeline";
 
 export default function Index() {
   return (

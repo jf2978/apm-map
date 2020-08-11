@@ -1,0 +1,221 @@
+// great blog post that taught me a lot about how SVGs work: https://www.sarasoueidan.com/blog/svg-coordinate-systems/
+
+import React, { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  useAnimation,
+  useTransform,
+  useViewportScroll,
+} from "framer-motion";
+
+import { makeStyles, darken } from "@material-ui/core/styles";
+import RoomRoundedIcon from "@material-ui/icons/RoomRounded";
+
+import { CATEGORIES } from "../constants/filters";
+
+const useStyles = makeStyles((theme) => ({
+  path: {
+    stroke: theme.palette.common.black,
+    strokeWidth: 12,
+  },
+  pathOverlay: {
+    stroke: "#e4e4d9",
+    strokeWidth: 20,
+    strokeDasharray: 30,
+    marginLeft: "-100%",
+  },
+  circle: {
+    stroke: theme.palette.common.black,
+    strokeWidth: 6,
+    fill: theme.palette.common.white,
+
+    "&:hover": {
+      cursor: "pointer",
+      fill: darken("#FFF", 0.2),
+      boxShadow: "0px 5px 5px #FFF",
+    },
+  },
+  pin: {
+    color: "#DD4B3E",
+    stroke: "black",
+    strokeWidth: 0.5,
+  },
+}));
+
+export default function Trail({ toggleCategory }) {
+  const classes = useStyles();
+
+  const pathRef = useRef(null);
+
+  const [isInViewport, setIsInViewport] = useState(false);
+  const [showStops, setShowStops] = useState(false);
+  const [isPathComplete, setIsPathComplete] = useState(false);
+  const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 });
+  const [pathPoints, setPathPoints] = useState(
+    new Array(10).fill({ x: 0, y: 0 })
+  );
+
+  const { scrollYProgress } = useViewportScroll();
+
+  const yRange = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
+
+  useEffect(() => {
+    yRange.onChange((v) => setIsInViewport(v >= 1));
+
+    if (isInViewport && !isPathComplete) {
+      sequence();
+    }
+
+    // once our path element is mounted to the DOM, we can get its points
+    function getPathPoints() {
+      var pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+      var pathLen = pathRef.current.getTotalLength();
+
+      return pathIncrements.map((val, idx) => {
+        var point = pathRef.current.getPointAtLength(val * pathLen);
+        return {
+          x: point.x,
+          y: point.y,
+        };
+      });
+    }
+
+    var pathPoints = getPathPoints();
+    setPathPoints(pathPoints);
+    setCurrentPathPoint(pathPoints[0]);
+  }, [yRange, isInViewport]);
+
+  async function sequence() {
+    await pathControls.start("after");
+    await setIsPathComplete(true);
+    await setShowStops(true);
+    await circleControls.start("after");
+    await pinControls.start(["after", "bounce"]);
+  }
+
+  // animate an SVG path to smoothly increase pathLength
+  const pathControls = useAnimation();
+  const pathKeyframes = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
+  const pathVariants = {
+    before: {
+      pathLength: 0,
+    },
+    after: {
+      pathLength: pathKeyframes,
+      transition: {
+        duration: 2,
+      },
+    },
+  };
+
+  // animate circles to zoom in (scale)
+  const circleControls = useAnimation();
+  const circleVariants = {
+    before: {
+      scale: 0,
+    },
+    after: {
+      scale: 1,
+      transition: {
+        duration: 0.25,
+      },
+    },
+    pulsate: {
+      scale: 1.25,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+  const pinControls = useAnimation();
+  const pinVariants = {
+    before: {
+      opacity: 0,
+    },
+    after: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+    bounce: {
+      y: 10,
+      transition: {
+        from: 0,
+        to: 15,
+        yoyo: Infinity,
+        duration: 1,
+      },
+    },
+  };
+
+  // TODO implement path.getTotalLength workaround https://stackoverflow.com/questions/51889547/svg-pathlength-dont-work-on-safari
+
+  return (
+    <>
+      <motion.svg width="100%" height="100%" viewBox="0 0 1600 375">
+        {/** dashed trail */}
+        <motion.svg x="-10%" y="-100%" style={{ overflow: "visible" }}>
+          <motion.path
+            ref={pathRef}
+            className={classes.path}
+            initial="before"
+            animate={pathControls}
+            variants={pathVariants}
+            d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
+            fill="none"
+          />
+          <motion.path
+            className={classes.pathOverlay}
+            d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
+            fill="none"
+          />
+        </motion.svg>
+        {/** path stops  */}
+        <motion.svg
+          x="-10%"
+          y="-100%"
+          width="25%"
+          height="25%"
+          style={{ overflow: "visible" }}
+        >
+          <motion.g
+            initial="before"
+            animate={pinControls}
+            variants={pinVariants}
+            style={{ overflow: "visible" }}
+          >
+            <RoomRoundedIcon
+              x={currentPathPoint.x - 200}
+              y={currentPathPoint.y - 130}
+              className={classes.pin}
+            />
+          </motion.g>
+
+          {showStops &&
+            pathPoints.map((point, idx) => {
+              const updateCategory = () => {
+                setCurrentPathPoint(point);
+                toggleCategory(CATEGORIES[idx]);
+              };
+              return (
+                <a onClick={updateCategory}>
+                  <motion.circle
+                    cx={point.x}
+                    cy={point.y}
+                    r="18"
+                    className={classes.circle}
+                    initial="before"
+                    whileHover="pulsate"
+                    animate={circleControls}
+                    variants={circleVariants}
+                  />
+                </a>
+              );
+            })}
+        </motion.svg>
+      </motion.svg>
+    </>
+  );
+}

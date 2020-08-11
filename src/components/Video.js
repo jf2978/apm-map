@@ -17,7 +17,6 @@ export default function Video({ src }) {
         width: "100%",
         zIndex: "-1",
         objectFit: "cover",
-        objectPosition: "center",
       }}
       src={withPrefix(src)}
     >

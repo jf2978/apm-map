@@ -7,6 +7,9 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/styles": "latest",
+    "@types/webpack": "^4.41.21",
+    "acorn": "^6.4.1",
+    "dot-prop": "^5.2.0",
     "dotenv": "^8.2.0",
     "framer-motion": "^2.1.4",
     "gatsby": "latest",
@@ -22,10 +25,15 @@
     "gatsby-transformer-sharp": "^2.5.11",
     "gh-pages": "^3.1.0",
     "googleapis": "^57.0.0",
+    "http2": "^3.3.7",
     "raf": "^3.4.1",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-helmet": "latest"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "latest",
+    "react-refresh": "^0.8.3",
+    "sockjs-client": "^1.4.0",
+    "type-fest": "^0.13.1",
+    "webpack-plugin-serve": "^1.0.1"
   },
   "scripts": {
     "dev": "GATSBY_ENV=development gatsby develop",
