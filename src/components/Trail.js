@@ -95,6 +95,13 @@ export default function Trail({ toggleCategory }) {
     after: {
       scale: 1,
     },
+    pulsate: {
+      scale: [1.1, 1],
+      transition: {
+        yoyo: Infinity,
+        duration: 1,
+      },
+    },
   };
 
   // TODO implement path.getTotalLength workaround https://stackoverflow.com/questions/51889547/svg-pathlength-dont-work-on-safari
@@ -130,7 +137,7 @@ export default function Trail({ toggleCategory }) {
             style={{ overflow: "visible" }}
             initial="before"
             animate="after"
-            variants={containerVariantsWithStagger(0.4)}
+            variants={containerVariantsWithStagger(0.2)}
           >
             {stopPoints.map((val, idx) => {
               var len = pathRef.current.getTotalLength();
@@ -145,6 +152,7 @@ export default function Trail({ toggleCategory }) {
                     className={classes.circle}
                     custom={idx}
                     initial="before"
+                    whileHover="pulsate"
                     animate={circleControls}
                     variants={circleVariants}
                   />
