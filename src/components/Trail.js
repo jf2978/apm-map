@@ -59,14 +59,17 @@ export default function Trail({ toggleCategory }) {
 
   const yRange = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
 
+  // on viewport scroll and/or path complete, trigger animations
   useEffect(() => {
     yRange.onChange((v) => setIsInViewport(v >= 1));
 
     if (isInViewport && !isPathComplete) {
       sequence();
     }
+  }, [yRange, isInViewport, isPathComplete]);
 
-    // once our path element is mounted to the DOM, we can get its points
+  // once our path element is mounted to the DOM, we can get its points
+  useEffect(() => {
     function getPathPoints() {
       var pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
       var pathLen = pathRef.current.getTotalLength();
@@ -82,15 +85,18 @@ export default function Trail({ toggleCategory }) {
 
     var pathPoints = getPathPoints();
     setPathPoints(pathPoints);
+  }, [pathRef]);
+
+  useEffect(() => {
     setCurrentPathPoint(pathPoints[0]);
-  }, [yRange, isInViewport]);
+  }, [pathPoints]);
 
   async function sequence() {
     await pathControls.start("after");
     await setIsPathComplete(true);
     await setShowStops(true);
     await circleControls.start("after");
-    await pinControls.start(["after", "bounce"]);
+    return await pinControls.start(["after", "bounce"]);
   }
 
   // animate an SVG path to smoothly increase pathLength
