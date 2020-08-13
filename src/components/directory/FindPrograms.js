@@ -14,6 +14,7 @@ export default function FindPrograms() {
           description
           category
           tags
+          link
           image {
             childImageSharp {
               fluid(quality: 75, cropFocus: ATTENTION) {

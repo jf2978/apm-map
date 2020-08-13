@@ -41,6 +41,7 @@ export default function DirectoryGrid({ category }) {
           description
           category
           tags
+          link
           image {
             childImageSharp {
               fluid(quality: 75, cropFocus: ATTENTION) {

@@ -85,10 +85,7 @@ export default function MediaCard({ loading, data, image }) {
       onMouseOut={toggleRaised}
       raised={raised}
     >
-      <CardActionArea
-        href={loading ? null : data.link}
-        className={classes.cardActionArea}
-      >
+      <CardActionArea href={data.link} className={classes.cardActionArea}>
         <Img sizes={{ ...image.childImageSharp.fluid, aspectRatio: 16 / 9 }} />
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
