@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: theme.palette.grey[50],
+    fontVariant: "small-caps",
   },
   subtitle: {
     color: theme.palette.grey[300],
@@ -204,7 +205,7 @@ export default function Splash(props) {
             size="auto"
             initial="before"
             animate={mapControls}
-            variants={containerVariantsWithStagger(0.1)}
+            variants={containerVariantsWithStagger(0.05)}
           >
             <motion.div
               background={""}
@@ -221,7 +222,7 @@ export default function Splash(props) {
                 gutterBottom
               >
                 {"\u00A0"}
-                MAP
+                Map
               </Typography>
             </motion.div>
             <motion.div
@@ -263,7 +264,7 @@ export default function Splash(props) {
           size="auto"
           initial="before"
           animate={subtitleControls}
-          variants={containerVariantsWithStagger(0.1)}
+          variants={containerVariantsWithStagger(0.05)}
         >
           <motion.div
             background={""}
@@ -292,7 +293,7 @@ export default function Splash(props) {
           size="auto"
           initial="before"
           animate={arrowControls}
-          variants={containerVariantsWithStagger(0.1)}
+          variants={containerVariantsWithStagger(0.05)}
         >
           <motion.div
             background={""}

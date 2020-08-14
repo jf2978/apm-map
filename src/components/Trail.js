@@ -109,7 +109,7 @@ export default function Trail({ toggleCategory }) {
     after: {
       pathLength: pathKeyframes,
       transition: {
-        duration: 2,
+        duration: 1.5,
       },
     },
   };
