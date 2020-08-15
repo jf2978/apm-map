@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { motion } from "framer-motion";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -31,7 +31,17 @@ function a11yProps(index) {
 }
 
 function LinkTab(props) {
-  return <Tab component={Link} {...props} />;
+  return (
+    <motion.div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Tab component={Link} {...props} />
+    </motion.div>
+  );
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -54,13 +64,32 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: 100,
-    height: 100,
+    padding: theme.spacing(2),
+
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
 }));
 
+const logoVariants = {
+  before: {
+    opacity: 0,
+  },
+  after: {
+    opacity: 1,
+  },
+  hover: {
+    scale: 1.2,
+  },
+  tap: {
+    scale: 0.9,
+  },
+};
+
 export default function Layout({ children }) {
   const classes = useStyles();
+  const theme = useTheme();
   const [email, setEmail] = React.useState("Email");
 
   const handleChange = (event) => {
@@ -76,11 +105,21 @@ export default function Layout({ children }) {
           className={classes.container}
         >
           <div className={classes.navBar}>
-            <motion.div className={classes.logo}>
-              <Typography variant="h3">
-                <Emoji symbol="🗺️" label="map" />
-              </Typography>
-            </motion.div>
+            <Link style={{ textDecoration: "none" }} to="/">
+              <motion.div
+                custom={theme}
+                initial="before"
+                animate="after"
+                variants={logoVariants}
+                whileHover="hover"
+                whileTap="tap"
+                className={classes.logo}
+              >
+                <Typography variant="h3">
+                  <Emoji symbol="🗺️" label="map" />
+                </Typography>
+              </motion.div>
+            </Link>
             <Tabs value={context.nav} onChange={context.changeNav}>
               <LinkTab label="Directory" to="/" {...a11yProps(0)} />
               <LinkTab label="About" to="/about" {...a11yProps(1)} />
