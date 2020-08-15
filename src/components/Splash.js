@@ -141,7 +141,7 @@ export default function Splash(props) {
 
   useEffect(() => {
     sequence();
-  });
+  }, [sequence]);
 
   return (
     <Box className={classes.box}>

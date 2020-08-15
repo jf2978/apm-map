@@ -45,6 +45,9 @@ function LinkTab(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    overflow: "hidden",
+  },
   navBar: {
     display: "flex",
   },
