@@ -67,7 +67,10 @@ theme = {
     },
     MuiTabs: {
       root: {
-        marginLeft: theme.spacing(1),
+        position: "absolute",
+        left: "50%",
+        transform: "translate(-50%, 0)",
+        color: theme.palette.text.primary,
       },
       indicator: {
         height: 3,

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { motion } from "framer-motion";
 
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -11,8 +12,11 @@ import Container from "@material-ui/core/Container";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
 
 import Copyright from "./Copyright";
+import Emoji from "./Emoji";
 import { Context } from "../../provider";
 import BuyMeACoffee from "../components/BuyMeACoffee";
 
@@ -31,17 +35,8 @@ function LinkTab(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    overflow: "hidden",
-  },
-  appBar: {
+  navBar: {
     display: "flex",
-    justifyContent: "flex-end",
-    background: "transparent",
-    boxShadow: "none",
-  },
-  tabs: {
-    color: theme.palette.text.primary,
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -54,6 +49,13 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     margin: theme.spacing(1),
+  },
+  logo: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 100,
+    height: 100,
   },
 }));
 
@@ -73,21 +75,18 @@ export default function Layout({ children }) {
           maxWidth={false}
           className={classes.container}
         >
-          <AppBar className={classes.appBar} position="static" elevated={0}>
-            <Tabs
-              centered
-              value={context.nav}
-              onChange={context.changeNav}
-              classes={{
-                root: classes.tabs,
-                indicator: classes.tabIndicator,
-              }}
-            >
+          <div className={classes.navBar}>
+            <motion.div className={classes.logo}>
+              <Typography variant="h3">
+                <Emoji symbol="🗺️" label="map" />
+              </Typography>
+            </motion.div>
+            <Tabs value={context.nav} onChange={context.changeNav}>
               <LinkTab label="Directory" to="/" {...a11yProps(0)} />
               <LinkTab label="About" to="/about" {...a11yProps(1)} />
               <LinkTab label="Guides" to="/guides" {...a11yProps(2)} />
             </Tabs>
-          </AppBar>
+          </div>
           <main>{children}</main>
           <BuyMeACoffee />
           <footer className={classes.footer}>
