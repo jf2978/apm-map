@@ -1,11 +1,13 @@
 import React from "react";
-import { Link, useStaticQuery } from "gatsby";
+import { useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { motion } from "framer-motion";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+
+import Link from "../util/Link";
 
 // "a11y" = accessibility
 // ARIA = Accessible Rich Internet Application and the set of attributes
@@ -63,7 +65,7 @@ export default function Layout({ context, children }) {
   `);
 
   return (
-    <div className={classes.nav}>
+    <nav className={classes.nav}>
       <Link style={{ textDecoration: "none" }} to="/">
         <motion.div
           className={classes.logo}
@@ -76,10 +78,10 @@ export default function Layout({ context, children }) {
         </motion.div>
       </Link>
       <Tabs value={context.nav} onChange={context.changeNav}>
-        <LinkTab label="Directory" to="/" {...a11yProps(0)} />
-        <LinkTab label="About" to="/about" {...a11yProps(1)} />
-        <LinkTab label="Guides" to="/guides" {...a11yProps(2)} />
+        <LinkTab label="Home" to="/" {...a11yProps(0)} />
+        <LinkTab label="Directory" to="/directory" {...a11yProps(1)} />
+        <LinkTab label="About" to="/about" {...a11yProps(2)} />
       </Tabs>
-    </div>
+    </nav>
   );
 }

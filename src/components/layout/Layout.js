@@ -20,6 +20,7 @@ import Emoji from "../util/Emoji";
 import { Context } from "./Provider";
 import BuyMeACoffee from "./BuyMeACoffee";
 import Nav from "./Nav";
+import Footer from "./Footer";
 
 // "a11y" = accessibility
 // ARIA = Accessible Rich Internet Application and the set of attributes
@@ -69,11 +70,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Layout({ children }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [email, setEmail] = React.useState("Email");
-
-  const handleChange = (event) => {
-    setEmail(event.target.value);
-  };
 
   return (
     <Context.Consumer>
@@ -86,21 +82,7 @@ export default function Layout({ children }) {
           <Nav context={context} />
           <main>{children}</main>
           <BuyMeACoffee />
-          <footer className={classes.footer}>
-            <Box className={classes.newsletter}>
-              <form noValidate autoComplete="off">
-                <FormControl variant="outlined">
-                  <InputLabel htmlFor="component-outlined">Email</InputLabel>
-                  <OutlinedInput onChange={handleChange} label="Email" />
-                </FormControl>
-              </form>
-              <Box className={classes.btn}>
-                <Button variant="contained" size="medium" color="primary">
-                  Sign up
-                </Button>
-              </Box>
-            </Box>
-          </footer>
+          <Footer />
         </Container>
       )}
     </Context.Consumer>
