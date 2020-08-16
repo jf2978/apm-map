@@ -67,9 +67,9 @@ export default function Splash(props) {
   };
   const letterVariants = {
     before: (i) => ({
-      opacity: 0,
-      x: 150 + i * 100,
+      x: `calc(10vw + ${i * 50}px)`,
       y: 25,
+      opacity: 0,
       transition: springTransition(100, 500),
     }),
     after: {
@@ -175,25 +175,27 @@ export default function Splash(props) {
             animate={apmControls}
             variants={containerVariantsWithStagger(0.5)}
           >
-            {["A", "P", "M"].map((letter, index) => (
-              <motion.div
-                custom={index}
-                background={""}
-                position="relative"
-                center="y"
-                size="auto"
-                variants={letterVariants}
-              >
-                <Typography
-                  className={classes.title}
-                  variant="h1"
-                  align="center"
-                  color="white"
+            {["A", "P", "M"].map((letter, index) => {
+              return (
+                <motion.div
+                  custom={index}
+                  background={""}
+                  position="relative"
+                  center="y"
+                  size="auto"
+                  variants={letterVariants}
                 >
-                  {letter}
-                </Typography>
-              </motion.div>
-            ))}
+                  <Typography
+                    className={classes.title}
+                    variant="h1"
+                    align="center"
+                    color="white"
+                  >
+                    {letter}
+                  </Typography>
+                </motion.div>
+              );
+            })}
           </motion.div>
           <motion.div
             style={{
@@ -325,7 +327,6 @@ function ScrollToDirectory(props) {
       "#directory-hero"
     );
 
-    console.log(anchor);
     if (anchor) {
       anchor.scrollIntoView({ behavior: "smooth", block: "start" });
     }
