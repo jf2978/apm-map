@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, usePresence } from "framer-motion";
 
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Splash(props) {
   const classes = useStyles();
+  const [isPresent, safeToRemove] = usePresence();
 
   // container variant helper function
   const containerVariantsWithStagger = (stagger) => ({
@@ -139,8 +140,10 @@ export default function Splash(props) {
   }
 
   useEffect(() => {
-    sequence();
-  }, [sequence]);
+    if (isPresent) {
+      sequence();
+    }
+  }, [isPresent, sequence]);
 
   return (
     <Box className={classes.box}>
