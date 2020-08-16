@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import { motion } from "framer-motion";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -20,8 +21,8 @@ import Emoji from "./Emoji";
 import { Context } from "../../provider";
 import BuyMeACoffee from "../components/BuyMeACoffee";
 
-// fun fact I didn't know of: "a11y" is SWE lingo for accessibility
-// In this case, ARIA = Accessible Rich Internet Application and the set of attributes
+// "a11y" is SWE lingo for accessibility
+// ARIA = Accessible Rich Internet Application and the set of attributes
 // help describe the web content for screen readers
 function a11yProps(index) {
   return {
@@ -99,6 +100,18 @@ export default function Layout({ children }) {
     setEmail(event.target.value);
   };
 
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(width: 60, height: 60) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Context.Consumer>
       {(context) => (
@@ -118,9 +131,7 @@ export default function Layout({ children }) {
                 whileTap="tap"
                 className={classes.logo}
               >
-                <Typography variant="h3">
-                  <Emoji symbol="🗺️" label="map" />
-                </Typography>
+                <Img fixed={data.file.childImageSharp.fixed} />
               </motion.div>
             </Link>
             <Tabs value={context.nav} onChange={context.changeNav}>
