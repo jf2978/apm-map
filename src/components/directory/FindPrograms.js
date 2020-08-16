@@ -2,7 +2,8 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Grid from "@material-ui/core/Grid";
-import Card from "../MediaCard";
+
+import Card from "../util/MediaCard";
 
 export default function FindPrograms() {
   const data = useStaticQuery(graphql`

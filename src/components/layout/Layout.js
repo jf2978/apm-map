@@ -4,7 +4,6 @@ import Img from "gatsby-image";
 import { motion } from "framer-motion";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
@@ -18,10 +17,10 @@ import Typography from "@material-ui/core/Typography";
 
 import Copyright from "./Copyright";
 import Emoji from "../util/Emoji";
-import { Context } from "./provider";
-import BuyMeACoffee from "../components/BuyMeACoffee";
+import { Context } from "./Provider";
+import BuyMeACoffee from "./BuyMeACoffee";
 
-// "a11y" is SWE lingo for accessibility
+// "a11y" = accessibility
 // ARIA = Accessible Rich Internet Application and the set of attributes
 // help describe the web content for screen readers
 function a11yProps(index) {
@@ -76,21 +75,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const logoVariants = {
-  before: {
-    opacity: 0,
-  },
-  after: {
-    opacity: 1,
-  },
-  hover: {
-    scale: 1.2,
-  },
-  tap: {
-    scale: 0.9,
-  },
-};
-
 export default function Layout({ children }) {
   const classes = useStyles();
   const theme = useTheme();
@@ -123,13 +107,11 @@ export default function Layout({ children }) {
           <div className={classes.navBar}>
             <Link style={{ textDecoration: "none" }} to="/">
               <motion.div
-                custom={theme}
-                initial="before"
-                animate="after"
-                variants={logoVariants}
-                whileHover="hover"
-                whileTap="tap"
                 className={classes.logo}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 1.3 }}
               >
                 <Img fixed={data.file.childImageSharp.fixed} />
               </motion.div>

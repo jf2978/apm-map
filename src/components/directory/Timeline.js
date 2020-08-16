@@ -4,7 +4,6 @@ import Container from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Trail from "./Trail";
-import MapPin from "./MapPin";
 
 const useStyles = makeStyles((theme) => ({
   container: {

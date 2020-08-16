@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-import Card from "../MediaCard";
+import Card from "../util/MediaCard";
 import WhyPM from "./WhyPM";
 import FindPrograms from "./FindPrograms";
 import Networking from "./Networking";

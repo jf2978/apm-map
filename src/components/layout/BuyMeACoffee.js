@@ -6,8 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import { withStyles, makeStyles, darken } from "@material-ui/core/styles";
 
-import BuyMeACoffeeIcon from "../../assets/bmac.svg";
-import Emoji from "../components/Emoji";
+import BuyMeACoffeeIcon from "../../../assets/bmac.svg";
+import Emoji from "../util/Emoji";
 
 const useStyles = makeStyles((theme) => ({
   button: {

@@ -1,8 +1,8 @@
 import React from "react";
 
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 import Profile from "../components/mentors/Profile";
-import { Context } from "../../provider";
+import { Context } from "../components/layout/Provider";
 
 export default function ProfileTemplate({ data }) {
   return (

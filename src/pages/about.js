@@ -3,10 +3,10 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Layout from "../components/Layout";
-import { Context } from "../../provider";
-import Emoji from "../components/Emoji";
-import Blurb from "../components/Blurb";
+import Layout from "../components/layout/Layout";
+import { Context } from "../components/layout/Provider";
+import Emoji from "../components/util/Emoji";
+import Blurb from "../components/util/Blurb";
 import { Grid, Divider } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";

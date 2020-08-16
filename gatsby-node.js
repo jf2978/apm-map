@@ -1,6 +1,6 @@
 const path = require("path");
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
-const { getRows } = require("./gsheets.js");
+const { getRows } = require("./src/apis/gsheets");
 
 // createSchemaCustomization explicitly defines GraphQL data types
 exports.createSchemaCustomization = ({ actions }) => {

@@ -6,7 +6,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import DirectoryCard from "../components/directory/DirectoryCard";
-import Emoji from "../components/Emoji";
+import Emoji from "../components/util/Emoji";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
 

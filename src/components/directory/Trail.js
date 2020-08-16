@@ -11,7 +11,7 @@ import {
 import { makeStyles, darken } from "@material-ui/core/styles";
 import RoomRoundedIcon from "@material-ui/icons/RoomRounded";
 
-import { CATEGORIES } from "../constants/filters";
+import { CATEGORIES } from "../util/filters";
 
 const useStyles = makeStyles((theme) => ({
   path: {

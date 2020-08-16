@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 
 import DirectoryGrid from "./DirectoryGrid";
 import DirectoryAppBar from "./DirectoryAppBar";
-import Timeline from "../Timeline";
+import Timeline from "../directory/Timeline";
 
 const useStyles = makeStyles((theme) => ({
   directory: {
