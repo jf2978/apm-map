@@ -160,13 +160,14 @@ export default function Splash(props) {
           style={{
             display: "flex",
             justifyContent: "center",
+            flexWrap: "wrap",
+            lineHeight: 1, // default for MUI Typorgaphy is ~1.43
+            marginBottom: "30px",
           }}
-          size="auto"
         >
           <motion.div
             style={{
               display: "flex",
-              marginInlineEnd: "1em",
             }}
             background={""}
             size="auto"
@@ -188,7 +189,6 @@ export default function Splash(props) {
                   variant="h1"
                   align="center"
                   color="white"
-                  gutterBottom
                 >
                   {letter}
                 </Typography>
@@ -198,7 +198,6 @@ export default function Splash(props) {
           <motion.div
             style={{
               display: "flex",
-              marginInlineEnd: "1em",
               justifyContent: "center",
             }}
             background={""}
@@ -219,7 +218,6 @@ export default function Splash(props) {
                 variant="h1"
                 align="center"
                 color="textPrimary"
-                gutterBottom
               >
                 {"\u00A0"}
                 Map

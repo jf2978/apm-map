@@ -21,18 +21,10 @@ let theme = createMuiTheme({
       fontSize: 26,
       fontWeight: 600,
     },
-    h6: {
-      fontSize: 24,
-      fontWeight: 400,
-      fontStyle: "italic",
-    },
+
     h2: {
       fontSize: 72,
       fontWeight: 800,
-    },
-    h1: {
-      fontSize: 108,
-      fontWeight: 1000,
     },
   },
   shape: {
@@ -44,6 +36,24 @@ let theme = createMuiTheme({
     },
   },
 });
+
+// add typography breakpoints
+theme.typography.h1 = {
+  fontSize: 80,
+  fontWeight: 1000,
+  [theme.breakpoints.up("md")]: {
+    fontSize: 108,
+  },
+};
+
+theme.typography.h6 = {
+  fontSize: 20,
+  fontWeight: 400,
+  fontStyle: "italic",
+  [theme.breakpoints.up("md")]: {
+    fontSize: 24,
+  },
+};
 
 theme = {
   ...theme,
