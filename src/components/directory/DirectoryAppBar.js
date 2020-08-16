@@ -185,27 +185,27 @@ export default function DirectoryAppBar(props) {
     setOpen(false);
   };
 
-  const { children, selection, toggleCategory } = props;
+  const { children, selection, toggleCategory, search } = props;
   return (
     <>
-      <ElevationScroll>
-        <AppBar
-          elevation={0}
-          position="sticky"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              color="transparent"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
+      <AppBar
+        elevation={0}
+        position="sticky"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="transparent"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
+          >
+            <MenuIcon />
+          </IconButton>
+          {search && (
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon color="action" />
@@ -219,9 +219,9 @@ export default function DirectoryAppBar(props) {
                 inputProps={{ "aria-label": "search" }}
               />
             </div>
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
+          )}
+        </Toolbar>
+      </AppBar>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,

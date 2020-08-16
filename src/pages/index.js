@@ -1,4 +1,5 @@
 import React from "react";
+import { useStaticQuery } from "gatsby";
 import Layout from "../components/layout/Layout";
 import { Context } from "../components/layout/Provider";
 import Directory from "../components/directory/Directory";

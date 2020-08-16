@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: theme.palette.grey[50],
-    fontVariant: "small-caps",
   },
   subtitle: {
     color: theme.palette.grey[300],
@@ -222,7 +221,7 @@ export default function Splash(props) {
                 color="textPrimary"
               >
                 {"\u00A0"}
-                Map
+                MAP
               </Typography>
             </motion.div>
             <motion.div
