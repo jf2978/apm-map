@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -21,30 +21,6 @@ import { Context } from "./Provider";
 import BuyMeACoffee from "./BuyMeACoffee";
 import Nav from "./Nav";
 import Footer from "./Footer";
-
-// "a11y" = accessibility
-// ARIA = Accessible Rich Internet Application and the set of attributes
-// help describe the web content for screen readers
-function a11yProps(index) {
-  return {
-    id: `nav-tab-${index}`,
-    "aria-controls": `nav-tabpanel-${index}`,
-  };
-}
-
-function LinkTab(props) {
-  return (
-    <motion.div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Tab component={Link} {...props} />
-    </motion.div>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -67,6 +43,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const duration = 0.5;
+
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: duration,
+      delay: duration,
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: duration },
+  },
+};
+
 export default function Layout({ children }) {
   const classes = useStyles();
   const theme = useTheme();
@@ -80,6 +76,16 @@ export default function Layout({ children }) {
           className={classes.container}
         >
           <Nav context={context} />
+          <AnimatePresence>
+            <motion.main
+              variants={variants}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+            >
+              {children}
+            </motion.main>
+          </AnimatePresence>
           <main>{children}</main>
           <BuyMeACoffee />
           <Footer />
