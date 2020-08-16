@@ -66,7 +66,11 @@ export default function Layout({ context, children }) {
 
   return (
     <nav className={classes.nav}>
-      <Link style={{ textDecoration: "none" }} to="/">
+      <Link
+        style={{ textDecoration: "none" }}
+        to="/"
+        onClick={(event) => context.changeNav(event, 0)}
+      >
         <motion.div
           className={classes.logo}
           initial={{ opacity: 0 }}
@@ -81,6 +85,7 @@ export default function Layout({ context, children }) {
         <LinkTab label="Home" to="/" {...a11yProps(0)} />
         <LinkTab label="Directory" to="/directory" {...a11yProps(1)} />
         <LinkTab label="About" to="/about" {...a11yProps(2)} />
+        <LinkTab label="Guides" to="/guides" {...a11yProps(3)} />
       </Tabs>
     </nav>
   );

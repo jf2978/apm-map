@@ -86,7 +86,6 @@ export default function Layout({ children }) {
               {children}
             </motion.main>
           </AnimatePresence>
-          <main>{children}</main>
           <BuyMeACoffee />
           <Footer />
         </Container>

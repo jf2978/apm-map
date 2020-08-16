@@ -144,9 +144,9 @@ export default function Splash(props) {
 
   return (
     <Box className={classes.box}>
-      <motion.div animate={bgControls} variants={bgVariants}>
+      <div>
         <Video src={videoSrc} />
-      </motion.div>
+      </div>
       <motion.div
         style={{
           display: "flex",
