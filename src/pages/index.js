@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "../components/Layout";
-import { Context } from "../../provider";
+import Layout from "../components/layout/Layout";
+import { Context } from "../components/layout/provider";
 import Directory from "../components/directory/Directory";
-import Hero from "../components/Hero";
-import Emoji from "../components/Emoji";
-import Splash from "../components/Splash";
+import Hero from "../components/util/Hero";
+import Emoji from "../components/util/Emoji";
+import Splash from "../components/splash/Splash";
 
 export default function Index() {
   return (

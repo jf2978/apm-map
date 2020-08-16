@@ -8,8 +8,8 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Zoom from "@material-ui/core/Zoom";
 
-import Video from "../components/Video";
-import Emoji from "../components/Emoji";
+import Video from "../util/Video";
+import Emoji from "../util/Emoji";
 
 const videoSrc =
   "https://storage.googleapis.com/apm-map-assets/bg-video-1-trimmed.mp4";

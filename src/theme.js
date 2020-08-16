@@ -79,7 +79,7 @@ theme = {
       root: {
         position: "absolute",
         left: "50%",
-        transform: "translate(-50%, 0)",
+        transform: "translate(-30%, 0)",
         color: theme.palette.text.primary,
       },
       indicator: {

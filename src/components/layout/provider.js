@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-import theme from "./src/theme";
+import theme from "../../theme";
 
 export const Context = React.createContext();
 

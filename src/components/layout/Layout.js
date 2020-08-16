@@ -17,8 +17,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 
 import Copyright from "./Copyright";
-import Emoji from "./Emoji";
-import { Context } from "../../provider";
+import Emoji from "../util/Emoji";
+import { Context } from "./provider";
 import BuyMeACoffee from "../components/BuyMeACoffee";
 
 // "a11y" is SWE lingo for accessibility
