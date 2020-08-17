@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Splash(props) {
   const classes = useStyles();
-  const [isPresent, safeToRemove] = usePresence();
 
   // container variant helper function
   const containerVariantsWithStagger = (stagger) => ({
@@ -140,10 +139,8 @@ export default function Splash(props) {
   }
 
   useEffect(() => {
-    if (isPresent) {
-      sequence();
-    }
-  }, [isPresent, sequence]);
+    sequence();
+  }, [sequence]);
 
   return (
     <Box className={classes.box}>
@@ -185,6 +182,7 @@ export default function Splash(props) {
                   position="relative"
                   center="y"
                   size="auto"
+                  initial="before"
                   variants={letterVariants}
                 >
                   <Typography
@@ -215,6 +213,7 @@ export default function Splash(props) {
               position="relative"
               center="y"
               size="auto"
+              initial="before"
               variants={mapVariants}
             >
               <Typography
@@ -248,6 +247,7 @@ export default function Splash(props) {
               position="relative"
               center="y"
               size="auto"
+              initial="before"
               variants={mapVariants}
               background={""}
             >
@@ -273,6 +273,7 @@ export default function Splash(props) {
             position="relative"
             center="y"
             size="auto"
+            initial="before"
             variants={mapVariants}
           >
             <Typography
@@ -302,6 +303,7 @@ export default function Splash(props) {
             position="relative"
             center="y"
             size="auto"
+            initial="before"
             variants={arrowVariants}
           >
             <ScrollToDirectory {...props}>

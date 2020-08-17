@@ -16,7 +16,7 @@ export default function Provider({ children }) {
       <Context.Provider
         value={{
           nav,
-          changeNav: (event, newValue) => setNav(newValue),
+          changeNav: (event, val) => setNav(val),
         }}
       >
         {children}

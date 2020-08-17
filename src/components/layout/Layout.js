@@ -65,7 +65,6 @@ const variants = {
 
 export default function Layout({ children }) {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <Context.Consumer>
