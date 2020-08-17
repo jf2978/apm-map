@@ -83,9 +83,8 @@ export default function Layout({ context, children }) {
       </Link>
       <Tabs value={context.nav} onChange={context.changeNav}>
         <LinkTab label="Home" to="/" {...a11yProps(0)} />
-        <LinkTab label="Directory" to="/directory" {...a11yProps(1)} />
-        <LinkTab label="About" to="/about" {...a11yProps(2)} />
-        <LinkTab label="Guides" to="/guides" {...a11yProps(3)} />
+        <LinkTab label="About" to="/about" {...a11yProps(1)} />
+        <LinkTab label="Guides" to="/guides" {...a11yProps(2)} />
       </Tabs>
     </nav>
   );

@@ -76,6 +76,6 @@ module.exports = {
     description:
       "APM Map is your one-stop destination for navigating your A/PM recruiting journey",
     author: "@jf2978",
-    siteUrl: " https://apmmap.co",
+    siteUrl: "https://www.apmmap.co",
   },
 };
