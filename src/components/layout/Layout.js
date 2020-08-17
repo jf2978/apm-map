@@ -1,22 +1,9 @@
 import React from "react";
-import { Link, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 
-import Copyright from "./Copyright";
-import Emoji from "../util/Emoji";
 import { Context } from "./Provider";
 import BuyMeACoffee from "./BuyMeACoffee";
 import Nav from "./Nav";

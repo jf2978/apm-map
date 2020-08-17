@@ -64,6 +64,12 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-172152528-1",
+      },
+    },
   ],
   siteMetadata: {
     title: "APM Map",
