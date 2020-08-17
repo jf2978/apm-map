@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function About() {
+export default function AboutPage() {
   const classes = useStyles();
   const aboutMima = (
     <>

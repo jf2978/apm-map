@@ -4,7 +4,7 @@ import Layout from "../components/layout/Layout";
 import { Context } from "../components/layout/Provider";
 import MentorsGrid from "../components/mentors/MentorsGrid";
 
-export default function Guides() {
+export default function GuidesPage() {
   return (
     <Layout>
       <Context.Consumer>
