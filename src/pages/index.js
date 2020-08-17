@@ -5,6 +5,7 @@ import Directory from "../components/directory/Directory";
 import Hero from "../components/util/Hero";
 import Emoji from "../components/util/Emoji";
 import Splash from "../components/splash/Splash";
+import DirectoryPreview from "../components/directory/DirectoryPreview";
 
 export default function IndexPage() {
   return (
@@ -16,6 +17,7 @@ export default function IndexPage() {
               title="APM Map"
               subtitle="Discover resources to help you navigate your journey into product management"
             />
+            <DirectoryPreview />
           </>
         )}
       </Context.Consumer>
