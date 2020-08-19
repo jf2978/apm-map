@@ -5,7 +5,7 @@ import Directory from "../components/directory/Directory";
 import Hero from "../components/util/Hero";
 import Emoji from "../components/util/Emoji";
 import Splash from "../components/splash/Splash";
-import DirectoryPreview from "../components/directory/DirectoryPreview";
+import DirectoryPreview from "../components/splash/DirectoryPreview";
 
 export default function IndexPage() {
   return (

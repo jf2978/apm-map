@@ -41,7 +41,7 @@ export default function DirectoryPreview() {
   // placeholder query that just gets 6 random resources
   // TODO pick actual featured resources and mark them with a new field (filterable in graphQL)
   const data = useStaticQuery(graphql`
-    query GetFeaturedResources {
+    query GetFeaturedResources2 {
       allRecruitingResource(
         limit: 6
         filter: {
@@ -76,12 +76,15 @@ export default function DirectoryPreview() {
 
   return (
     <>
-      <Container maxWidth={"lg  "} className={classes.container}>
+      <Container maxWidth={"lg"} className={classes.container}>
         <Grid container>
           <Grid justify="center" item xs={6}>
-            <Box className={classes.item} bgcolor="lightgreen"></Box>
+            <Box className={classes.item} bgcolor="lightgreen">
+              Discover 150+ recruiting resources
+            </Box>
           </Grid>
-          <Grid justify="center" item xs={6}>
+          <Grid justify="center" item xs={1}></Grid>
+          <Grid justify="center" item xs={5}>
             <Carousel animation="slide">
               {data.allRecruitingResource.nodes.map((node, index) => (
                 <Item node={node} />

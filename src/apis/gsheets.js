@@ -58,6 +58,7 @@ async function getRows() {
     rows.push(rowObject);
   }
 
+  console.log(rows[0]);
   return rows;
 }
 
