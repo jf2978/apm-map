@@ -1,17 +1,60 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Carousel from "react-material-ui-carousel";
 
 import Card from "../util/MediaCard";
+import { Container } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100vw",
+    height: "70vh",
+    background: theme.palette.primary,
+  },
+  item: {
+    height: "100%",
+    width: "100%",
+    // TODO make these responsive
+  },
+}));
+
+function Item({ node }) {
+  const classes = useStyles();
+
+  return (
+    <div item className={classes.item}>
+      <Card loading={false} data={node} image={node.image} />
+    </div>
+  );
+}
 
 export default function DirectoryPreview() {
-  // dummy query that just gets 6 resources
+  const classes = useStyles();
+
+  // placeholder query that just gets 6 random resources
+  // TODO pick actual featured resources and mark them with a new field (filterable in graphQL)
   const data = useStaticQuery(graphql`
     query GetFeaturedResources {
-      allRecruitingResource(limit: 6, sort: { fields: id }) {
+      allRecruitingResource(
+        limit: 6
+        filter: {
+          name: {
+            in: [
+              "Success in Tech"
+              "College PM"
+              "Lewis Lin's Slack Community"
+              "Subtle Asian PM"
+            ]
+          }
+        }
+      ) {
         nodes {
           id
           name
@@ -21,13 +64,8 @@ export default function DirectoryPreview() {
           link
           image {
             childImageSharp {
-              fixed(
-                width: 250
-                height: 200
-                quality: 75
-                cropFocus: ATTENTION
-              ) {
-                ...GatsbyImageSharpFixed
+              fluid(quality: 75, cropFocus: ATTENTION) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -38,19 +76,20 @@ export default function DirectoryPreview() {
 
   return (
     <>
-      <Box bgcolor="lightgreen" height={500}>
-        <Carousel
-          style={{
-            width: 300,
-            height: 300,
-          }}
-          animation="slide"
-        >
-          {data.allRecruitingResource.nodes.map((node, index) => (
-            <Card loading={false} data={node} image={node.image} />
-          ))}
-        </Carousel>
-      </Box>
+      <Container maxWidth={"lg  "} className={classes.container}>
+        <Grid container>
+          <Grid justify="center" item xs={6}>
+            <Box className={classes.item} bgcolor="lightgreen"></Box>
+          </Grid>
+          <Grid justify="center" item xs={6}>
+            <Carousel animation="slide">
+              {data.allRecruitingResource.nodes.map((node, index) => (
+                <Item node={node} />
+              ))}
+            </Carousel>
+          </Grid>
+        </Grid>
+      </Container>
     </>
   );
 }
