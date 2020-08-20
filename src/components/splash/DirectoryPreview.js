@@ -10,7 +10,24 @@ import Grid from "@material-ui/core/Grid";
 import Card from "../util/MediaCard";
 import Hero from "../util/Hero";
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  item: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: theme.spacing(10),
+    paddingRight: theme.spacing(10),
+    width: "100%",
+  },
+  carousel: {
+    width: "75%",
+  },
+}));
 
 export default function MiniDirectory({ category }) {
   const classes = useStyles();
@@ -39,13 +56,15 @@ export default function MiniDirectory({ category }) {
 
   function DirectoryRow({ group }) {
     return (
-      <Grid container justify="center" xs={12}>
-        {group.map((node, index) => (
-          <Grid item xs={4}>
-            <Card loading={false} data={node} image={node.image} />
-          </Grid>
-        ))}
-      </Grid>
+      <div className={classes.item}>
+        <Grid container justify="center" spacing={4} xs={12}>
+          {group.map((node, index) => (
+            <Grid justify="center" item xs={12} sm={6} md={4}>
+              <Card loading={false} data={node} image={node.image} />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     );
   }
 
@@ -56,10 +75,20 @@ export default function MiniDirectory({ category }) {
         title="title"
         subtitle="subtitle things go here"
       />
-      <Container className={classes.container}>
-        <Carousel interval={6000} animation="slide">
-          <DirectoryRow group={data.allRecruitingResource.nodes.slice(0, 3)} />
-          <DirectoryRow group={data.allRecruitingResource.nodes.slice(3, 4)} />
+      <Container maxWidth={false} className={classes.container}>
+        <Carousel
+          className={classes.carousel}
+          navButtonsAlwaysVisible={true}
+          autoPlay={false}
+          animation="slide"
+        >
+          {data.allRecruitingResource.nodes.map((node, index) => (
+            <div className={classes.item}>
+              <Grid justify="center" item xs={12}>
+                <Card loading={false} data={node} image={node.image} />
+              </Grid>
+            </div>
+          ))}
         </Carousel>
       </Container>
     </>
