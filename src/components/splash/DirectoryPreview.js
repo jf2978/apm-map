@@ -20,12 +20,25 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    paddingLeft: theme.spacing(10),
-    paddingRight: theme.spacing(10),
     width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: theme.spacing(10),
+      paddingRight: theme.spacing(10),
+    },
   },
   carousel: {
-    width: "75%",
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "90%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "50%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "70%",
+    },
   },
 }));
 
