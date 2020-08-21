@@ -17,8 +17,9 @@ import Hero from "../util/Hero";
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
+    flexWrap: "wrap",
   },
   item: {
     display: "flex",
@@ -31,19 +32,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   carousel: {
-    [theme.breakpoints.up("xs")]: {
-      width: "100%",
-    },
     [theme.breakpoints.up("sm")]: {
-      width: "90%",
+      width: "100%",
     },
     [theme.breakpoints.up("md")]: {
       width: "50%",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "60%",
+      width: "40%",
     },
-    marginBottom: theme.spacing(5),
+    margin: theme.spacing(5),
   },
   header: {
     display: "flex",
@@ -65,14 +63,30 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 0, 2),
     fontStyle: "normal",
   },
-  callout: {
+  highlights: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
+    [theme.breakpoints.up("sm")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "50%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "40%",
+    },
+  },
+  callout: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%",
   },
 }));
 
-export default function MiniDirectory({ category }) {
+export default function DirectoryPreview({ category }) {
   const classes = useStyles();
 
   const data = useStaticQuery(graphql`
@@ -137,10 +151,11 @@ export default function MiniDirectory({ category }) {
           </Typography>
         </div>
       </Box>
-      <Container className={classes.container}>
-        <div>
+      <Container maxWidth={"xl"} className={classes.container}>
+        <div className={classes.highlights}>
           <div className={classes.callout}>
             <Typography
+              style={{ width: "40%" }}
               color="textSecondary"
               variant="h2"
               align="center"
@@ -149,6 +164,7 @@ export default function MiniDirectory({ category }) {
               {"150+"}
             </Typography>
             <Typography
+              style={{ width: "60%" }}
               variant="h6"
               align="center"
               color="textPrimary"
@@ -157,7 +173,28 @@ export default function MiniDirectory({ category }) {
               {"resources recommended by professional PMs"}
             </Typography>
           </div>
+          <div className={classes.callout}>
+            <Typography
+              style={{ width: "40%" }}
+              color="textSecondary"
+              variant="h2"
+              align="center"
+              gutterBottom
+            >
+              {"1"}
+            </Typography>
+            <Typography
+              style={{ width: "60%" }}
+              variant="h6"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              {"easy-to-navigate directory"}
+            </Typography>
+          </div>
         </div>
+
         <Carousel
           className={classes.carousel}
           navButtonsAlwaysVisible={true}
