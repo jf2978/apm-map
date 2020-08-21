@@ -3,9 +3,11 @@ import Carousel from "react-material-ui-carousel";
 
 import { graphql, useStaticQuery } from "gatsby";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, darken } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 import Card from "../util/MediaCard";
 import Hero from "../util/Hero";
@@ -37,8 +39,28 @@ const useStyles = makeStyles((theme) => ({
       width: "50%",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "70%",
+      width: "45%",
     },
+    marginBottom: theme.spacing(5),
+  },
+  header: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    padding: theme.spacing(5, 0, 5),
+  },
+  label: {
+    fontVariant: "small-caps",
+  },
+  title: {
+    fontWeight: 900,
+    padding: theme.spacing(2, 0, 2),
+    width: "75%",
+  },
+  subtitle: {
+    width: "85%",
+    padding: theme.spacing(2, 0, 2),
   },
 }));
 
@@ -83,12 +105,46 @@ export default function MiniDirectory({ category }) {
 
   return (
     <>
-      <Hero
-        id="directory-preview"
-        title="title"
-        subtitle="subtitle things go here"
-      />
+      <Box id="directory-preview">
+        <div className={classes.header}>
+          <Typography
+            className={classes.label}
+            color="textSecondary"
+            variant="h5"
+            align="center"
+            gutterBottom
+          >
+            {"directory"}
+          </Typography>
+          <Typography
+            className={classes.title}
+            variant="h3"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
+            {"Simplify the A/PM recruiting process"}
+          </Typography>
+          <Typography
+            className={classes.subtitle}
+            variant="h6"
+            align="center"
+            color="textSecondary"
+            paragraph
+          >
+            {
+              <>
+                {
+                  "We've collected and organized some of the best A/PM recruiting resources out there"
+                }{" "}
+                &mdash; {"so you can focus on getting your dream job"}
+              </>
+            }
+          </Typography>
+        </div>
+      </Box>
       <Container maxWidth={false} className={classes.container}>
+        <Box className={classes.carousel} bgcolor="red"></Box>
         <Carousel
           className={classes.carousel}
           navButtonsAlwaysVisible={true}
