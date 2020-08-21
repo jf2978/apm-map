@@ -10,9 +10,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    overflow: "hidden",
-  },
+  container: {},
   navBar: {
     display: "flex",
   },

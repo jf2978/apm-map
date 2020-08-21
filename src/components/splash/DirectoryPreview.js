@@ -41,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       width: "40%",
     },
-    margin: theme.spacing(5),
+    marginLeft: theme.spacing(10),
+    marginBottom: theme.spacing(10),
   },
   header: {
     display: "flex",
@@ -198,7 +199,6 @@ export default function DirectoryPreview({ category }) {
         <Carousel
           className={classes.carousel}
           navButtonsAlwaysVisible={true}
-          autoPlay={false}
           animation="slide"
         >
           {data.allRecruitingResource.nodes.map((node, index) => (

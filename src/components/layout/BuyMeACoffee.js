@@ -1,5 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import {
+  motion,
+  useViewportScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
@@ -10,6 +15,11 @@ import BuyMeACoffeeIcon from "../../../assets/bmac.svg";
 import Emoji from "../util/Emoji";
 
 const useStyles = makeStyles((theme) => ({
+  bmac: {
+    position: "sticky",
+    bottom: 0,
+    float: "right",
+  },
   button: {
     boxShadow: theme.shadows[10],
     width: 80,
@@ -17,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#79D6B5",
     marginBottom: theme.spacing(4),
     marginRight: theme.spacing(4),
-    float: "right",
     "&:hover": {
       backgroundColor: darken("#79D6B5", 0.05),
       boxShadow: theme.shadows[10],
@@ -47,12 +56,12 @@ export default function BuyMeACoffee() {
 
   const buttonVariants = {
     before: {
-      opacity: 0,
+      scale: 0,
       y: 25,
       transition: springTransition(20, 500),
     },
     after: {
-      opacity: 1,
+      scale: 1,
       y: 0,
       transition: springTransition(20, 500),
     },
@@ -67,25 +76,46 @@ export default function BuyMeACoffee() {
     },
   };
 
+  const [isInViewport, setIsInViewport] = useState(false);
+  const { scrollYProgress } = useViewportScroll();
+  const yRange = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+
+  // on viewport scroll and/or path complete, trigger animations
+  useEffect(() => {
+    yRange.onChange((v) => setIsInViewport(v >= 1));
+  }, [yRange]);
+
   return (
-    <motion.div animate={["after", "bounce"]} variants={buttonVariants}>
-      <HTMLTooltip
-        title={
-          <Typography variant="body2">
-            {" If we've helped you in your journey, consider supporting ours! "}
-            <Emoji symbol="❤️" label="heart" />
-          </Typography>
-        }
-        placement="left"
-        aria-label="help-support-us"
-      >
-        <IconButton
-          className={classes.button}
-          href="https://www.buymeacoffee.com/michellema"
+    <AnimatePresence>
+      {isInViewport && (
+        <motion.div
+          className={classes.bmac}
+          initial="before"
+          animate={["after", "bounce"]}
+          exit={{ scale: 0 }}
+          variants={buttonVariants}
         >
-          <BuyMeACoffeeIcon height={75} width={75} />
-        </IconButton>
-      </HTMLTooltip>
-    </motion.div>
+          <HTMLTooltip
+            title={
+              <Typography variant="body2">
+                {
+                  " If we've helped you in your journey, consider supporting ours! "
+                }
+                <Emoji symbol="❤️" label="heart" />
+              </Typography>
+            }
+            placement="left"
+            aria-label="help-support-us"
+          >
+            <IconButton
+              className={classes.button}
+              href="https://www.buymeacoffee.com/michellema"
+            >
+              <BuyMeACoffeeIcon height={75} width={75} />
+            </IconButton>
+          </HTMLTooltip>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

@@ -328,7 +328,7 @@ function ScrollToDirectory(props) {
 
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
-      "#directory-hero"
+      "#directory-preview"
     );
 
     if (anchor) {

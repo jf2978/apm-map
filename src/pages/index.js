@@ -6,6 +6,7 @@ import Hero from "../components/util/Hero";
 import Emoji from "../components/util/Emoji";
 import Splash from "../components/splash/Splash";
 import DirectoryPreview from "../components/splash/DirectoryPreview";
+import BuyMeACoffee from "../components/layout/BuyMeACoffee";
 
 export default function IndexPage() {
   return (
