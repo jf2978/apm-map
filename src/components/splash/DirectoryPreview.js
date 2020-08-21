@@ -8,6 +8,8 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import WebIcon from "@material-ui/icons/Web";
+import IconButton from "@material-ui/core/IconButton";
 
 import Card from "../util/MediaCard";
 import Hero from "../util/Hero";
@@ -15,7 +17,7 @@ import Hero from "../util/Hero";
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   item: {
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
       width: "50%",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "45%",
+      width: "60%",
     },
     marginBottom: theme.spacing(5),
   },
@@ -61,6 +63,12 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     width: "85%",
     padding: theme.spacing(2, 0, 2),
+    fontStyle: "normal",
+  },
+  callout: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
 
@@ -88,20 +96,6 @@ export default function MiniDirectory({ category }) {
       }
     }
   `);
-
-  function DirectoryRow({ group }) {
-    return (
-      <div className={classes.item}>
-        <Grid container justify="center" spacing={4} xs={12}>
-          {group.map((node, index) => (
-            <Grid justify="center" item xs={12} sm={6} md={4}>
-              <Card loading={false} data={node} image={node.image} />
-            </Grid>
-          ))}
-        </Grid>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -143,8 +137,27 @@ export default function MiniDirectory({ category }) {
           </Typography>
         </div>
       </Box>
-      <Container maxWidth={false} className={classes.container}>
-        <Box className={classes.carousel} bgcolor="red"></Box>
+      <Container className={classes.container}>
+        <div>
+          <div className={classes.callout}>
+            <Typography
+              color="textSecondary"
+              variant="h2"
+              align="center"
+              gutterBottom
+            >
+              {"150+"}
+            </Typography>
+            <Typography
+              variant="h6"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              {"resources recommended by professional PMs"}
+            </Typography>
+          </div>
+        </div>
         <Carousel
           className={classes.carousel}
           navButtonsAlwaysVisible={true}
