@@ -16,15 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-  },
-  newsletter: {
-    display: "flex",
-    justifyContent: "center",
-  },
-  btn: {
-    margin: theme.spacing(1),
   },
 }));
 

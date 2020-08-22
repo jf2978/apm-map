@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
   bmac: {
     position: "sticky",
     bottom: 0,
+    left: 0,
+    top: 0,
     float: "right",
   },
   button: {
@@ -27,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#79D6B5",
     marginBottom: theme.spacing(4),
     marginRight: theme.spacing(4),
+
     "&:hover": {
       backgroundColor: darken("#79D6B5", 0.05),
       boxShadow: theme.shadows[10],

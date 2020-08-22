@@ -13,61 +13,47 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-  },
-  signup: {
+  container: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  },
-  btn: {
-    marginLeft: theme.spacing(2),
+    flexDirection: "column",
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(2, 0, 2),
   },
   header: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    margin: theme.spacing(5, 0, 5),
+    width: "100%",
   },
   label: {
     fontVariant: "small-caps",
   },
   title: {
-    fontWeight: 900,
-    margin: theme.spacing(2, 0, 2),
+    fontWeight: 800,
     width: "75%",
+    padding: theme.spacing(2, 0, 2),
   },
   subtitle: {
-    width: "85%",
-    margin: theme.spacing(2, 0, 2),
+    width: "90%",
     fontStyle: "normal",
+    padding: theme.spacing(2, 0, 2),
   },
-  substackWatermark: {
-    height: "20px",
-    width: "100px",
-    backgroundImage:
-      "url(https://cdn.substack.com/image/fetch/w_200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fsubstack_wordmark.black.png)",
-    backgroundSize: "100%",
-    opacity: 0.3,
-    transition: "all 0.25s ease-out",
-
-    "&:hover": {
-      backgroundImage:
-        "url(https://cdn.substack.com/image/fetch/w_200,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fsubstack_wordmark.png)",
-      opacity: 1,
-    },
+  signup: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
   },
 }));
 
-export default function Layout({ children }) {
+export default function Footer({ children }) {
   const classes = useStyles();
 
   return (
-    <footer className={classes.footer}>
+    <Container maxWidth={false} className={classes.container}>
       <div className={classes.header}>
         <Typography
           className={classes.label}
@@ -92,6 +78,7 @@ export default function Layout({ children }) {
           variant="h6"
           align="center"
           color="textSecondary"
+          gutterBottom
         >
           {
             "Get advice from our network of students and recent grads in A/PM programs"
@@ -112,6 +99,6 @@ export default function Layout({ children }) {
           scrolling="no"
         ></iframe>
       </div>
-    </footer>
+    </Container>
   );
 }
