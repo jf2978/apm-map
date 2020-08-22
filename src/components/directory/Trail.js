@@ -18,11 +18,15 @@ const useStyles = makeStyles((theme) => ({
     stroke: theme.palette.common.black,
     strokeWidth: 12,
   },
-  pathOverlay: {
+  dashedPath: {
     stroke: theme.palette.background.default,
     strokeWidth: 20,
     strokeDasharray: 30,
     marginLeft: "-100%",
+  },
+  filledPath: {
+    stroke: "#DD4B3E",
+    strokeWidth: 12,
   },
   circle: {
     stroke: theme.palette.common.black,
@@ -44,38 +48,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Trail({ toggleCategory }) {
   const classes = useStyles();
-
   const pathRef = useRef(null);
 
-  const [isInViewport, setIsInViewport] = useState(false);
+  // state
   const [showStops, setShowStops] = useState(false);
-  const [isPathComplete, setIsPathComplete] = useState(false);
+  const pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+  const [currentPathLength, setCurrentPathLength] = useState(0);
   const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 });
   const [pathPoints, setPathPoints] = useState(
     new Array(10).fill({ x: 0, y: 0 })
   );
 
-  const { scrollYProgress } = useViewportScroll();
-
-  const yRange = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
-
-  // on viewport scroll and/or path complete, trigger animations
-  useEffect(() => {
-    yRange.onChange((v) => setIsInViewport(v >= 1));
-
-    if (isInViewport && !isPathComplete) {
-      sequence();
-    }
-  }, [yRange, isInViewport, isPathComplete]);
-
-  // once our path element is mounted to the DOM, we can get its points
+  // once our path element is mounted to the DOM, we can get its length/points
   useEffect(() => {
     function getPathPoints() {
-      var pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
       var pathLen = pathRef.current.getTotalLength();
 
       return pathIncrements.map((val, idx) => {
         var point = pathRef.current.getPointAtLength(val * pathLen);
+
         return {
           x: point.x,
           y: point.y,
@@ -87,16 +78,20 @@ export default function Trail({ toggleCategory }) {
     setPathPoints(pathPoints);
   }, [pathRef]);
 
+  // initialize starting path point/length + start animation sequence
   useEffect(() => {
     setCurrentPathPoint(pathPoints[0]);
+    sequence();
   }, [pathPoints]);
 
   async function sequence() {
     await pathControls.start("after");
-    await setIsPathComplete(true);
     await setShowStops(true);
     await circleControls.start("after");
-    return await pinControls.start(["after", "bounce"]);
+    await pinControls.start(["after", "bounce"]);
+    setCurrentPathLength(pathIncrements[0]);
+
+    console.log(currentPathLength);
   }
 
   // animate an SVG path to smoothly increase pathLength
@@ -110,6 +105,18 @@ export default function Trail({ toggleCategory }) {
       pathLength: pathKeyframes,
       transition: {
         duration: 1.5,
+      },
+    },
+  };
+
+  const filledPathVariants = {
+    before: {
+      pathLength: 0,
+    },
+    after: {
+      pathLength: currentPathLength,
+      transition: {
+        duration: 0.5,
       },
     },
   };
@@ -173,7 +180,15 @@ export default function Trail({ toggleCategory }) {
             fill="none"
           />
           <motion.path
-            className={classes.pathOverlay}
+            className={classes.filledPath}
+            initial="before"
+            animate="after"
+            variants={filledPathVariants}
+            d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
+            fill="none"
+          />
+          <motion.path
+            className={classes.dashedPath}
             d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
             fill="none"
           />
@@ -203,6 +218,8 @@ export default function Trail({ toggleCategory }) {
             pathPoints.map((point, idx) => {
               const updateCategory = () => {
                 setCurrentPathPoint(point);
+                setCurrentPathLength(pathIncrements[idx]);
+                console.log(pathIncrements[idx]);
                 toggleCategory(CATEGORIES[idx]);
               };
               return (

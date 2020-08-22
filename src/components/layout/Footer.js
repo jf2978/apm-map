@@ -49,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
   },
   substack: {
     background: theme.palette.background.paper,
+
+    "& subscribe-btn": {
+      background: theme.palette.primary.main,
+    },
   },
 }));
 
