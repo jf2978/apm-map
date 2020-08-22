@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
   },
   appBar: {
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.background.default,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

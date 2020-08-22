@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    height: "100%",
     [theme.breakpoints.up("sm")]: {
       paddingLeft: theme.spacing(10),
       paddingRight: theme.spacing(10),
@@ -155,7 +156,7 @@ export default function DirectoryPreview({ context }) {
                 {
                   "We've collected and organized some of the best A/PM recruiting resources out there"
                 }{" "}
-                &mdash; {"so you can focus on getting your dream job"}
+                &mdash; {"so you can focus on landing your dream job"}
               </>
             }
           </Typography>

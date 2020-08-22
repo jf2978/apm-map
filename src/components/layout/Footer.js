@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     width: "100%",
   },
+  substack: {
+    background: theme.palette.background.paper,
+  },
 }));
 
 export default function Footer({ children }) {
@@ -90,11 +93,7 @@ export default function Footer({ children }) {
           src="https://thepmcollective.substack.com/embed"
           width="100%"
           height="100%"
-          style={{
-            border: "1px",
-            solid: "#EEE",
-            background: "white",
-          }}
+          className={classes.substack}
           frameborder="0"
           scrolling="no"
         ></iframe>

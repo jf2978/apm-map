@@ -7,7 +7,7 @@ import Trail from "./Trail";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    background: "#e4e4d9",
+    background: theme.palette.background.default,
   },
   box: {
     width: "100%",

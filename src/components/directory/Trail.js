@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     strokeWidth: 12,
   },
   pathOverlay: {
-    stroke: "#e4e4d9",
+    stroke: theme.palette.background.default,
     strokeWidth: 20,
     strokeDasharray: 30,
     marginLeft: "-100%",

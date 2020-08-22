@@ -26,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[10],
     width: 80,
     height: 80,
-    backgroundColor: "#79D6B5",
+    backgroundColor: theme.palette.primary.main,
     marginBottom: theme.spacing(4),
     marginRight: theme.spacing(4),
 
     "&:hover": {
-      backgroundColor: darken("#79D6B5", 0.05),
+      backgroundColor: theme.palette.primary.dark,
       boxShadow: theme.shadows[10],
     },
   },
@@ -39,11 +39,11 @@ const useStyles = makeStyles((theme) => ({
 
 const HTMLTooltip = withStyles((theme) => ({
   tooltip: {
-    backgroundColor: "#f5f5f9",
+    backgroundColor: theme.palette.background.paper,
     maxWidth: 180,
     color: "rgba(0, 0, 0, 0.87)",
     fontSize: theme.typography.pxToRem(12),
-    border: "1px solid #dadde9",
+    border: `1px solid ${darken(theme.palette.background.paper, 0.2)}`,
   },
 }))(Tooltip);
 

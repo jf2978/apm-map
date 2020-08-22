@@ -1,15 +1,16 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme, darken } from "@material-ui/core/styles";
 
 let theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#63ccff",
-      main: "#009be5",
-      dark: "#006db3",
+      main: "#7ad9f5",
+      dark: darken("#7ad9f5", 0.1),
     },
     secondary: {
-      main: "#03bb85 ",
-      contrastText: "#ffff",
+      main: "#bdf2d5",
+    },
+    background: {
+      default: "#f6f6f6",
     },
   },
   typography: {
