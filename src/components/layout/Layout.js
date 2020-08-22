@@ -70,8 +70,8 @@ export default function Layout({ children }) {
               {children}
             </motion.main>
           </AnimatePresence>
-          <BuyMeACoffee />
           <Footer />
+          <BuyMeACoffee />
         </Container>
       )}
     </Context.Consumer>
