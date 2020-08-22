@@ -9,10 +9,10 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import WebIcon from "@material-ui/icons/Web";
-import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 
 import Card from "../util/MediaCard";
-import Hero from "../util/Hero";
+import Link from "../util/Link";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -41,8 +41,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       width: "40%",
     },
-    marginLeft: theme.spacing(10),
-    marginBottom: theme.spacing(10),
+    margin: theme.spacing(0, 10, 0),
   },
   header: {
     display: "flex",
@@ -84,6 +83,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-evenly",
     alignItems: "center",
     width: "100%",
+  },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: theme.spacing(5),
+  },
+  button: {
+    width: "25%",
+    padding: theme.spacing(1),
   },
 }));
 
@@ -195,7 +204,6 @@ export default function DirectoryPreview({ category }) {
             </Typography>
           </div>
         </div>
-
         <Carousel
           className={classes.carousel}
           navButtonsAlwaysVisible={true}
@@ -210,6 +218,25 @@ export default function DirectoryPreview({ category }) {
           ))}
         </Carousel>
       </Container>
+      <div className={classes.buttonContainer}>
+        <Button
+          component={Link}
+          to={"/directory"}
+          className={classes.button}
+          variant="contained"
+          color="primary"
+        >
+          <Typography
+            className={classes.label}
+            color="white"
+            variant="button"
+            align="center"
+            gutterBottom
+          >
+            {"see more"}
+          </Typography>
+        </Button>
+      </div>
     </>
   );
 }

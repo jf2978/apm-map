@@ -70,9 +70,6 @@ theme = {
       },
       contained: {
         boxShadow: "none",
-        "&:active": {
-          boxShadow: "none",
-        },
       },
     },
     MuiTabs: {
