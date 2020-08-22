@@ -18,7 +18,7 @@ export default function IndexPage() {
               title="APM Map"
               subtitle="Discover resources to help you navigate your journey into product management"
             />
-            <DirectoryPreview />
+            <DirectoryPreview context={context} />
           </>
         )}
       </Context.Consumer>

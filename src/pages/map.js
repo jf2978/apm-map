@@ -5,7 +5,7 @@ import Directory from "../components/directory/Directory";
 import Hero from "../components/util/Hero";
 import Emoji from "../components/util/Emoji";
 
-export default function DirectoryPage() {
+export default function MapPage() {
   return (
     <Layout>
       <Context.Consumer>

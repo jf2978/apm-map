@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DirectoryPreview({ category }) {
+export default function DirectoryPreview({ context }) {
   const classes = useStyles();
 
   const data = useStaticQuery(graphql`
@@ -221,7 +221,8 @@ export default function DirectoryPreview({ category }) {
       <div className={classes.buttonContainer}>
         <Button
           component={Link}
-          to={"/directory"}
+          onClick={(event) => context.changeNav(event, 1)}
+          to={"/map"}
           className={classes.button}
           variant="contained"
           color="primary"
