@@ -1,21 +1,42 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import { withStyles, makeStyles, darken } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import Tooltip from "@material-ui/core/Tooltip";
+
+const HTMLTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: theme.palette.secondary.main,
+    color: "rgba(0, 0, 0, 0.87)",
+    border: `1px solid ${darken(theme.palette.secondary.main, 0.2)}`,
+  },
+  arrow: {
+    color: theme.palette.secondary.main,
+  },
+}))(Tooltip);
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    ...theme.typography.button,
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(1),
+  label: {
+    fontSize: 16,
+    fontWeight: 600,
   },
 }));
 
-export default function TrailLabel({ label }) {
+export default function TrailLabel({ label, children }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Typography>{label}</Typography>
-    </div>
+    <HTMLTooltip
+      arrow
+      open={true}
+      placement="bottom"
+      title={
+        <Typography align="center" className={classes.label}>
+          {label}
+        </Typography>
+      }
+    >
+      {children}
+    </HTMLTooltip>
   );
 }

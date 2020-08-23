@@ -16,6 +16,19 @@ import RoomRoundedIcon from "@material-ui/icons/RoomRounded";
 import { CATEGORIES } from "../util/filters";
 import TrailLabel from "./TrailLabel";
 
+// shortened category names to better fit on the trail labels
+const SHORT_CATEGORES = [
+  "All",
+  "Why PM",
+  "Find Programs",
+  "Networking",
+  "Interview Prep",
+  "Mock Interviews",
+  "Technical Interview",
+  "Post-Offer",
+  "Books",
+];
+
 const useStyles = makeStyles((theme) => ({
   path: {
     stroke: theme.palette.common.black,
@@ -55,7 +68,7 @@ export default function Trail({ toggleCategory }) {
 
   // state
   const [showStops, setShowStops] = useState(false);
-  const pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+  const pathIncrements = [0.07, 0.15, 0.25, 0.35, 0.48, 0.6, 0.73, 0.85, 0.95];
   const currentPathLength = useMotionValue(0);
   const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 });
   const [pathPoints, setPathPoints] = useState(
@@ -213,28 +226,18 @@ export default function Trail({ toggleCategory }) {
               };
               return (
                 <a onClick={updateCategory}>
-                  <motion.circle
-                    cx={point.x}
-                    cy={point.y}
-                    r="18"
-                    className={classes.circle}
-                    initial="before"
-                    whileHover="pulsate"
-                    animate={circleControls}
-                    variants={circleVariants}
-                  />
-                  <motion.rect
-                    style={{
-                      width: 100,
-                      height: 100,
-                      fill: "red",
-                      transform: "none",
-                    }}
-                    x={point.x}
-                    y={point.y}
-                  >
-                    <motion.text>{"yoooooo"}</motion.text>
-                  </motion.rect>
+                  <TrailLabel label={SHORT_CATEGORES[idx]}>
+                    <motion.circle
+                      cx={point.x}
+                      cy={point.y}
+                      r="18"
+                      className={classes.circle}
+                      initial="before"
+                      whileHover="pulsate"
+                      animate={circleControls}
+                      variants={circleVariants}
+                    />
+                  </TrailLabel>
                 </a>
               );
             })}

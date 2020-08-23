@@ -7,6 +7,7 @@ let theme = createMuiTheme({
       dark: darken("#7ad9f5", 0.1),
     },
     secondary: {
+      default: "#bdf2d5",
       main: "#bdf2d5",
     },
     background: {
@@ -50,7 +51,6 @@ theme.typography.h1 = {
 theme.typography.h6 = {
   fontSize: 20,
   fontWeight: 400,
-  fontStyle: "italic",
   [theme.breakpoints.up("md")]: {
     fontSize: 24,
   },

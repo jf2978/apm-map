@@ -24,7 +24,7 @@ export default function Timeline({ toggleCategory }) {
   const classes = useStyles();
 
   return (
-    <Container disableGutters maxWidth="lg" className={classes.container}>
+    <Container disableGutters className={classes.container}>
       <Box
         display="flex"
         justifyContent="center"
