@@ -1,11 +1,10 @@
 import React from "react";
 
-import Layout from "../components/Layout";
-import { Context } from "../../provider";
+import Layout from "../components/layout/Layout";
+import { Context } from "../components/layout/Provider";
 import MentorsGrid from "../components/mentors/MentorsGrid";
-import BuyMeACoffee from "../components/BuyMeACoffee";
 
-export default function Guides() {
+export default function GuidesPage() {
   return (
     <Layout>
       <Context.Consumer>

@@ -1,6 +1,6 @@
 const path = require("path");
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
-const { getRows } = require("./gsheets.js");
+const { getRows } = require("./src/apis/gsheets");
 
 // createSchemaCustomization explicitly defines GraphQL data types
 exports.createSchemaCustomization = ({ actions }) => {
@@ -11,6 +11,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: String!
       name: String!
       description: String,
+      featured: Boolean,
       link: String!,
       category: String,
       tags: [String],
@@ -53,6 +54,7 @@ exports.sourceNodes = async ({
       category: row.category,
       type: row.type,
       description: row.description,
+      featured: row.featured == "TRUE" ? true : false,
       tags: row.tags,
       image: row.image,
     };

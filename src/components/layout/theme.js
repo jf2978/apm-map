@@ -1,15 +1,17 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme, darken } from "@material-ui/core/styles";
 
 let theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#63ccff",
-      main: "#009be5",
-      dark: "#006db3",
+      main: "#7ad9f5",
+      dark: darken("#7ad9f5", 0.1),
     },
     secondary: {
-      main: "#03bb85 ",
-      contrastText: "#ffff",
+      default: "#bdf2d5",
+      main: "#bdf2d5",
+    },
+    background: {
+      default: "#f6f6f6",
     },
   },
   typography: {
@@ -49,7 +51,6 @@ theme.typography.h1 = {
 theme.typography.h6 = {
   fontSize: 20,
   fontWeight: 400,
-  fontStyle: "italic",
   [theme.breakpoints.up("md")]: {
     fontSize: 24,
   },
@@ -70,16 +71,13 @@ theme = {
       },
       contained: {
         boxShadow: "none",
-        "&:active": {
-          boxShadow: "none",
-        },
       },
     },
     MuiTabs: {
       root: {
         position: "absolute",
         left: "50%",
-        transform: "translate(-50%, 0)",
+        transform: "translate(-30%, 0)",
         color: theme.palette.text.primary,
       },
       indicator: {

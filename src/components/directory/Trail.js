@@ -6,23 +6,43 @@ import {
   useAnimation,
   useTransform,
   useViewportScroll,
+  useMotionValue,
 } from "framer-motion";
 
 import { makeStyles, darken } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import RoomRoundedIcon from "@material-ui/icons/RoomRounded";
 
-import { CATEGORIES } from "../constants/filters";
+import { CATEGORIES } from "../util/filters";
+import TrailLabel from "./TrailLabel";
+
+// shortened category names to better fit on the trail labels
+const SHORT_CATEGORES = [
+  "All",
+  "Why PM",
+  "Find Programs",
+  "Networking",
+  "Interview Prep",
+  "Mock Interviews",
+  "Technical Interview",
+  "Post-Offer",
+  "Books",
+];
 
 const useStyles = makeStyles((theme) => ({
   path: {
     stroke: theme.palette.common.black,
     strokeWidth: 12,
   },
-  pathOverlay: {
-    stroke: "#e4e4d9",
+  dashedPath: {
+    stroke: theme.palette.background.default,
     strokeWidth: 20,
     strokeDasharray: 30,
     marginLeft: "-100%",
+  },
+  filledPath: {
+    stroke: "#DD4B3E",
+    strokeWidth: 12,
   },
   circle: {
     stroke: theme.palette.common.black,
@@ -44,38 +64,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Trail({ toggleCategory }) {
   const classes = useStyles();
-
   const pathRef = useRef(null);
 
-  const [isInViewport, setIsInViewport] = useState(false);
+  // state
   const [showStops, setShowStops] = useState(false);
-  const [isPathComplete, setIsPathComplete] = useState(false);
+  const pathIncrements = [0.07, 0.15, 0.25, 0.35, 0.48, 0.6, 0.73, 0.85, 0.95];
+  const currentPathLength = useMotionValue(0);
   const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 });
   const [pathPoints, setPathPoints] = useState(
     new Array(10).fill({ x: 0, y: 0 })
   );
 
-  const { scrollYProgress } = useViewportScroll();
-
-  const yRange = useTransform(scrollYProgress, [0, 0.02], [0, 1]);
-
-  // on viewport scroll and/or path complete, trigger animations
-  useEffect(() => {
-    yRange.onChange((v) => setIsInViewport(v >= 1));
-
-    if (isInViewport && !isPathComplete) {
-      sequence();
-    }
-  }, [yRange, isInViewport, isPathComplete]);
-
-  // once our path element is mounted to the DOM, we can get its points
+  // once our path element is mounted to the DOM, we can get its length/points
   useEffect(() => {
     function getPathPoints() {
-      var pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
       var pathLen = pathRef.current.getTotalLength();
 
       return pathIncrements.map((val, idx) => {
         var point = pathRef.current.getPointAtLength(val * pathLen);
+
         return {
           x: point.x,
           y: point.y,
@@ -87,16 +94,18 @@ export default function Trail({ toggleCategory }) {
     setPathPoints(pathPoints);
   }, [pathRef]);
 
+  // initialize starting path point/length + start animation sequence
   useEffect(() => {
     setCurrentPathPoint(pathPoints[0]);
-  }, [pathPoints]);
+    sequence();
+    currentPathLength.set(pathIncrements[0]);
+  }, [pathPoints, currentPathLength]);
 
   async function sequence() {
     await pathControls.start("after");
-    await setIsPathComplete(true);
     await setShowStops(true);
     await circleControls.start("after");
-    return await pinControls.start(["after", "bounce"]);
+    await pinControls.start(["after", "bounce"]);
   }
 
   // animate an SVG path to smoothly increase pathLength
@@ -173,7 +182,16 @@ export default function Trail({ toggleCategory }) {
             fill="none"
           />
           <motion.path
-            className={classes.pathOverlay}
+            style={{
+              stroke: "#DD4B3E",
+              strokeWidth: 18,
+              pathLength: currentPathLength,
+            }}
+            d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
+            fill="none"
+          />
+          <motion.path
+            className={classes.dashedPath}
             d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
             fill="none"
           />
@@ -203,20 +221,23 @@ export default function Trail({ toggleCategory }) {
             pathPoints.map((point, idx) => {
               const updateCategory = () => {
                 setCurrentPathPoint(point);
+                currentPathLength.set(pathIncrements[idx]);
                 toggleCategory(CATEGORIES[idx]);
               };
               return (
                 <a onClick={updateCategory}>
-                  <motion.circle
-                    cx={point.x}
-                    cy={point.y}
-                    r="18"
-                    className={classes.circle}
-                    initial="before"
-                    whileHover="pulsate"
-                    animate={circleControls}
-                    variants={circleVariants}
-                  />
+                  <TrailLabel label={SHORT_CATEGORES[idx]}>
+                    <motion.circle
+                      cx={point.x}
+                      cy={point.y}
+                      r="18"
+                      className={classes.circle}
+                      initial="before"
+                      whileHover="pulsate"
+                      animate={circleControls}
+                      variants={circleVariants}
+                    />
+                  </TrailLabel>
                 </a>
               );
             })}

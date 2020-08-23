@@ -11,14 +11,12 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { CATEGORIES } from "../../constants/filters";
+import { CATEGORIES } from "../util/filters";
 import InputBase from "@material-ui/core/InputBase";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Zoom from "@material-ui/core/Zoom";
-import Fab from "@material-ui/core/Fab";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
 // FILE CONSTANTS
 const drawerWidth = 360;
@@ -31,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
   },
   appBar: {
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.background.default,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -187,27 +185,27 @@ export default function DirectoryAppBar(props) {
     setOpen(false);
   };
 
-  const { children, selection, toggleCategory } = props;
+  const { children, selection, toggleCategory, search } = props;
   return (
     <>
-      <ElevationScroll>
-        <AppBar
-          elevation={0}
-          position="sticky"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              color="transparent"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
+      <AppBar
+        elevation={0}
+        position="sticky"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="transparent"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
+          >
+            <MenuIcon />
+          </IconButton>
+          {search && (
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon color="action" />
@@ -221,9 +219,9 @@ export default function DirectoryAppBar(props) {
                 inputProps={{ "aria-label": "search" }}
               />
             </div>
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
+          )}
+        </Toolbar>
+      </AppBar>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,

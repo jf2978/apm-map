@@ -87,6 +87,7 @@ export default function MediaCard({ loading, data, image }) {
     >
       <CardActionArea href={data.link} className={classes.cardActionArea}>
         <Img fluid={{ ...image.childImageSharp.fluid, aspectRatio: 16 / 9 }} />
+        <Divider light />
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
             {data.name}

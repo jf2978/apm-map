@@ -64,8 +64,18 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-172152528-1",
+      },
+    },
   ],
   siteMetadata: {
     title: "APM Map",
+    description:
+      "APM Map is your one-stop destination for navigating your A/PM recruiting journey",
+    author: "@jf2978",
+    siteUrl: "https://www.apmmap.co",
   },
 };

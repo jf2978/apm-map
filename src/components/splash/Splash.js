@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, usePresence } from "framer-motion";
 
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -8,8 +8,8 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Zoom from "@material-ui/core/Zoom";
 
-import Video from "../components/Video";
-import Emoji from "../components/Emoji";
+import Video from "../util/Video";
+import Emoji from "../util/Emoji";
 
 const videoSrc =
   "https://storage.googleapis.com/apm-map-assets/bg-video-1-trimmed.mp4";
@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: theme.palette.grey[50],
-    fontVariant: "small-caps",
   },
   subtitle: {
     color: theme.palette.grey[300],
@@ -145,9 +144,9 @@ export default function Splash(props) {
 
   return (
     <Box className={classes.box}>
-      <motion.div animate={bgControls} variants={bgVariants}>
+      <div>
         <Video src={videoSrc} />
-      </motion.div>
+      </div>
       <motion.div
         style={{
           display: "flex",
@@ -183,6 +182,7 @@ export default function Splash(props) {
                   position="relative"
                   center="y"
                   size="auto"
+                  initial="before"
                   variants={letterVariants}
                 >
                   <Typography
@@ -213,6 +213,7 @@ export default function Splash(props) {
               position="relative"
               center="y"
               size="auto"
+              initial="before"
               variants={mapVariants}
             >
               <Typography
@@ -222,7 +223,7 @@ export default function Splash(props) {
                 color="textPrimary"
               >
                 {"\u00A0"}
-                Map
+                MAP
               </Typography>
             </motion.div>
             <motion.div
@@ -246,6 +247,7 @@ export default function Splash(props) {
               position="relative"
               center="y"
               size="auto"
+              initial="before"
               variants={mapVariants}
               background={""}
             >
@@ -271,6 +273,7 @@ export default function Splash(props) {
             position="relative"
             center="y"
             size="auto"
+            initial="before"
             variants={mapVariants}
           >
             <Typography
@@ -300,6 +303,7 @@ export default function Splash(props) {
             position="relative"
             center="y"
             size="auto"
+            initial="before"
             variants={arrowVariants}
           >
             <ScrollToDirectory {...props}>
@@ -324,7 +328,7 @@ function ScrollToDirectory(props) {
 
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
-      "#directory-hero"
+      "#directory-preview"
     );
 
     if (anchor) {

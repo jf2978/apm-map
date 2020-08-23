@@ -4,11 +4,10 @@ import Container from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Trail from "./Trail";
-import MapPin from "./MapPin";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    background: "#e4e4d9",
+    background: theme.palette.background.default,
   },
   box: {
     width: "100%",
@@ -25,7 +24,7 @@ export default function Timeline({ toggleCategory }) {
   const classes = useStyles();
 
   return (
-    <Container disableGutters maxWidth="lg" className={classes.container}>
+    <Container disableGutters className={classes.container}>
       <Box
         display="flex"
         justifyContent="center"
