@@ -10,14 +10,42 @@ import Blurb from "../components/util/Blurb";
 import { Grid, Divider } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
+import Paper from "@material-ui/core/Paper";
+import CreatorProfile from "../components/about/CreatorProfile";
 
 const useStyles = makeStyles((theme) => ({
   aboutText: {
-    padding: theme.spacing(2, 0, 2),
+    padding: theme.spacing(2, 5, 2),
   },
   avatar: {
     width: "80%",
     height: "80%",
+  },
+  header: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    padding: theme.spacing(5, 0, 5),
+  },
+  label: {
+    fontVariant: "small-caps",
+  },
+  title: {
+    fontWeight: 900,
+    padding: theme.spacing(2, 0, 2),
+    width: "75%",
+  },
+  subtitle: {
+    width: "50%",
+    fontStyle: "normal",
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
 
@@ -90,66 +118,58 @@ export default function AboutPage() {
       <Context.Consumer>
         {(context) => (
           <>
-            <Blurb
-              title="About APM Map"
-              description="APM Map is your one-stop destination for navigating your A/PM recruiting journey. Whether you're looking to better understand the role of a PM or to refine your System Design interviewing skills for a technical round, we've curated resources across the entire A/PM recruiting timeline to help you accomplish just that. "
-              emoji={<Emoji symbol="🗺️" label="map" />}
-            />
-            <Container>
-              <Typography variant="h4">Meet the Creators</Typography>
-              <Divider light variant="middle" />
-              <Grid container spacing={1} style={{ width: "100%" }}>
-                <Grid
-                  item
-                  display="flex"
-                  flexDirection="column"
-                  className={classes.about}
-                  xs={12}
-                  sm={6}
-                >
-                  {aboutMima}
-                </Grid>
-                <Grid
-                  container
-                  item
-                  display="flex"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                  sm={6}
-                >
-                  <Avatar
-                    variant="rounded"
-                    className={classes.avatar}
-                    src="https://storage.googleapis.com/mentors-pics/mima-profile-pic.jpg"
-                  />
-                </Grid>
-                <Grid
-                  container
-                  item
-                  display="flex"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                  sm={6}
-                >
-                  <Avatar
-                    variant="rounded"
-                    className={classes.avatar}
-                    src="https://storage.googleapis.com/mentors-pics/jeff-3.jpg"
-                  />
-                </Grid>
-                <Grid
-                  item
-                  display="flex"
-                  flexDirection="column"
-                  className={classes.about}
-                  xs={12}
-                  sm={6}
-                >
-                  {aboutJeff}
-                </Grid>
-              </Grid>
+            <div className={classes.header}>
+              <Typography
+                className={classes.title}
+                variant="h3"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                {"About Us"}
+              </Typography>
+              <Typography
+                className={classes.subtitle}
+                variant="h6"
+                align="center"
+                color="textSecondary"
+                paragraph
+              >
+                {
+                  <>
+                    <strong>{"APM Map "}</strong>
+                    {
+                      "is your one-stop destination for navigating your A/PM recruiting journey. Whether you're looking to better understand the role of a PM or to refine your System Design interviewing skills for a technical round, we've curated resources across the entire A/PM recruiting timeline to help you accomplish just that."
+                    }
+                  </>
+                }
+              </Typography>
+            </div>
+
+            <Container className={classes.container}>
+              <Typography
+                className={classes.title}
+                variant="h3"
+                align="center"
+                color="textPrimary"
+                gutterBottom
+              >
+                {"The Creators"}
+              </Typography>
+              <CreatorProfile
+                content={aboutMima}
+                avatarSrc="https://storage.googleapis.com/mentors-pics/mima-profile-pic.jpg"
+                linkedIn="https://www.linkedin.com/in/michelle-ma-1208/"
+                twitter="https://twitter.com/michellema_97?lang=en"
+                medium="https://medium.com"
+              />
+              <CreatorProfile
+                invert
+                content={aboutJeff}
+                avatarSrc="https://storage.googleapis.com/mentors-pics/jeff-3.jpg"
+                linkedIn="https://www.linkedin.com/in/jf2978/"
+                github="https://github.com/jf2978"
+              />
             </Container>
           </>
         )}
