@@ -6,12 +6,15 @@ import {
   useAnimation,
   useTransform,
   useViewportScroll,
+  useMotionValue,
 } from "framer-motion";
 
 import { makeStyles, darken } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import RoomRoundedIcon from "@material-ui/icons/RoomRounded";
 
 import { CATEGORIES } from "../util/filters";
+import TrailLabel from "./TrailLabel";
 
 const useStyles = makeStyles((theme) => ({
   path: {
@@ -53,7 +56,7 @@ export default function Trail({ toggleCategory }) {
   // state
   const [showStops, setShowStops] = useState(false);
   const pathIncrements = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
-  const [currentPathLength, setCurrentPathLength] = useState(0);
+  const currentPathLength = useMotionValue(0);
   const [currentPathPoint, setCurrentPathPoint] = useState({ x: 0, y: 0 });
   const [pathPoints, setPathPoints] = useState(
     new Array(10).fill({ x: 0, y: 0 })
@@ -82,16 +85,14 @@ export default function Trail({ toggleCategory }) {
   useEffect(() => {
     setCurrentPathPoint(pathPoints[0]);
     sequence();
-  }, [pathPoints]);
+    currentPathLength.set(pathIncrements[0]);
+  }, [pathPoints, currentPathLength]);
 
   async function sequence() {
     await pathControls.start("after");
     await setShowStops(true);
     await circleControls.start("after");
     await pinControls.start(["after", "bounce"]);
-    setCurrentPathLength(pathIncrements[0]);
-
-    console.log(currentPathLength);
   }
 
   // animate an SVG path to smoothly increase pathLength
@@ -105,18 +106,6 @@ export default function Trail({ toggleCategory }) {
       pathLength: pathKeyframes,
       transition: {
         duration: 1.5,
-      },
-    },
-  };
-
-  const filledPathVariants = {
-    before: {
-      pathLength: 0,
-    },
-    after: {
-      pathLength: currentPathLength,
-      transition: {
-        duration: 0.5,
       },
     },
   };
@@ -180,10 +169,11 @@ export default function Trail({ toggleCategory }) {
             fill="none"
           />
           <motion.path
-            className={classes.filledPath}
-            initial="before"
-            animate="after"
-            variants={filledPathVariants}
+            style={{
+              stroke: "#DD4B3E",
+              strokeWidth: 18,
+              pathLength: currentPathLength,
+            }}
             d="m 108.57143,557.14286 c 54.71545,56.94918 137.75473,85.23698 215.85727,73.53299 42.33495,-6.34407 82.28863,-23.50566 120.40401,-42.99189 38.11538,-19.48622 75.00423,-41.48126 114.26765,-58.53643 74.82712,-32.50325 160.05864,-46.23249 238.82161,-24.97328 43.07992,11.62786 82.70562,33.13515 122.53932,53.24395 39.83369,20.10879 81.06661,39.22246 125.25301,45.43894 39.7768,5.5961 80.3348,0.47532 119.6194,-7.905 39.2845,-8.38033 77.8425,-20.00594 117.2773,-27.64843 103.9896,-20.15327 211.9087,-12.07209 315.4105,10.45291 70.1073,15.25738 138.7834,37.08393 204.8356,65.10052"
             fill="none"
           />
@@ -218,8 +208,7 @@ export default function Trail({ toggleCategory }) {
             pathPoints.map((point, idx) => {
               const updateCategory = () => {
                 setCurrentPathPoint(point);
-                setCurrentPathLength(pathIncrements[idx]);
-                console.log(pathIncrements[idx]);
+                currentPathLength.set(pathIncrements[idx]);
                 toggleCategory(CATEGORIES[idx]);
               };
               return (
@@ -234,6 +223,18 @@ export default function Trail({ toggleCategory }) {
                     animate={circleControls}
                     variants={circleVariants}
                   />
+                  <motion.rect
+                    style={{
+                      width: 100,
+                      height: 100,
+                      fill: "red",
+                      transform: "none",
+                    }}
+                    x={point.x}
+                    y={point.y}
+                  >
+                    <motion.text>{"yoooooo"}</motion.text>
+                  </motion.rect>
                 </a>
               );
             })}
