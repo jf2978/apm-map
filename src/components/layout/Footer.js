@@ -95,7 +95,7 @@ export default function Footer({ children }) {
       <div className={classes.signup}>
         <iframe
           src="https://thepmcollective.substack.com/embed"
-          width="100%"
+          width="80%"
           height="100%"
           className={classes.substack}
           frameborder="0"

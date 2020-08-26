@@ -17,9 +17,8 @@ import Emoji from "../util/Emoji";
 const useStyles = makeStyles((theme) => ({
   bmac: {
     position: "sticky",
-    bottom: 0,
-    left: 0,
-    top: 0,
+    bottom: "2rem",
+    right: "2rem",
     float: "right",
   },
   button: {
@@ -27,8 +26,6 @@ const useStyles = makeStyles((theme) => ({
     width: 80,
     height: 80,
     backgroundColor: theme.palette.primary.main,
-    marginBottom: theme.spacing(4),
-    marginRight: theme.spacing(4),
 
     "&:hover": {
       backgroundColor: theme.palette.primary.dark,
