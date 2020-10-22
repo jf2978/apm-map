@@ -1,7 +1,8 @@
 # APM Map
 > A web application that aggregates educational content and provides a network of mentors to help students and early-career professionals looking to break into product management. See the live site here.
 
-![](header.png)
+
+⚠️ This is a snapshot of the source code that currently powers [apmmap.co](https://apmmap.co); APM Map is closed-source starting on 10-22-2020
 
 ## The Need
 
@@ -17,24 +18,34 @@ APM Map is an optimized web application built using Gatsby, React, Material UI a
 
 ## The Creators
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Jeffrey Fabian – [@jf2978](https://linkedin.com/in/jf2978) – jeffrey.fabian61@gmail.com
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/jf2978](https://github.com/jf2978/)
 
 
 ## Release History
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
+* 0.1.2
+    * Release on Product Hunt!
+    * RE-LAUNCH
+      * 180+ resources
+      * 30+ mentors
+      * SEO and performance optimizations
+      * bug fixes
 * 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
+    * Full access to the site 
+    * PUBLIC LAUNCH
+      * 175+ resources
+      * 25+ mentors
+      * About page redesign
+      * bug fixes
 * 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
+    * Sneak-peek to the world of what was being built
+    * SOFT LAUNCH
+      * Website foundation
+      * APM Map Newsletter
+      * 150+ filterable resources
+      * 12+ mentors
 * 0.0.1
-    * Work in progress
+    * Idea generation
+    * Product Roadmap + Tech Spec outlined
